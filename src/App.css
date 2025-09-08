@@ -1,12 +1,11 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #f9fafb, #eef2ff);
-  color: #1f2937;
-  height: 100vh; /* Make sure the body fills the viewport */
+  font-family: "Segoe UI", Arial, sans-serif;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -16,6 +15,8 @@ body {
   text-align: center;
   padding: 3rem 1.5rem;
   max-width: 900px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hero Title */
@@ -59,7 +60,7 @@ body {
   background: white;
   padding: 2rem;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .about h2 {
@@ -79,4 +80,117 @@ body {
   margin-top: 4rem;
   color: #6b7280;
   font-size: 0.9rem;
+}
+/* Toggle Button */
+.toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toggle-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Light Mode */
+.light-mode {
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  color: #1f2937;
+}
+
+.light-mode .title {
+  color: #1e40af;
+}
+
+.light-mode .subtitle {
+  color: #374151;
+}
+
+.light-mode .button {
+  background-color: #2563eb;
+  color: white;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.light-mode .button:hover {
+  background-color: #1d4ed8;
+}
+
+.light-mode .toggle-button {
+  background-color: #1f2937;
+  color: white;
+}
+
+.light-mode .about {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .about h2 {
+  color: #1f2937;
+}
+
+.light-mode .about p {
+  color: #4b5563;
+}
+
+.light-mode .footer {
+  color: #6b7280;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #f1f5f9;
+}
+
+.dark-mode .title {
+  color: #60a5fa;
+}
+
+.dark-mode .subtitle {
+  color: #cbd5e1;
+}
+
+.dark-mode .button {
+  background-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.dark-mode .button:hover {
+  background-color: #2563eb;
+}
+
+.dark-mode .toggle-button {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.dark-mode .about {
+  background: #1e293b;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid #334155;
+}
+
+.dark-mode .about h2 {
+  color: #f1f5f9;
+}
+
+.dark-mode .about p {
+  color: #cbd5e1;
+}
+
+.dark-mode .footer {
+  color: #94a3b8;
 }
