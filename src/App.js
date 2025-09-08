@@ -15,19 +15,29 @@ export default function App() {
         <div className="nav-brand">OSK</div>
         <ul className="nav-links">
           <li>
-            <a href="#home">Home</a>
+            <a className="hover:underline" href="#home">
+              Home
+            </a>
           </li>
           <li>
-            <a href="#mentors">Mentors</a>
+            <a className="hover:underline" href="#mentors">
+              Mentors
+            </a>
           </li>
           <li>
-            <a href="#programs">Programs</a>
+            <a className="hover:underline" href="#programs">
+              Programs
+            </a>
           </li>
           <li>
-            <a href="#contributors">Contributors</a>
+            <a className="hover:underline" href="#contributors">
+              Contributors
+            </a>
           </li>
           <li>
-            <a href="#events">Events</a>
+            <a className="hover:underline" href="#events">
+              Events
+            </a>
           </li>
         </ul>
       </nav>
@@ -52,8 +62,11 @@ export default function App() {
         href="https://github.com/Open-Source-Kashmir"
         target="_blank"
         rel="noopener noreferrer"
-        className="button"
+        className="button inline-flex items-center gap-2"
       >
+        <span className="rounded-full bg-black/10 dark:bg-white/10 text-xs px-2 py-1">
+          New
+        </span>
         Join Us on GitHub
       </a>
 
