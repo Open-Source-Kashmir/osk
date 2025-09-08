@@ -10,6 +10,27 @@ export default function App() {
 
   return (
     <div className={`container ${isDarkMode ? "dark-mode" : "light-mode"}`}>
+      {/* Top Navigation */}
+      <nav className="navbar" aria-label="Primary">
+        <div className="nav-brand">OSK</div>
+        <ul className="nav-links">
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#mentors">Mentors</a>
+          </li>
+          <li>
+            <a href="#programs">Programs</a>
+          </li>
+          <li>
+            <a href="#contributors">Contributors</a>
+          </li>
+          <li>
+            <a href="#events">Events</a>
+          </li>
+        </ul>
+      </nav>
       {/* Theme Toggle Button */}
       <button
         className="toggle-button"
@@ -20,7 +41,9 @@ export default function App() {
       </button>
 
       {/* Hero Section */}
-      <h1 className="title">Open Source Kashmir</h1>
+      <h1 id="home" className="title">
+        Open Source Kashmir
+      </h1>
       <p className="subtitle">
         Empowering Kashmir to code, collaborate, and contribute to global open
         source projects.
@@ -35,7 +58,7 @@ export default function App() {
       </a>
 
       {/* About Section */}
-      <section className="about">
+      <section id="about" className="about">
         <h2>About Us</h2>
         <p>
           We are building an open source ecosystem in Kashmir to help developers
