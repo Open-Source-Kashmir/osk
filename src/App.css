@@ -7,6 +7,7 @@
 
 .main-content {
   flex: 1;
+  padding-top: 80px; /* Add padding to prevent navbar overlap */
 }
 
 /* Global Reset and Base Styles */
