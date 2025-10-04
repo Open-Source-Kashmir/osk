@@ -102,7 +102,7 @@ const Mentors = () => {
       name: "Rajesh Kumar",
       title: "Mobile App Developer",
       company: "Uber",
-      avatar: "https://placehold.co/150x150?text=rk",
+      avatar: "https://placehold.co/150x150?text=Rk",
       expertise: ["React Native", "Flutter", "iOS", "Android"],
       experience: "5+ years",
       mentees: 20,
