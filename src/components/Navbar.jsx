@@ -21,7 +21,7 @@ const Navbar = () => {
   
 
   return (
-    <nav className={`navbar ${isDark ? "dark" : "light"}`}>
+    <nav className={`navbar ${isDark ? "dark" : "light"} ` }>
       <div className="nav-container">
         <Link to="/" className="nav-logo">
           <span className="logo-text">OSK</span>
