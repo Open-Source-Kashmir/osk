@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import ProgramCard from '../components/ProgramCard';
+import { FaUsers, FaRocket, FaChalkboardTeacher, FaBook } from "react-icons/fa";
+
 import './Home.css';
 
 const Home = () => {
@@ -28,11 +30,12 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: "50+", label: "Contributors", icon: "👥" },
-    { number: "25+", label: "Projects", icon: "🚀" },
-    { number: "15+", label: "Mentors", icon: "🧑‍🏫" },
-    { number: "5+", label: "Programs", icon: "📚" }
+    { number: "50+", label: "Contributors", icon: <FaUsers /> },
+    { number: "25+", label: "Projects", icon: <FaRocket /> },
+    { number: "15+", label: "Mentors", icon: <FaChalkboardTeacher /> },
+    { number: "5+", label: "Programs", icon: <FaBook /> }
   ];
+
 
   const features = [
     {
@@ -113,18 +116,19 @@ const Home = () => {
 
       {/* Stats Section */}
       <section className="stats">
-        <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-item">
-                <div className="stat-icon">{stat.icon}</div>
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
+        <div className="stats-container">
+          {stats.map((stat, index) => (
+            <div className="stat-item" key={index}>
+              <div className="stat-icon">{stat.icon}</div>
+              <div className="stat-info">
+                <h3 className="stat-number">{stat.number}</h3>
+                <p className="stat-label">{stat.label}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
+
 
       {/* Features Section */}
       <section className="features">

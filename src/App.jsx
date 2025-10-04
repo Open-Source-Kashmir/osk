@@ -19,7 +19,6 @@ export default function App() {
           {/* Shared static sections like Hero & About */}
           <Hero />
           <About />
-
           {/* Routed pages */}
           <Routes>
             <Route path="/" element={<Home />} />
