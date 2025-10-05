@@ -14,18 +14,34 @@ export default function Hero() {
             Join our vibrant community of developers, contributors, and mentors working together to build the future of technology through open source collaboration.
           </p>
 
-          <div className="hero-buttons" role="group" aria-label="Call to action">
-            <a className="btn primary" href="#programs">Explore Programs</a>
-            <a
-              className="btn outline"
-              href="https://github.com/Open-Source-Kashmir"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join GitHub
-            </a>
-            <a className="btn outline" href="#discord">Join Discord</a>
-          </div>
+// At the top of src/components/Hero.jsx
+import { Link } from 'react-router-dom';
+import './Hero.css';
+
+...
+
+// In the JSX render (around lines 17–28)
+<div className="hero-buttons" role="group" aria-label="Call to action">
+  <Link className="btn primary" to="/programs">
+    Explore Programs
+  </Link>
+  <a
+    className="btn outline"
+    href="https://github.com/Open-Source-Kashmir"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Join GitHub
+  </a>
+  <a
+    className="btn outline"
+    href="https://discord.gg/gEHBwfDX"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Join Discord
+  </a>
+</div>
         </div>
 
         <div className="hero-right" aria-hidden="false">
