@@ -28,7 +28,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-right" aria-hidden="false">
+        <div className="hero-right">
           <div className="feature-cards" role="list" aria-label="Highlights">
             <div className="card" role="listitem">
               <div className="card-icon" aria-hidden="true">🚀</div>
