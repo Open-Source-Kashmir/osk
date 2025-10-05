@@ -14,17 +14,10 @@ export default function About() {
           contributors in real-world projects.
         </p>
 
-        <div className="about-grid">
-          <div className="about-card">
-            <span className="about-icon">🌍</span>
-            <h3 className="card-title">Global Exposure</h3>
-            <p>
-              Connect with programs like <strong>LFX (Linux Foundation Mentorship)</strong>,{" "}
-              <strong>GSoC (Google Summer of Code)</strong>, and <strong>C4GT (Code for GovTech)</strong> to contribute to
-              large-scale projects worldwide.
             </p>
           </div>
-          </div>
+
+          <div className="about-card">
 
           <div className="about-card">
             <span className="about-icon">👩‍🏫</span>
