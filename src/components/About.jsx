@@ -23,7 +23,7 @@ export default function About() {
               <strong>GSoC (Google Summer of Code)</strong>, and <strong>C4GT (Code for GovTech)</strong> to contribute to
               large-scale projects worldwide.
             </p>
-            </p>
+          </div>
           </div>
 
           <div className="about-card">
