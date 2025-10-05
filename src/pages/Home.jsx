@@ -115,8 +115,9 @@ const Home = () => {
         {/* …rest of stats section… */}
       </section>
  <section className="bg-[#0b1220] py-12">
-   <div className="max-w-6xl mx-auto px-6">
-  <div className="max-w-6xl mx-auto px-6">
+  <section className="bg-[#0b1220] py-12 mt-12">
+    <div className="max-w-6xl mx-auto px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
       {stats.map((stat) => (
         <div
