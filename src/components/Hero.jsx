@@ -29,22 +29,22 @@ export default function Hero() {
         </div>
 
         <div className="hero-right">
-          <div className="feature-cards" role="list" aria-label="Highlights">
-            <div className="card" role="listitem">
+          <ul className="feature-cards" aria-label="Highlights">
+            <li className="card">
               <div className="card-icon" aria-hidden="true">🚀</div>
               <h3 className="card-title">Innovation</h3>
-            </div>
+            </li>
 
-            <div className="card" role="listitem">
+            <li className="card">
               <div className="card-icon" aria-hidden="true">💡</div>
               <h3 className="card-title">Learning</h3>
-            </div>
+            </li>
 
-            <div className="card" role="listitem">
+            <li className="card">
               <div className="card-icon" aria-hidden="true">🤝</div>
               <h3 className="card-title">Collaboration</h3>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </header>
