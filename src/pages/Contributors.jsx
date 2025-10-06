@@ -190,7 +190,11 @@ const Contributors = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-items-center">
             {stats.map((stat, index) => (
               <div
-                key={index}
+             {stats.map((stat, index) => (
+               <div
+                key={stat.label}
+                 className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+               >
                 className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
               >
                 <div className="text-3xl md:text-4xl">{stat.icon}</div>
