@@ -14,8 +14,6 @@ export default function About() {
           contributors in real-world projects.
         </p>
 
-            </p>
-          </div>
 
           <div className="about-card">
 
