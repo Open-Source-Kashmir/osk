@@ -29,8 +29,8 @@ export default function Hero() {
         </div>
 
         <div className="hero-right">
-          <ul className="feature-cards" aria-label="Highlights">
-            <li className="card">
+          <div className="feature-cards" role="list" aria-label="Highlights">
+            <div className="card" role="listitem">
               <div className="card-icon" aria-hidden="true">🚀</div>
               <h3 className="card-title">Innovation</h3>
             </li>
