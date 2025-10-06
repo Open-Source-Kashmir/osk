@@ -45,8 +45,8 @@ import './Hero.css';
         </div>
 
         <div className="hero-right">
-          <div className="feature-cards">
-            <div className="card">
+          <div className="feature-cards" role="list" aria-label="Highlights">
+            <div className="card" role="listitem">
               <div className="card-icon" aria-hidden="true">🚀</div>
               <h3 className="card-title">Innovation</h3>
             </div>

@@ -112,12 +112,13 @@ const Home = () => {
       </section>
       {/* Stats Section */}
       <section className="bg-[#0b1220] py-12 mt-12">
-        {/* …rest of stats section… */}
+        {/* ...stats content */}
       </section>
- <section className="bg-[#0b1220] py-12">
-  <section className="bg-[#0b1220] py-12 mt-12">
-    <div className="max-w-6xl mx-auto px-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {/* Stats Section */}
+      {/* Stats Section */}
+      <section className="bg-[#0b1220] py-12">
+<section className="bg-[#0b1220] py-12">
+  <div className="max-w-6xl mx-auto px-6">
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
       {stats.map((stat) => (
         <div
