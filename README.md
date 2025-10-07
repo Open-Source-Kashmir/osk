@@ -50,11 +50,12 @@ This project uses **React.js**.
 2. Clone your fork
    ```bash
    git clone https://github.com/YOUR-USERNAME/osk.git
-3. Install dependencies
+3. ```cd osk```
+4. Install dependencies
    ```bash
      npm install
 
-4. Start development server
+5. Start development server
    ```bash
    npm run dev
 

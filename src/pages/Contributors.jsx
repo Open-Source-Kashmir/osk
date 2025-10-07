@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Contributors.css';
 
 const Contributors = () => {
@@ -185,26 +185,22 @@ const Contributors = () => {
       </section>
 
       {/* ✅ Fixed Stats Section */}
-      <section className="contributors-stats">
-        <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-items-center">
-            {stats.map((stat, index) => (
-              <div
-             {stats.map((stat, index) => (
-               <div
-                key={stat.label}
-                 className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
-               >
-                className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
-              >
-                <div className="text-3xl md:text-4xl">{stat.icon}</div>
-                <div className="text-xl md:text-2xl font-bold text-slate-900 mt-3">{stat.value}</div>
-                <div className="text-xs md:text-sm text-slate-500 mt-1 text-center">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+<section className="contributors-stats">
+  <div className="container">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-items-center">
+      {stats.map((stat) => (
+        <div
+          key={stat.label}
+          className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+        >
+          <div className="text-3xl md:text-4xl">{stat.icon}</div>
+          <div className="text-xl md:text-2xl font-bold text-slate-900 mt-3">{stat.value}</div>
+          <div className="text-xs md:text-sm text-slate-500 mt-1 text-center">{stat.label}</div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Featured Contributors Section */}
       <section className="featured-contributors">
