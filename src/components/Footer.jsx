@@ -92,7 +92,6 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p>&copy; {currentYear} Open Source Kashmir. All rights reserved.</p>
             <div className="footer-bottom-links">
               <a href="#" className="footer-bottom-link">Privacy Policy</a>
               <a href="#" className="footer-bottom-link">Terms of Service</a>
@@ -100,6 +99,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
+      <div className="footer-bottom">
+  <p>
+    &copy; {currentYear} Open Source Kashmir. All rights reserved.  
+    <br />
+    Made with <span style={{color: "red"}}>❤️</span> by OSK
+  </p>
+</div>
+
+
+
       </div>
     </footer>
   );
