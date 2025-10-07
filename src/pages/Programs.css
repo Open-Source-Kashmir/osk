@@ -1,287 +1,182 @@
+/* --- Layout reset --- */
 .programs {
-  padding-top: 80px; /* Account for fixed navbar */
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* Header Section */
 .programs-header {
-  background: linear-gradient(135deg, var(--color-bg-muted) 0%, #eef2ff 100%);
-  padding: 3rem 0;
   text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .programs-title {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 1rem;
+  color: #222;
+  margin-bottom: 10px;
 }
 
 .programs-description {
-  font-size: 1.25rem;
-  color: var(--color-text-muted);
+  font-size: 1rem;
+  color: #555;
   max-width: 700px;
   margin: 0 auto;
-  line-height: 1.6;
 }
 
-/* Filters Section */
+/* --- Fix Filters Section Alignment --- */
 .programs-filters {
-  background: var(--color-surface);
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--color-border);
-  position: sticky;
-  top: 80px;
-  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+  position: sticky;   /* ✅ keeps filter bar visible */
+  top: 0;             /* ✅ sits fixed under navbar */
+  z-index: 50;
 }
 
 .filters-row {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* --- Search Bar Styling --- */
 .search-container {
   position: relative;
-  max-width: 400px;
+  flex: 1 1 250px;
+  min-width: 250px;
+  max-width: 350px;
 }
 
 .search-input {
   width: 100%;
-  padding: 0.75rem 1rem 0.75rem 3rem;
-  border: 2px solid var(--color-border);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  background: var(--color-surface);
-  color: var(--color-text);
-  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+  padding: 10px 36px 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  transition: 0.3s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 .search-icon {
   position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-text-muted);
+  right: 10px;
+  top: 9px;
+  color: #666;
 }
 
+/* --- Horizontal Category Filters --- */
 .category-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .filter-btn {
-  background: var(--color-bg-muted);
-  border: 2px solid var(--color-border);
-  color: var(--color-text-muted);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 20px;
+  padding: 6px 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.25s;
+  font-size: 0.9rem;
 }
 
 .filter-btn:hover {
-  background: var(--color-surface-muted);
-  border-color: var(--color-border);
+  background-color: #e9ecef;
 }
 
 .filter-btn.active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: #007bff;
   color: white;
+  border-color: #007bff;
 }
 
-/* Programs Grid Section */
+/* --- Grid Section --- */
 .programs-grid-section {
-  padding: 3rem 0;
-  background: var(--color-bg-muted);
-  min-height: 400px;
+  padding: 40px 20px 60px;
+  background: #fafafa;
 }
 
 .results-count {
-  color: var(--color-text-muted);
-  margin-bottom: 2rem;
-  font-weight: 500;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  justify-content: center;
 }
 
-/* No Results */
-.no-results {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: var(--color-surface);
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px var(--shadow-color);
-}
-
-.no-results-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.no-results h3 {
-  font-size: 1.5rem;
-  color: var(--color-text);
-  margin-bottom: 0.5rem;
-}
-
-.no-results p {
-  color: var(--color-text-muted);
-  margin-bottom: 2rem;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-strong));
-  color: white;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, var(--color-primary-strong), var(--color-primary));
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-}
-
-.btn-secondary {
-  background: var(--color-surface);
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-  background: var(--color-primary);
-  color: white;
-  transform: translateY(-2px);
-}
-
-/* CTA Section */
+/* --- CTA Section --- */
 .programs-cta {
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-  padding: 4rem 0;
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
   color: white;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .cta-content {
-  text-align: center;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
-}
-
-.cta-content h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.cta-content p {
-  font-size: 1.25rem;
-  color: #d1d5db;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
 }
 
 .cta-actions {
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
-  .programs-title {
-    font-size: 2.5rem;
-  }
-
-  .programs-description {
-    font-size: 1.1rem;
-  }
-
-  .filters-row {
-    gap: 1rem;
-  }
-
-  .search-container {
-    max-width: 100%;
-  }
-
-  .programs-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .category-filters {
-    justify-content: center;
-  }
-
-  .filter-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .cta-content h2 {
-    font-size: 2rem;
-  }
-
-  .cta-content p {
-    font-size: 1.1rem;
-  }
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  .programs-filters {
-    top: 70px; /* Adjust for mobile navbar height */
-  }
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-@media screen and (max-width: 480px) {
-  .programs-title {
-    font-size: 2rem;
-  }
+.btn-primary {
+  background: white;
+  color: #007bff;
+  border: 1px solid transparent;
+}
 
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
+.btn-primary:hover {
+  background: #e3e3e3;
+}
 
-  .btn {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
-  }
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- No Results Section --- */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
 }
