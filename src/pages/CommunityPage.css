@@ -4,14 +4,14 @@ body {
   height: 100%;
 }
 
-.community-page{
+.community-page {
   min-height: 100vh;
 }
 
 .community-container {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   padding: 0;
   max-width: 900px;
   margin: 0 auto;
@@ -22,7 +22,7 @@ body {
 .community-title {
   font-size: 3rem;
   font-weight: 800;
-  color: #1e40af;
+  color: var(--color-primary);
   margin-bottom: 1rem;
 }
 
@@ -30,44 +30,52 @@ body {
 .community-subtitle {
   font-size: 1.25rem;
   line-height: 1.6;
-  color: #374151;
+  color: var(--color-text-muted);
   max-width: 650px;
 }
 
 /* Primary Button */
 .button {
-  background-color: #2563eb;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-strong)
+  );
   color: white;
   padding: 0.85rem 2rem;
   border-radius: 0.5rem;
   text-decoration: none;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .button:hover {
-  background-color: #1d4ed8;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-strong),
+    var(--color-primary)
+  );
   transform: translateY(-2px);
 }
 
 /* About Section */
 .community-about {
   max-width: 750px;
-  background: white;
+  background: var(--color-surface);
   padding: 2rem;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 .community-about h3 {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #1f2937;
+  color: var(--color-text);
 }
 
 .community-about p {
-  color: #4b5563;
+  color: var(--color-text-muted);
   line-height: 1.6;
 }
 
@@ -76,8 +84,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 0; 
-  list-style: none; 
+  padding-left: 0;
+  list-style: none;
 }
 
 .contribution li {
@@ -88,7 +96,7 @@ body {
 
 .arrow-down {
   scale: 95%;
-  color: #646cff;
+  color: var(--color-primary);
 }
 
 .step {
@@ -99,15 +107,16 @@ body {
 }
 
 .step-box {
-  background: #dee1e4;
-  padding: 0.5rem 1rem; 
+  background: var(--color-bg-muted);
+  padding: 0.5rem 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px var(--shadow-color);
   font-weight: 500;
   width: 100%;
   max-width: 300px;
   text-align: center;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  color: var(--color-text);
 }
 
 .step-box h3,

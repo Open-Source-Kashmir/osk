@@ -1,7 +1,12 @@
 .footer {
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-surface-muted) 0%,
+    var(--color-bg-muted) 100%
+  );
   color: var(--color-text);
   margin-top: auto;
+  border-top: 1px solid var(--color-border);
 }
 
 .footer-container {

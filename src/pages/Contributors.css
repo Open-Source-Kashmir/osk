@@ -10,7 +10,11 @@
 
 /* Header Section */
 .contributors-header {
-  background: linear-gradient(135deg, #f9fafb 0%, #eef2ff 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-muted) 0%,
+    var(--color-surface-muted) 100%
+  );
   padding: 3rem 0;
   text-align: center;
 }
@@ -18,13 +22,13 @@
 .contributors-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--color-text);
   margin-bottom: 1rem;
 }
 
 .contributors-description {
   font-size: 1.25rem;
-  color: #6b7280;
+  color: var(--color-text-muted);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -32,7 +36,7 @@
 
 /* Stats Section */
 .contributors-stats {
-  background: white;
+  background: var(--color-surface);
   padding: 3rem 0;
 }
 
@@ -45,7 +49,7 @@
 .stat-card {
   text-align: center;
   padding: 2rem 1rem;
-  background: #f9fafb;
+  background: var(--color-bg-muted);
   border-radius: 1rem;
   transition: transform 0.3s ease;
 }
@@ -62,26 +66,26 @@
 .stat-value {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #1f2937;
+  color: var(--color-text);
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
   font-size: 1rem;
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-weight: 500;
 }
 
 /* Featured Contributors */
 .featured-contributors {
-  background: #f9fafb;
+  background: var(--color-bg-muted);
   padding: 3rem 0;
 }
 
 .section-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--color-text);
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -93,11 +97,11 @@
 }
 
 .featured-card {
-  background: white;
+  background: var(--color-surface);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px var(--shadow-color);
   transition: transform 0.3s ease;
   position: relative;
 }
@@ -130,31 +134,35 @@
 .featured-name {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--color-text);
   margin-bottom: 0.25rem;
 }
 
 .featured-role {
-  color: #3b82f6;
+  color: var(--color-primary);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .featured-contributions {
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
 
 .featured-bio {
-  color: #4b5563;
+  color: var(--color-text-muted);
   line-height: 1.5;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
 }
 
 .featured-link {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-strong)
+  );
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -165,15 +173,19 @@
 }
 
 .featured-link:hover {
-  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-strong),
+    var(--color-primary)
+  );
   transform: translateY(-2px);
 }
 
 /* Filters Section */
 .contributors-filters {
-  background: white;
+  background: var(--color-surface);
   padding: 2rem 0;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 80px;
   z-index: 100;
@@ -203,15 +215,17 @@
 .search-input {
   width: 100%;
   padding: 0.75rem 1rem 0.75rem 3rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid var(--color-border);
   border-radius: 0.5rem;
   font-size: 1rem;
+  background: var(--color-surface);
+  color: var(--color-text);
   transition: border-color 0.3s ease;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: var(--color-primary);
 }
 
 .search-icon {
@@ -219,7 +233,7 @@
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #6b7280;
+  color: var(--color-text-muted);
 }
 
 .level-filters {
@@ -229,9 +243,9 @@
 }
 
 .filter-btn {
-  background: #f9fafb;
-  border: 2px solid #e5e7eb;
-  color: #6b7280;
+  background: var(--color-bg-muted);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -243,13 +257,13 @@
 }
 
 .filter-btn:hover {
-  background: #f3f4f6;
-  border-color: #d1d5db;
+  background: var(--color-surface-muted);
+  border-color: var(--color-border);
 }
 
 .filter-btn.active {
-  background: #3b82f6;
-  border-color: #3b82f6;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: white;
 }
 
@@ -260,11 +274,11 @@
 /* Contributors Grid Section */
 .contributors-grid-section {
   padding: 3rem 0;
-  background: #f9fafb;
+  background: var(--color-bg-muted);
 }
 
 .results-count {
-  color: #6b7280;
+  color: var(--color-text-muted);
   margin-bottom: 2rem;
   font-weight: 500;
 }
@@ -276,16 +290,16 @@
 }
 
 .contributor-card {
-  background: white;
+  background: var(--color-surface);
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px var(--shadow-color);
   transition: all 0.3s ease;
 }
 
 .contributor-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 30px var(--shadow-color);
 }
 
 .contributor-header {
@@ -330,12 +344,12 @@
 .contributor-name {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--color-text);
   margin-bottom: 0.25rem;
 }
 
 .contributor-username {
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
@@ -373,7 +387,7 @@
   justify-content: space-around;
   margin-bottom: 1rem;
   padding: 1rem;
-  background: #f9fafb;
+  background: var(--color-bg-muted);
   border-radius: 0.5rem;
 }
 
@@ -384,24 +398,24 @@
 .stat-value {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--color-text);
 }
 
 .stat-label {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-weight: 500;
 }
 
 .contributor-role {
-  color: #3b82f6;
+  color: var(--color-primary);
   font-weight: 600;
   margin-bottom: 0.25rem;
   font-size: 0.9rem;
 }
 
 .contributor-location {
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
@@ -424,8 +438,8 @@
 }
 
 .skill-tag.more {
-  background: #f3f4f6;
-  color: #6b7280;
+  background: var(--color-bg-muted);
+  color: var(--color-text-muted);
 }
 
 .contributor-actions {
@@ -450,25 +464,33 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-strong)
+  );
   color: white;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-strong),
+    var(--color-primary)
+  );
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
 .btn-secondary {
-  background: white;
-  color: #3b82f6;
-  border: 2px solid #3b82f6;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
 }
 
 .btn-secondary:hover {
-  background: #3b82f6;
+  background: var(--color-primary);
   color: white;
   transform: translateY(-2px);
 }
@@ -477,9 +499,9 @@
 .no-results {
   text-align: center;
   padding: 4rem 2rem;
-  background: white;
+  background: var(--color-surface);
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 .no-results-icon {
@@ -489,18 +511,22 @@
 
 .no-results h3 {
   font-size: 1.5rem;
-  color: #1f2937;
+  color: var(--color-text);
   margin-bottom: 0.5rem;
 }
 
 .no-results p {
-  color: #6b7280;
+  color: var(--color-text-muted);
   margin-bottom: 2rem;
 }
 
 /* Join CTA */
 .join-cta {
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-strong) 0%,
+    var(--color-primary) 100%
+  );
   padding: 4rem 0;
   color: white;
 }
@@ -519,7 +545,7 @@
 
 .cta-content p {
   font-size: 1.25rem;
-  color: #d1d5db;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2.5rem;
   line-height: 1.6;
 }
