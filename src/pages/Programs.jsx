@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ProgramCard from '../components/ProgramCard';
-import './Programs.css';
 import gsocLogo from '../assets/GSoc.png';
 import lfLogo from '../assets/linux.png';
 import outreachyLogo from '../assets/outreachy.png';
@@ -136,12 +135,12 @@ const Programs = () => {
   });
 
   return (
-    <div className="programs">
+    <div className="w-full overflow-x-hidden relative">
       {/* Header Section */}
-      <section className="programs-header">
-        <div className="container">
-          <h1 className="programs-title">Open Source Programs</h1>
-          <p className="programs-description">
+      <section className="text-center py-15 px-5 bg-gradient-to-r from-gray-100 to-white">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2.5">Open Source Programs</h1>
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Discover amazing opportunities to contribute to open source projects, gain experience, 
             and connect with the global developer community.
           </p>
@@ -149,29 +148,29 @@ const Programs = () => {
       </section>
 
       {/* Filters Section */}
-      <section className="programs-filters">
-        <div className="container">
-          <div className="filters-row">
-            <div className="search-container">
+      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-0 z-50">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex items-center justify-between flex-wrap gap-4 py-2.5 px-5">
+            <div className="relative flex-1 basis-[250px] min-w-[250px] max-w-[350px]">
               <input
                 type="text"
                 placeholder="Search programs..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
+                className="w-full py-2.5 pl-3 pr-9 rounded-lg border border-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-blue-500 focus:shadow-[0_0_3px_rgba(0,123,255,0.3)]"
               />
-              <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="absolute right-2.5 top-2.5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"/>
                 <path d="m21 21-4.35-4.35"/>
               </svg>
             </div>
 
-            <div className="category-filters">
+            <div className="flex flex-wrap justify-center items-center gap-2.5">
               {categories.map((category) => (
                 <button
                   key={category.value}
                   onClick={() => setFilter(category.value)}
-                  className={`filter-btn ${filter === category.value ? 'active' : ''}`}
+                  className={`bg-gray-100 border border-gray-400 text-gray-700 rounded-2xl py-1.5 px-3.5 cursor-pointer transition-all duration-250 text-sm hover:bg-gray-200 ${filter === category.value ? 'bg-blue-500 text-white border-blue-500' : ''}`}
                 >
                   {category.label}
                 </button>
@@ -182,27 +181,27 @@ const Programs = () => {
       </section>
 
       {/* Programs Grid */}
-      <section className="programs-grid-section">
-        <div className="container">
+      <section className="py-10 px-5 bg-gray-50">
+        <div className="max-w-[1200px] mx-auto">
           {filteredPrograms.length > 0 ? (
             <>
-              <div className="results-count">
+              <div className="font-semibold text-gray-600 mb-5 text-center">
                 {filteredPrograms.length} program{filteredPrograms.length !== 1 ? 's' : ''} found
               </div>
-              <div className="programs-grid">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
                 {filteredPrograms.map((program, index) => (
                   <ProgramCard key={index} {...program} />
                 ))}
               </div>
             </>
           ) : (
-            <div className="no-results">
-              <div className="no-results-icon">🔍</div>
-              <h3>No programs found</h3>
-              <p>Try adjusting your search or filter criteria</p>
+            <div className="text-center py-15 text-gray-600">
+              <div className="text-6xl mb-4">🔍</div>
+              <h3 className="text-2xl font-bold mb-2">No programs found</h3>
+              <p className="mb-6">Try adjusting your search or filter criteria</p>
               <button 
                 onClick={() => {setFilter('all'); setSearchTerm('');}}
-                className="btn btn-primary"
+                className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300"
               >
                 Clear Filters
               </button>
@@ -212,17 +211,17 @@ const Programs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="programs-cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2>Ready to Get Started?</h2>
-            <p>
+      <section className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-15 px-5 text-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-5">Ready to Get Started?</h2>
+            <p className="mb-5">
               Join our community and get guidance on how to apply to these programs. 
               Our mentors can help you prepare your applications and increase your chances of success.
             </p>
-            <div className="cta-actions">
-              <a href="#" className="btn btn-primary">Join Our Discord</a>
-              <a href="#" className="btn btn-secondary">Get Mentorship</a>
+            <div className="flex justify-center gap-4 flex-wrap mt-5">
+              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300">Join Our Discord</a>
+              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-transparent text-white border border-white transition-all duration-300 hover:bg-white/20">Get Mentorship</a>
             </div>
           </div>
         </div>
