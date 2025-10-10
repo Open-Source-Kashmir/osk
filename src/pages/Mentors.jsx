@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import './Mentors.css';
 
 const Mentors = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -180,12 +179,12 @@ const Mentors = () => {
   };
 
   return (
-    <div className="mentors">
+    <div className="pt-20 w-full overflow-x-hidden overflow-y-visible box-border">
       {/* Header Section */}
-      <section className="mentors-header">
-        <div className="container">
-          <h1 className="mentors-title">Meet Our Mentors</h1>
-          <p className="mentors-description">
+      <section className="bg-gradient-to-r from-gray-100 to-white py-16 text-center w-full">
+        <div className="max-w-6xl w-full mx-auto px-10 box-border">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">Meet Our Mentors</h1>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Connect with experienced professionals who are passionate about helping you grow 
             in your tech journey. Our mentors provide guidance, code reviews, and career advice.
           </p>
@@ -193,17 +192,17 @@ const Mentors = () => {
       </section>
 
       {/* Categories Filter */}
-      <section className="mentors-categories">
-        <div className="container">
-          <div className="categories-grid">
+      <section className="bg-white py-12 md:py-16 border-b border-gray-300 w-full overflow-x-hidden overflow-y-visible box-border">
+        <div className="max-w-6xl w-full mx-auto px-10 box-border">
+          <div className="flex flex-wrap justify-center items-center gap-6 max-w-full mx-auto px-6 box-border overflow-visible">
             {categories.map((category) => (
               <button
                 key={category.value}
                 onClick={() => setSelectedCategory(category.value)}
-                className={`category-card ${selectedCategory === category.value ? 'active' : ''}`}
+                className={`bg-gradient-to-br from-white to-gray-100 border-2 border-gray-300 rounded-3xl py-7 px-6 text-center cursor-pointer transition-all duration-500 flex flex-col items-center gap-3.5 shadow-lg shadow-gray-300/50 relative overflow-hidden min-w-[160px] max-w-[200px] flex-0 box-border text-gray-900 hover:bg-gradient-to-br hover:from-gray-100 hover:to-gray-50 hover:border-blue-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-300/50 ${selectedCategory === category.value ? 'bg-gradient-to-br from-blue-500 to-blue-700 border-blue-700 text-white shadow-xl shadow-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/50 -translate-y-1 scale-105' : ''}`}
               >
-                <div className="category-icon">{category.icon}</div>
-                <span className="category-label">{category.label}</span>
+                <div className="text-4xl transition-transform duration-300">{category.icon}</div>
+                <span className="font-bold text-base tracking-wider">{category.label}</span>
               </button>
             ))}
           </div>
@@ -211,10 +210,10 @@ const Mentors = () => {
       </section>
 
       {/* Mentors Grid */}
-      <section className="mentors-grid-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-100 to-gray-200 w-full overflow-x-hidden overflow-y-visible box-border">
+        <div className="max-w-6xl w-full mx-auto px-10 box-border">
+          <div className="mb-12 text-center max-w-full mx-auto px-8 box-border">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
               {selectedCategory === 'all' 
                 ? `All Mentors (${filteredMentors.length})` 
                 : `${categories.find(c => c.value === selectedCategory)?.label} Mentors (${filteredMentors.length})`
@@ -223,27 +222,27 @@ const Mentors = () => {
           </div>
           
           {/* Controls */}
-          <div className="mentors-controls">
-            <div className="search-container">
+          <div className="flex items-center justify-between gap-4 mb-6 mx-auto px-8 max-w-full box-border">
+            <div className="relative flex-1 max-w-[520px]">
               <input
                 type="text"
-                className="search-input"
+                className="w-full py-3.5 pl-11 pr-10 border-2 border-gray-300 rounded-2xl bg-white text-gray-900 outline-none transition-all duration-200 focus:border-blue-500 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)]"
                 placeholder="Search mentors, skills, company..."
                 value={searchTerm}
                 aria-label="Search mentors, skills, company"
                 onChange={(e) => { setSearchTerm(e.target.value); setVisibleCount(6); }}
               />
-              <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"/>
                 <path d="m21 21-4.35-4.35"/>
               </svg>
             </div>
-            <div className="controls-right">
-              <label className="toggle">
-                <input type="checkbox" checked={onlineOnly} onChange={(e) => { setOnlineOnly(e.target.checked); setVisibleCount(6); }} />
-                <span className="toggle-label">Online only</span>
+            <div className="flex items-center gap-3">
+              <label className="inline-flex items-center gap-2 py-1.5 px-3 border-2 border-gray-300 rounded-full bg-white">
+                <input type="checkbox" checked={onlineOnly} onChange={(e) => { setOnlineOnly(e.target.checked); setVisibleCount(6); }} className="accent-blue-500" />
+                <span className="text-gray-900 font-semibold">Online only</span>
               </label>
-              <select className="sort-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}
+              <select className="py-3 px-4 rounded-2xl border-2 border-gray-300 bg-white text-gray-900" value={sortBy} onChange={(e) => setSortBy(e.target.value)}
                 aria-label="Sort mentors"
               >
                 <option value="relevance">Sort: Relevance</option>
@@ -254,43 +253,43 @@ const Mentors = () => {
             </div>
           </div>
           
-          <div className="mentors-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-full mx-auto py-4 box-border overflow-visible">
             {visibleMentors.map((mentor) => (
-              <div key={mentor.id} className="mentor-card">
-                <div className="mentor-avatar">
-                  <img src={mentor.avatar} alt={mentor.name} />
-                  {mentor.online && <div className="mentor-status online"></div>}
+              <div key={mentor.id} className="bg-gradient-to-br from-white to-white rounded-3xl p-10 shadow-xl shadow-gray-300/50 transition-all duration-500 text-center relative overflow-hidden border-2 border-gray-300 backdrop-blur-sm max-w-full box-border hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-300/50 hover:border-blue-500">
+                <div className="relative w-25 h-25 mx-auto mb-6 transition-transform duration-500 hover:scale-110">
+                  <img src={mentor.avatar} alt={mentor.name} className="w-full h-full rounded-full object-cover shadow-xl shadow-gray-300/50 transition-all duration-500 border-4 border-gray-300 hover:shadow-2xl hover:shadow-gray-300/50 hover:border-blue-500" />
+                  {mentor.online && <div className="absolute bottom-1.5 right-1.5 w-4 h-4 rounded-full border-2 border-white bg-green-500"></div>}
                 </div>
                 
                 <div className="mentor-info">
-                  <h3 className="mentor-name">{mentor.name}</h3>
-                  <p className="mentor-title">{mentor.title}</p>
-                  <p className="mentor-company">@ {mentor.company}</p>
+                  <h3 className="text-2xl font-extrabold text-gray-900 mb-2 leading-tight">{mentor.name}</h3>
+                  <p className="text-base font-semibold text-gray-600 mb-1.5 leading-tight">{mentor.title}</p>
+                  <p className="text-base text-blue-500 font-bold mb-6 leading-tight">@ {mentor.company}</p>
                   
-                  <div className="mentor-stats">
-                    <div className="stat">
-                      <span className="stat-value">{mentor.experience}</span>
-                      <span className="stat-label">Experience</span>
+                  <div className="flex justify-around mb-6 p-7 bg-gray-100 rounded-2xl border-2 border-gray-300 transition-all duration-300 shadow-md shadow-gray-300/50 hover:bg-gray-50 hover:border-blue-500 hover:scale-105 hover:shadow-lg hover:shadow-gray-300/50">
+                    <div className="flex flex-col items-center gap-2 flex-1">
+                      <span className="text-2xl font-extrabold text-blue-500 leading-none">{mentor.experience}</span>
+                      <span className="text-sm font-semibold text-gray-900 capitalize leading-tight">Experience</span>
                     </div>
-                    <div className="stat">
-                      <span className="stat-value">{mentor.mentees}</span>
-                      <span className="stat-label">Mentees</span>
+                    <div className="flex flex-col items-center gap-2 flex-1">
+                      <span className="text-2xl font-extrabold text-blue-500 leading-none">{mentor.mentees}</span>
+                      <span className="text-sm font-semibold text-gray-900 capitalize leading-tight">Mentees</span>
                     </div>
                   </div>
 
-                  <div className="mentor-skills">
+                  <div className="flex flex-wrap gap-3 justify-center mb-7">
                     {mentor.expertise.slice(0, 3).map((skill, index) => (
-                      <span key={index} className="skill-tag">{skill}</span>
+                      <span key={index} className="bg-gray-100 text-blue-500 py-2 px-5 rounded-2xl text-sm font-semibold border-2 border-gray-300 transition-all duration-300 shadow-md shadow-gray-300/50 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 hover:text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/30">{skill}</span>
                     ))}
                     {mentor.expertise.length > 3 && (
-                      <span className="skill-tag more">+{mentor.expertise.length - 3}</span>
+                      <span className="bg-gray-100 text-gray-900 py-2 px-5 rounded-2xl text-sm font-bold border-2 border-gray-300">+{mentor.expertise.length - 3}</span>
                     )}
                   </div>
 
-                  <div className="mentor-actions">
+                  <div className="flex justify-center">
                     <button 
                       onClick={() => openMentorModal(mentor)}
-                      className="btn btn-primary"
+                      className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent relative overflow-hidden hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50"
                     >
                       View Profile
                     </button>
@@ -301,8 +300,8 @@ const Mentors = () => {
           </div>
 
           {visibleMentors.length < filteredMentors.length && (
-            <div className="load-more-container">
-              <button className="btn btn-secondary load-more" onClick={() => setVisibleCount((c) => c + 6)}>
+            <div className="flex justify-center mt-4">
+              <button className="min-w-[160px] inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-white text-blue-500 border-2 border-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 hover:text-white hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50" onClick={() => setVisibleCount((c) => c + 6)}>
                 Load more
               </button>
             </div>
@@ -311,17 +310,17 @@ const Mentors = () => {
       </section>
 
       {/* Become a Mentor CTA */}
-      <section className="mentor-cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2>Want to Become a Mentor?</h2>
-            <p>
+      <section className="bg-gradient-to-r from-blue-700 to-blue-500 py-16 text-white">
+        <div className="max-w-6xl w-full mx-auto px-10 box-border">
+          <div className="text-center max-w-4xl mx-auto px-4">
+            <h2 className="text-4xl font-extrabold mb-5 text-white leading-tight">Want to Become a Mentor?</h2>
+            <p className="text-xl text-blue-100 mb-10 leading-relaxed">
               Share your knowledge and help the next generation of developers grow. 
               Join our mentor community and make a real impact.
             </p>
-            <div className="cta-actions">
-              <a href="#" className="btn btn-primary">Apply to be a Mentor</a>
-              <a href="#" className="btn btn-secondary">Learn More</a>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <a href="#" className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent relative overflow-hidden hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50">Apply to be a Mentor</a>
+              <a href="#" className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-white text-blue-500 border-2 border-white hover:bg-blue-500 hover:text-white hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50">Learn More</a>
             </div>
           </div>
         </div>
@@ -329,57 +328,57 @@ const Mentors = () => {
 
       {/* Mentor Modal */}
       {selectedMentor && (
-        <div className="mentor-modal-overlay" onClick={closeMentorModal}>
-          <div className="mentor-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeMentorModal}>×</button>
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black/75 flex items-center justify-center z-1000 p-8" onClick={closeMentorModal}>
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute top-4 right-4 bg-gray-200 border-none rounded-full w-10 h-10 flex items-center justify-center text-xl cursor-pointer text-gray-500 transition-all duration-300 hover:bg-gray-300 hover:text-gray-700" onClick={closeMentorModal}>×</button>
             
-            <div className="modal-header">
-              <img src={selectedMentor.avatar} alt={selectedMentor.name} className="modal-avatar" />
+            <div className="flex items-center gap-6 p-8 border-b border-gray-200">
+              <img src={selectedMentor.avatar} alt={selectedMentor.name} className="w-25 h-25 rounded-full object-cover" />
               <div className="modal-info">
-                <h2>{selectedMentor.name}</h2>
-                <p className="modal-title">{selectedMentor.title}</p>
-                <p className="modal-company">@ {selectedMentor.company}</p>
-                <p className="modal-location">📍 {selectedMentor.location}</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedMentor.name}</h2>
+                <p className="text-base text-gray-500 mb-1">{selectedMentor.title}</p>
+                <p className="text-sm text-blue-500 font-semibold mb-1">@ {selectedMentor.company}</p>
+                <p className="text-sm text-gray-500">📍 {selectedMentor.location}</p>
               </div>
             </div>
 
-            <div className="modal-content">
-              <div className="modal-section">
-                <h3>About</h3>
-                <p>{selectedMentor.bio}</p>
+            <div className="p-8">
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">About</h3>
+                <p className="text-gray-500 leading-relaxed">{selectedMentor.bio}</p>
               </div>
 
-              <div className="modal-section">
-                <h3>Expertise</h3>
-                <div className="modal-skills">
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Expertise</h3>
+                <div className="flex flex-wrap gap-2">
                   {selectedMentor.expertise.map((skill, index) => (
-                    <span key={index} className="skill-tag">{skill}</span>
+                    <span key={index} className="bg-gray-100 text-blue-500 py-1 px-3 rounded-2xl text-sm font-semibold border border-gray-300">{skill}</span>
                   ))}
                 </div>
               </div>
 
-              <div className="modal-section">
-                <h3>Specialties</h3>
-                <div className="modal-specialties">
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Specialties</h3>
+                <div className="flex flex-wrap gap-2">
                   {selectedMentor.specialties.map((specialty, index) => (
-                    <span key={index} className="specialty-tag">{specialty}</span>
+                    <span key={index} className="bg-gradient-to-br from-yellow-100 to-yellow-200 text-amber-800 py-1 px-3 rounded-2xl text-sm font-medium border border-amber-300">{specialty}</span>
                   ))}
                 </div>
               </div>
 
-              <div className="modal-section">
-                <h3>Languages</h3>
-                <p>{selectedMentor.languages.join(', ')}</p>
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Languages</h3>
+                <p className="text-gray-500">{selectedMentor.languages.join(', ')}</p>
               </div>
 
-              <div className="modal-section">
-                <h3>Availability</h3>
-                <p>{selectedMentor.availability}</p>
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Availability</h3>
+                <p className="text-gray-500">{selectedMentor.availability}</p>
               </div>
 
-              <div className="modal-actions">
-                <button className="btn btn-primary">Request Mentorship</button>
-                <button className="btn btn-secondary">Send Message</button>
+              <div className="flex gap-4 pt-4 border-t border-gray-200">
+                <button className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent relative overflow-hidden hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50">Request Mentorship</button>
+                <button className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-white text-blue-500 border-2 border-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 hover:text-white hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50">Send Message</button>
               </div>
             </div>
           </div>

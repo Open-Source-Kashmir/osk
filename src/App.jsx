@@ -5,27 +5,22 @@ import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import Mentors from "./pages/Mentors";
 import Contributors from "./pages/Contributors";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import "./App.css";
+import CommunityPage from "./pages/CommunityPage";
 
 export default function App() {
   return (
     <Router>
-      <div className="app">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-100 to-indigo-50 dark:from-gray-900 dark:to-gray-800">
         <Navbar />
 
-        <main className="main-content">
-          {/* Shared static sections like Hero & About */}
-          <Hero />
-          <About />
-
+        <main className="pt-24">
           {/* Routed pages */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/programs" element={<Programs />} />
             <Route path="/mentors" element={<Mentors />} />
             <Route path="/contributors" element={<Contributors />} />
+            <Route path="/community" element={<CommunityPage />} />
           </Routes>
         </main>
 
