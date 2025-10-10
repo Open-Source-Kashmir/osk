@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import ProgramCard from '../components/ProgramCard';
-import './Home.css';
+import Hero from '../components/Hero';
+import About from '../components/About';
 
 const Home = () => {
   const featuredPrograms = [
@@ -58,98 +59,46 @@ const Home = () => {
   ];
 
   return (
-    <div className="home">
+    <div className="pt-20">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-container">
-          <div className="hero-content">
-            <h1 className="hero-title">
-              Empowering Kashmir's
-              <span className="hero-highlight"> Open Source </span>
-              Future
-            </h1>
-            <p className="hero-description">
-              Join our vibrant community of developers, contributors, and mentors working together 
-              to build the future of technology through open source collaboration.
-            </p>
-            <div className="hero-actions">
-              <Link to="/programs" className="btn btn-primary">
-                Explore Programs
-              </Link>
-              <a 
-                href="https://github.com/Open-Source-Kashmir" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                Join GitHub
-              </a>
-              <a 
-                href="https://discord.gg/gEHBwfDX" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                Join Discord
-              </a>
-            </div>
-          </div>
-          <div className="hero-visual">
-            <div className="floating-card card-1">
-              <div className="card-icon">🚀</div>
-              <h3>Innovation</h3>
-            </div>
-            <div className="floating-card card-2">
-              <div className="card-icon">🤝</div>
-              <h3>Collaboration</h3>
-            </div>
-            <div className="floating-card card-3">
-              <div className="card-icon">💡</div>
-              <h3>Learning</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Stats Section */}
-      <section className="bg-[#0b1220] py-12 mt-12">
-        {/* ...stats content */}
-      </section>
-      {/* Stats Section */}
-      {/* Stats Section */}
+      <Hero />
       
-<section className="bg-[#0b1220] py-12">
-  <div className="max-w-6xl mx-auto px-6">
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-      {stats.map((stat) => (
-        <div
-          key={stat.label}
-          className="flex flex-col items-center justify-center bg-[#10172a] p-6 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300"
-        >
-          <div className="text-4xl">{stat.icon}</div>
-          <div className="text-3xl font-extrabold text-white mt-2">{stat.number}</div>
-          <p className="text-slate-400 mt-1">{stat.label}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+      {/* About Section */}
+      <About />
 
+      {/* Stats Section */}
+      <section className="bg-[#0b1220] py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="flex flex-col items-center justify-center bg-[#10172a] p-6 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300"
+              >
+                <div className="text-4xl">{stat.icon}</div>
+                <div className="text-3xl font-extrabold text-white mt-2">{stat.number}</div>
+                <p className="text-slate-400 mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
-      <section className="features">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Why Choose Open Source Kashmir?</h2>
-            <p className="section-description">
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Open Source Kashmir?</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               We provide everything you need to succeed in the open source world
             </p>
           </div>
-          <div className="features-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="feature-card">
-                <div className="feature-icon">{feature.icon}</div>
-                <h3 className="feature-title">{feature.title}</h3>
-                <p className="feature-description">{feature.description}</p>
+              <div key={index} className="bg-white p-8 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <div className="text-5xl mb-6">{feature.icon}</div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -157,21 +106,21 @@ const Home = () => {
       </section>
 
       {/* Featured Programs Section */}
-      <section className="featured-programs">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Featured Programs</h2>
-            <p className="section-description">
+      <section className="py-16 bg-white">
+        <div className="max-w-[1200px] mx-auto px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Programs</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Discover the most popular open source programs and start your journey today
             </p>
           </div>
-          <div className="programs-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {featuredPrograms.map((program, index) => (
               <ProgramCard key={index} {...program} />
             ))}
           </div>
-          <div className="section-cta">
-            <Link to="/programs" className="btn btn-outline">
+          <div className="text-center">
+            <Link to="/programs" className="inline-flex items-center gap-2 py-3.5 px-8 rounded-lg font-semibold no-underline transition-all duration-300 bg-transparent text-blue-500 border-2 border-blue-500 hover:bg-blue-500 hover:text-white hover:-translate-y-0.5">
               View All Programs
             </Link>
           </div>
@@ -179,18 +128,18 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">Ready to Start Your Open Source Journey?</h2>
-            <p className="cta-description">
+      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+        <div className="max-w-[1200px] mx-auto px-8 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">Ready to Start Your Open Source Journey?</h2>
+            <p className="text-xl text-gray-300 mb-10 leading-relaxed">
               Join our community of passionate developers and make your mark in the open source world.
             </p>
-            <div className="cta-actions">
-              <Link to="/contributors" className="btn btn-primary">
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link to="/contributors" className="inline-flex items-center gap-2 py-3.5 px-8 rounded-lg font-semibold no-underline transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/40">
                 Become a Contributor
               </Link>
-              <Link to="/mentors" className="btn btn-secondary">
+              <Link to="/mentors" className="inline-flex items-center gap-2 py-3.5 px-8 rounded-lg font-semibold no-underline transition-all duration-300 bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-600 hover:text-white hover:-translate-y-0.5">
                 Find a Mentor
               </Link>
             </div>

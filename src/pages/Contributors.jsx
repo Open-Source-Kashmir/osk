@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './Contributors.css';
 
 const Contributors = () => {
   const [activeTab, setActiveTab] = useState('all');
@@ -164,60 +163,60 @@ const Contributors = () => {
 
   const getLevelBadgeColor = (level) => {
     switch(level) {
-      case 'expert': return 'badge-expert';
-      case 'intermediate': return 'badge-intermediate';
-      case 'beginner': return 'badge-beginner';
-      default: return 'badge-default';
+      case 'expert': return 'bg-gradient-to-r from-amber-100 to-amber-300 text-amber-900 border border-amber-500';
+      case 'intermediate': return 'bg-gradient-to-r from-blue-100 to-blue-200 text-blue-900 border border-blue-400';
+      case 'beginner': return 'bg-gradient-to-r from-emerald-100 to-emerald-200 text-emerald-900 border border-emerald-400';
+      default: return 'bg-gray-100 text-gray-900 border border-gray-300';
     }
   };
 
   return (
-    <div className="contributors">
+    <div className="pt-20">
       {/* Header Section */}
-      <section className="contributors-header">
-        <div className="container">
-          <h1 className="contributors-title">Our Contributors</h1>
-          <p className="contributors-description">
+      <section className="bg-gradient-to-r from-gray-50 to-indigo-50 py-12 text-center">
+        <div className="max-w-3xl mx-auto px-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Contributors</h1>
+          <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Meet the amazing people who make Open Source Kashmir possible. 
             Our contributors come from all backgrounds and skill levels, united by their passion for open source.
           </p>
         </div>
       </section>
 
-      {/* ✅ Fixed Stats Section */}
-<section className="contributors-stats">
-  <div className="container">
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-items-center">
-      {stats.map((stat) => (
-        <div
-          key={stat.label}
-          className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
-        >
-          <div className="text-3xl md:text-4xl">{stat.icon}</div>
-          <div className="text-xl md:text-2xl font-bold text-slate-900 mt-3">{stat.value}</div>
-          <div className="text-xs md:text-sm text-slate-500 mt-1 text-center">{stat.label}</div>
+      {/* Stats Section */}
+      <section className="bg-white py-12">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-items-center">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+              >
+                <div className="text-3xl md:text-4xl">{stat.icon}</div>
+                <div className="text-xl md:text-2xl font-bold text-slate-900 mt-3">{stat.value}</div>
+                <div className="text-xs md:text-sm text-slate-500 mt-1 text-center">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Featured Contributors Section */}
-      <section className="featured-contributors">
-        <div className="container">
-          <h2 className="section-title">Featured Contributors</h2>
-          <div className="featured-grid">
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-6xl mx-auto px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Featured Contributors</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredContributors.map((contributor) => (
-              <div key={contributor.id} className="featured-card">
-                <div className="featured-avatar">
-                  <img src={contributor.avatar} alt={contributor.name} />
-                  <div className="featured-badge">⭐</div>
+              <div key={contributor.id} className="bg-white p-8 rounded-xl text-center shadow-lg shadow-gray-200/50 transition-transform duration-300 hover:-translate-y-1">
+                <div className="relative w-20 h-20 mx-auto mb-4">
+                  <img src={contributor.avatar} alt={contributor.name} className="w-full h-full rounded-full object-cover" />
+                  <div className="absolute -top-1 -right-1 text-2xl">⭐</div>
                 </div>
-                <h3 className="featured-name">{contributor.name}</h3>
-                <p className="featured-role">{contributor.role}</p>
-                <p className="featured-contributions">{contributor.contributions} contributions</p>
-                <p className="featured-bio">{contributor.bio}</p>
-                <a href={contributor.githubUrl} className="featured-link" target="_blank" rel="noopener noreferrer">
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{contributor.name}</h3>
+                <p className="text-blue-600 font-semibold mb-2">{contributor.role}</p>
+                <p className="text-gray-600 mb-4">{contributor.contributions} contributions</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-6">{contributor.bio}</p>
+                <a href={contributor.githubUrl} className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 px-4 rounded-lg font-semibold transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
                   View Profile
                 </a>
               </div>
@@ -227,33 +226,33 @@ const Contributors = () => {
       </section>
 
       {/* Filters and Search */}
-      <section className="contributors-filters">
-        <div className="container">
-          <div className="filters-header">
-            <h2 className="section-title">All Contributors</h2>
-            <div className="search-container">
+      <section className="bg-white py-8 border-b border-gray-200 sticky top-20 z-10">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 flex-wrap">
+            <h2 className="text-2xl font-bold text-gray-900 text-center md:text-left">All Contributors</h2>
+            <div className="relative max-w-xs w-full md:w-auto">
               <input
                 type="text"
                 placeholder="Search contributors..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
+                className="w-full py-3 pl-12 pr-4 border-2 border-gray-200 rounded-lg text-base transition-colors duration-300 focus:outline-none focus:border-blue-500"
               />
-              <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"/>
                 <path d="m21 21-4.35-4.35"/>
               </svg>
             </div>
           </div>
 
-          <div className="level-filters">
+          <div className="flex flex-wrap gap-3">
             {levels.map((level) => (
               <button
                 key={level.value}
                 onClick={() => setActiveTab(level.value)}
-                className={`filter-btn ${activeTab === level.value ? 'active' : ''}`}
+                className={`flex items-center gap-2 py-2 px-4 rounded-lg font-medium transition-all duration-300 ${activeTab === level.value ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
               >
-                <span className="filter-icon">{level.icon}</span>
+                <span className="text-base">{level.icon}</span>
                 {level.label}
               </button>
             ))}
@@ -262,61 +261,67 @@ const Contributors = () => {
       </section>
 
       {/* Contributors Grid */}
-      <section className="contributors-grid-section">
-        <div className="container">
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-6xl mx-auto px-8">
           {filteredContributors.length > 0 ? (
             <>
-              <div className="results-count">
+              <div className="text-gray-600 mb-8 font-medium">
                 {filteredContributors.length} contributor{filteredContributors.length !== 1 ? 's' : ''} found
               </div>
-              <div className="contributors-grid">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredContributors.map((contributor) => (
-                  <div key={contributor.id} className="contributor-card">
-                    <div className="contributor-header">
-                      <div className="contributor-avatar">
-                        <img src={contributor.avatar} alt={contributor.name} />
+                  <div key={contributor.id} className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="relative w-15 h-15 flex-shrink-0">
+                        <img src={contributor.avatar} alt={contributor.name} className="w-full h-full rounded-full object-cover" />
                         {contributor.streak > 0 && (
-                          <div className="streak-badge">{contributor.streak}🔥</div>
+                          <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-white py-0.5 px-2 rounded-full text-xs font-bold border-2 border-white">
+                            {contributor.streak}🔥
+                          </div>
                         )}
                       </div>
-                      <div className="contributor-info">
-                        <h3 className="contributor-name">{contributor.name}</h3>
-                        <p className="contributor-username">@{contributor.username}</p>
-                        <span className={`level-badge ${getLevelBadgeColor(contributor.level)}`}>
+                      <div className="min-w-0">
+                        <h3 className="text-lg font-bold text-gray-900 truncate">{contributor.name}</h3>
+                        <p className="text-gray-600 text-sm truncate">@{contributor.username}</p>
+                        <span className={`inline-block py-0.5 px-2 rounded-full text-xs font-bold uppercase tracking-wide ${getLevelBadgeColor(contributor.level)}`}>
                           {contributor.level}
                         </span>
                       </div>
                     </div>
 
-                    <div className="contributor-stats">
-                      <div className="stat">
-                        <span className="stat-value">{contributor.contributions}</span>
-                        <span className="stat-label">Contributions</span>
+                    <div className="flex justify-around mb-4 p-4 bg-gray-100 rounded-lg">
+                      <div className="text-center">
+                        <span className="text-lg font-bold text-gray-900">{contributor.contributions}</span>
+                        <span className="text-xs text-gray-600 block">Contributions</span>
                       </div>
-                      <div className="stat">
-                        <span className="stat-value">{contributor.projects.length}</span>
-                        <span className="stat-label">Projects</span>
+                      <div className="text-center">
+                        <span className="text-lg font-bold text-gray-900">{contributor.projects.length}</span>
+                        <span className="text-xs text-gray-600 block">Projects</span>
                       </div>
                     </div>
 
-                    <p className="contributor-role">{contributor.role}</p>
-                    <p className="contributor-location">📍 {contributor.location}</p>
+                    <p className="text-blue-600 font-semibold text-sm mb-1">{contributor.role}</p>
+                    <p className="text-gray-600 text-sm mb-4">📍 {contributor.location}</p>
 
-                    <div className="contributor-skills">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {contributor.skills.slice(0, 3).map((skill, index) => (
-                        <span key={index} className="skill-tag">{skill}</span>
+                        <span key={index} className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-900 py-1 px-3 rounded-full text-xs font-medium border border-blue-200">
+                          {skill}
+                        </span>
                       ))}
                       {contributor.skills.length > 3 && (
-                        <span className="skill-tag more">+{contributor.skills.length - 3}</span>
+                        <span className="bg-gray-200 text-gray-600 py-1 px-3 rounded-full text-xs font-medium">
+                          +{contributor.skills.length - 3}
+                        </span>
                       )}
                     </div>
 
-                    <div className="contributor-actions">
+                    <div className="flex justify-end">
                       <a 
                         href={contributor.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="btn btn-primary"
+                        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 px-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5"
                       >
                         View GitHub
                       </a>
@@ -326,13 +331,13 @@ const Contributors = () => {
               </div>
             </>
           ) : (
-            <div className="no-results">
-              <div className="no-results-icon">🔍</div>
-              <h3>No contributors found</h3>
-              <p>Try adjusting your search or filter criteria</p>
+            <div className="bg-white rounded-xl p-12 text-center shadow-lg shadow-gray-200/50">
+              <div className="text-5xl mb-4">🔍</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">No contributors found</h3>
+              <p className="text-gray-600 mb-6">Try adjusting your search or filter criteria</p>
               <button 
                 onClick={() => {setActiveTab('all'); setSearchTerm('');}}
-                className="btn btn-primary"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5"
               >
                 Clear Filters
               </button>
@@ -342,19 +347,19 @@ const Contributors = () => {
       </section>
 
       {/* Join CTA */}
-      <section className="join-cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2>Join Our Community</h2>
-            <p>
+      <section className="bg-gradient-to-r from-gray-900 to-gray-800 py-16 text-white">
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Community</h2>
+            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
               Ready to make your first contribution? Join our community of passionate developers 
               and start building amazing open source projects together.
             </p>
-            <div className="cta-actions">
-              <a href="https://github.com/Open-Source-Kashmir" className="btn btn-primary">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://github.com/Open-Source-Kashmir" className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/30">
                 Start Contributing
               </a>
-              <a href="#" className="btn btn-secondary">
+              <a href="#" className="bg-white text-blue-600 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-0.5">
                 Join Discord
               </a>
             </div>

@@ -1,25 +1,24 @@
 import { Link } from 'react-router-dom';
-import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-content">
+    <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-auto">
+      <div className="max-w-[1200px] mx-auto px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-12">
           {/* Brand Section */}
-          <div className="footer-section">
-            <h3 className="footer-logo">Open Source Kashmir</h3>
-            <p className="footer-description">
+          <div className="flex flex-col gap-6">
+            <h3 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent m-0">Open Source Kashmir</h3>
+            <p className="text-gray-400 leading-relaxed m-0">
               Empowering Kashmir to code, collaborate, and contribute to global open source projects.
             </p>
-            <div className="social-links">
+            <div className="flex gap-4 mt-2">
               <a 
                 href="https://github.com/Open-Source-Kashmir" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="social-link"
+                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
                 aria-label="GitHub"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -30,7 +29,7 @@ const Footer = () => {
                 href="/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="social-link"
+                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
                 aria-label="Twitter"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -41,7 +40,7 @@ const Footer = () => {
                 href="/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="social-link"
+                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
                 aria-label="LinkedIn"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -52,51 +51,51 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="footer-section">
-            <h4 className="footer-title">Quick Links</h4>
-            <div className="footer-links">
-              <Link to="/" className="footer-link">Home</Link>
-              <Link to="/programs" className="footer-link">Programs</Link>
-              <Link to="/mentors" className="footer-link">Mentors</Link>
-              <Link to="/contributors" className="footer-link">Contributors</Link>
+          <div className="flex flex-col gap-6">
+            <h4 className="text-lg font-semibold text-white m-0 mb-4">Quick Links</h4>
+            <div className="flex flex-col gap-3">
+              <Link to="/" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Home</Link>
+              <Link to="/programs" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Programs</Link>
+              <Link to="/mentors" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Mentors</Link>
+              <Link to="/contributors" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Contributors</Link>
             </div>
           </div>
 
           {/* Programs */}
-          <div className="footer-section">
-            <h4 className="footer-title">Programs</h4>
-            <div className="footer-links">
-              <a href="#" className="footer-link">Google Summer of Code</a>
-              <a href="#" className="footer-link">LFX Mentorship</a>
-              <a href="#" className="footer-link">Outreachy</a>
-              <a href="#" className="footer-link">MLH Fellowship</a>
+          <div className="flex flex-col gap-6">
+            <h4 className="text-lg font-semibold text-white m-0 mb-4">Programs</h4>
+            <div className="flex flex-col gap-3">
+              <a href="#" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Google Summer of Code</a>
+              <a href="#" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">LFX Mentorship</a>
+              <a href="#" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Outreachy</a>
+              <a href="#" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">MLH Fellowship</a>
             </div>
           </div>
 
           {/* Contact */}
-          <div className="footer-section">
-            <h4 className="footer-title">Get In Touch</h4>
-            <div className="footer-links">
-              <a href="mailto:opensourcekashmir@gmail.com" className="footer-link">
+          <div className="flex flex-col gap-6">
+            <h4 className="text-lg font-semibold text-white m-0 mb-4">Get In Touch</h4>
+            <div className="flex flex-col gap-3">
+              <a href="mailto:opensourcekashmir@gmail.com" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
                 opensourcekashmir@gmail.com
               </a>
-              <a href="https://discord.gg/gEHBwfDX" className="footer-link">
+              <a href="https://discord.gg/gEHBwfDX" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
                 Join our Discord
               </a>
-              <a href="https://github.com/Open-Source-Kashmir" className="footer-link">
+              <a href="https://github.com/Open-Source-Kashmir" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
                 Contribute on GitHub
               </a>
             </div>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <div className="footer-bottom-content">
-            <p>&copy; {currentYear} Open Source Kashmir. All rights reserved.</p>
-            <div className="footer-bottom-links">
-              <a href="#" className="footer-bottom-link">Privacy Policy</a>
-              <a href="#" className="footer-bottom-link">Terms of Service</a>
-              <a href="#" className="footer-bottom-link">Code of Conduct</a>
+        <div className="border-t border-gray-700 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center flex-wrap gap-4">
+            <p className="text-gray-400 text-sm m-0">&copy; {currentYear} Open Source Kashmir. All rights reserved.</p>
+            <div className="flex gap-6 flex-wrap justify-center">
+              <a href="#" className="text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Privacy Policy</a>
+              <a href="#" className="text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Terms of Service</a>
+              <a href="#" className="text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Code of Conduct</a>
             </div>
           </div>
         </div>
