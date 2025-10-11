@@ -55,7 +55,7 @@ const Navbar = () => {
             href="https://discord.gg/gEHBwfDX" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="nav-link discord-link"
+            className="nav-link discord-link no-underline bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold py-2.5 px-5 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
             onClick={() => setIsMenuOpen(false)}
           >
             Discord
