@@ -13,16 +13,8 @@ export default function About() {
           contributors in real-world projects.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gray-800/95 p-6 rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
-            <span className="text-3xl block mb-3">🌍</span>
-            <h3 className="font-bold text-lg mb-2 text-white">Global Exposure</h3>
-            <p className="text-sm text-gray-300">
-              Connect with programs like <strong>LFX</strong>,{" "}
-              <strong>GSoC</strong>, and <strong>C4GT</strong> to contribute to
-              large-scale projects worldwide.
-            </p>
-          </div>
+
+          <div className="about-card">
 
           <div className="bg-gray-800/95 p-6 rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
             <span className="text-3xl block mb-3">👩‍🏫</span>
