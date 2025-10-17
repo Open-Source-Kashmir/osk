@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ProgramCard from '../components/ProgramCard';
+import ThemeToggle from '../components/shared/ThemeToggle';
 import gsocLogo from '../assets/GSoc.png';
 import lfLogo from '../assets/linux.png';
 import outreachyLogo from '../assets/outreachy.png';
@@ -136,11 +137,15 @@ const Programs = () => {
 
   return (
     <div className="w-full overflow-x-hidden relative">
+      {/* Theme toggle fixed top-right */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
       {/* Header Section */}
-      <section className="text-center py-15 px-5 bg-gradient-to-r from-gray-100 to-white">
+      <section className="text-center py-15 px-5 bg-gradient-to-r from-blue-300 to-white dark:from-blue-700 dark:to-indigo-900">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2.5">Open Source Programs</h1>
-          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2.5">Open Source Programs</h1>
+          <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Discover amazing opportunities to contribute to open source projects, gain experience, 
             and connect with the global developer community.
           </p>
@@ -148,7 +153,7 @@ const Programs = () => {
       </section>
 
       {/* Filters Section */}
-      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-0 z-50">
+      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-0 z-50 dark:bg-gray-900 dark:border-gray-700">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center justify-between flex-wrap gap-4 py-2.5 px-5">
             <div className="relative flex-1 basis-[250px] min-w-[250px] max-w-[350px]">
@@ -157,7 +162,7 @@ const Programs = () => {
                 placeholder="Search programs..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full py-2.5 pl-3 pr-9 rounded-lg border border-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-blue-500 focus:shadow-[0_0_3px_rgba(0,123,255,0.3)]"
+                className="w-full py-2.5 pl-3 pr-9 rounded-lg border border-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-blue-500 focus:shadow-[0_0_3px_rgba(0,123,255,0.3)] dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
               />
               <svg className="absolute right-2.5 top-2.5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"/>
@@ -170,7 +175,7 @@ const Programs = () => {
                 <button
                   key={category.value}
                   onClick={() => setFilter(category.value)}
-                  className={`bg-gray-100 border border-gray-400 text-gray-700 rounded-2xl py-1.5 px-3.5 cursor-pointer transition-all duration-250 text-sm hover:bg-gray-200 ${filter === category.value ? 'bg-blue-500 text-white border-blue-500' : ''}`}
+                  className={`bg-gray-100 border border-gray-400 text-gray-700 rounded-2xl py-1.5 px-3.5 cursor-pointer transition-all duration-250 text-sm hover:bg-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700 ${filter === category.value ? 'bg-blue-500 text-white border-blue-500' : ''}`}
                 >
                   {category.label}
                 </button>
@@ -181,11 +186,11 @@ const Programs = () => {
       </section>
 
       {/* Programs Grid */}
-      <section className="py-10 px-5 bg-gray-50">
+      <section className="py-10 px-5 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-[1200px] mx-auto">
           {filteredPrograms.length > 0 ? (
             <>
-              <div className="font-semibold text-gray-600 mb-5 text-center">
+              <div className="font-semibold text-gray-600 dark:text-gray-300 mb-5 text-center">
                 {filteredPrograms.length} program{filteredPrograms.length !== 1 ? 's' : ''} found
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
