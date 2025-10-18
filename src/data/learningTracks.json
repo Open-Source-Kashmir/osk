@@ -1,0 +1,497 @@
+[
+  {
+    "id": "beginner",
+    "title": "Beginner Track",
+    "description": "Perfect for those new to open source. Learn the fundamentals and make your first contribution.",
+    "duration": "4-6 weeks",
+    "difficulty": "Beginner",
+    "color": "green",
+    "icon": "🌱",
+    "prerequisites": [],
+    "modules": [
+      {
+        "id": "git-fundamentals",
+        "title": "Git & GitHub Fundamentals",
+        "description": "Learn the basics of version control and GitHub workflow",
+        "duration": "1-2 weeks",
+        "lessons": [
+          {
+            "id": "what-is-git",
+            "title": "What is Git?",
+            "type": "theory",
+            "duration": "15 min",
+            "content": "Understanding version control and why it's essential for open source"
+          },
+          {
+            "id": "git-basics",
+            "title": "Git Basics",
+            "type": "hands-on",
+            "duration": "30 min",
+            "content": "Learn essential Git commands: clone, add, commit, push"
+          },
+          {
+            "id": "github-workflow",
+            "title": "GitHub Workflow",
+            "type": "hands-on",
+            "duration": "45 min",
+            "content": "Understanding repositories, branches, and pull requests"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "first-repo",
+            "title": "Create Your First Repository",
+            "description": "Set up a GitHub account and create your first repository",
+            "points": 10
+          }
+        ]
+      },
+      {
+        "id": "open-source-basics",
+        "title": "Understanding Open Source",
+        "description": "Learn what open source is and how to contribute effectively",
+        "duration": "1 week",
+        "lessons": [
+          {
+            "id": "what-is-opensource",
+            "title": "What is Open Source?",
+            "type": "theory",
+            "duration": "20 min",
+            "content": "Understanding the philosophy and benefits of open source"
+          },
+          {
+            "id": "contribution-types",
+            "title": "Types of Contributions",
+            "type": "theory",
+            "duration": "15 min",
+            "content": "Code, documentation, design, and community contributions"
+          },
+          {
+            "id": "finding-projects",
+            "title": "Finding Projects to Contribute",
+            "type": "hands-on",
+            "duration": "30 min",
+            "content": "How to discover projects that match your interests and skills"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "explore-projects",
+            "title": "Explore 5 Open Source Projects",
+            "description": "Find and bookmark 5 projects you'd like to contribute to",
+            "points": 15
+          }
+        ]
+      },
+      {
+        "id": "first-contribution",
+        "title": "Your First Contribution",
+        "description": "Make your first meaningful contribution to an open source project",
+        "duration": "1-2 weeks",
+        "lessons": [
+          {
+            "id": "good-first-issues",
+            "title": "Finding Good First Issues",
+            "type": "hands-on",
+            "duration": "25 min",
+            "content": "How to identify beginner-friendly issues and understand project requirements"
+          },
+          {
+            "id": "fork-and-clone",
+            "title": "Fork and Clone",
+            "type": "hands-on",
+            "duration": "20 min",
+            "content": "Learn to fork repositories and set up your development environment"
+          },
+          {
+            "id": "creating-pr",
+            "title": "Creating Pull Requests",
+            "type": "hands-on",
+            "duration": "40 min",
+            "content": "The complete process from issue to merged pull request"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "first-pr",
+            "title": "Make Your First Pull Request",
+            "description": "Contribute to a real open source project",
+            "points": 25
+          }
+        ]
+      },
+      {
+        "id": "community-engagement",
+        "title": "Community Engagement",
+        "description": "Learn how to engage with open source communities effectively",
+        "duration": "1 week",
+        "lessons": [
+          {
+            "id": "communication",
+            "title": "Effective Communication",
+            "type": "theory",
+            "duration": "20 min",
+            "content": "How to communicate professionally in open source communities"
+          },
+          {
+            "id": "code-review",
+            "title": "Code Review Process",
+            "type": "hands-on",
+            "duration": "30 min",
+            "content": "Understanding and participating in code review processes"
+          },
+          {
+            "id": "community-guidelines",
+            "title": "Community Guidelines",
+            "type": "theory",
+            "duration": "15 min",
+            "content": "Understanding codes of conduct and community standards"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "join-community",
+            "title": "Join a Community",
+            "description": "Join Discord/Slack and introduce yourself",
+            "points": 10
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      "Beginner Contributor Badge",
+      "First PR Certificate",
+      "Community Member Status"
+    ]
+  },
+  {
+    "id": "intermediate",
+    "title": "Intermediate Track",
+    "description": "For those with basic open source experience. Deepen your skills and start mentoring others.",
+    "duration": "6-8 weeks",
+    "difficulty": "Intermediate",
+    "color": "blue",
+    "icon": "🚀",
+    "prerequisites": ["beginner"],
+    "modules": [
+      {
+        "id": "advanced-git",
+        "title": "Advanced Git Workflows",
+        "description": "Master complex Git operations and collaborative workflows",
+        "duration": "1-2 weeks",
+        "lessons": [
+          {
+            "id": "branching-strategies",
+            "title": "Branching Strategies",
+            "type": "theory",
+            "duration": "25 min",
+            "content": "GitFlow, GitHub Flow, and other branching models"
+          },
+          {
+            "id": "merge-conflicts",
+            "title": "Resolving Merge Conflicts",
+            "type": "hands-on",
+            "duration": "35 min",
+            "content": "How to handle and resolve merge conflicts effectively"
+          },
+          {
+            "id": "git-hooks",
+            "title": "Git Hooks and Automation",
+            "type": "hands-on",
+            "duration": "30 min",
+            "content": "Automating workflows with Git hooks"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "complex-merge",
+            "title": "Resolve a Complex Merge",
+            "description": "Successfully resolve a merge conflict in a real project",
+            "points": 20
+          }
+        ]
+      },
+      {
+        "id": "code-review",
+        "title": "Code Review & Collaboration",
+        "description": "Learn to review code effectively and collaborate with teams",
+        "duration": "1-2 weeks",
+        "lessons": [
+          {
+            "id": "review-process",
+            "title": "Code Review Process",
+            "type": "theory",
+            "duration": "20 min",
+            "content": "Understanding the code review workflow and best practices"
+          },
+          {
+            "id": "giving-feedback",
+            "title": "Giving Constructive Feedback",
+            "type": "hands-on",
+            "duration": "30 min",
+            "content": "How to provide helpful and constructive code reviews"
+          },
+          {
+            "id": "receiving-feedback",
+            "title": "Receiving and Acting on Feedback",
+            "type": "hands-on",
+            "duration": "25 min",
+            "content": "How to respond to code review feedback professionally"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "review-10-prs",
+            "title": "Review 10 Pull Requests",
+            "description": "Provide meaningful reviews for 10 different pull requests",
+            "points": 30
+          }
+        ]
+      },
+      {
+        "id": "project-architecture",
+        "title": "Project Architecture",
+        "description": "Understand how large open source projects are structured",
+        "duration": "2 weeks",
+        "lessons": [
+          {
+            "id": "project-structure",
+            "title": "Understanding Project Structure",
+            "type": "theory",
+            "duration": "25 min",
+            "content": "How large projects organize code and documentation"
+          },
+          {
+            "id": "testing-strategies",
+            "title": "Testing Strategies",
+            "type": "hands-on",
+            "duration": "40 min",
+            "content": "Unit tests, integration tests, and CI/CD pipelines"
+          },
+          {
+            "id": "documentation",
+            "title": "Technical Documentation",
+            "type": "hands-on",
+            "duration": "35 min",
+            "content": "Writing clear and comprehensive technical documentation"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "improve-docs",
+            "title": "Improve Project Documentation",
+            "description": "Contribute meaningful improvements to project documentation",
+            "points": 25
+          }
+        ]
+      },
+      {
+        "id": "mentoring-others",
+        "title": "Mentoring Others",
+        "description": "Learn to guide and support other contributors",
+        "duration": "1-2 weeks",
+        "lessons": [
+          {
+            "id": "mentorship-skills",
+            "title": "Mentorship Skills",
+            "type": "theory",
+            "duration": "20 min",
+            "content": "How to be an effective mentor in open source"
+          },
+          {
+            "id": "identifying-mentees",
+            "title": "Identifying Potential Mentees",
+            "type": "hands-on",
+            "duration": "25 min",
+            "content": "How to find and connect with people who need guidance"
+          },
+          {
+            "id": "mentorship-tools",
+            "title": "Mentorship Tools and Techniques",
+            "type": "hands-on",
+            "duration": "30 min",
+            "content": "Tools and techniques for effective mentorship"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "mentor-someone",
+            "title": "Mentor a Beginner",
+            "description": "Successfully guide someone through their first contribution",
+            "points": 40
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      "Intermediate Contributor Badge",
+      "Code Reviewer Certificate",
+      "Mentor Status"
+    ]
+  },
+  {
+    "id": "advanced",
+    "title": "Advanced Track",
+    "description": "For experienced contributors ready to lead projects and build communities.",
+    "duration": "8-12 weeks",
+    "difficulty": "Advanced",
+    "color": "red",
+    "icon": "🌟",
+    "prerequisites": ["intermediate"],
+    "modules": [
+      {
+        "id": "project-leadership",
+        "title": "Project Leadership",
+        "description": "Learn to lead and manage open source projects",
+        "duration": "2-3 weeks",
+        "lessons": [
+          {
+            "id": "leadership-principles",
+            "title": "Open Source Leadership",
+            "type": "theory",
+            "duration": "30 min",
+            "content": "Principles of effective open source project leadership"
+          },
+          {
+            "id": "project-management",
+            "title": "Project Management",
+            "type": "hands-on",
+            "duration": "45 min",
+            "content": "Managing issues, milestones, and project roadmaps"
+          },
+          {
+            "id": "decision-making",
+            "title": "Community Decision Making",
+            "type": "theory",
+            "duration": "25 min",
+            "content": "How to make decisions in consensus-driven communities"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "lead-project",
+            "title": "Lead a Small Project",
+            "description": "Take leadership role in a project or feature",
+            "points": 50
+          }
+        ]
+      },
+      {
+        "id": "community-building",
+        "title": "Community Building",
+        "description": "Learn to build and nurture open source communities",
+        "duration": "2-3 weeks",
+        "lessons": [
+          {
+            "id": "community-strategy",
+            "title": "Community Strategy",
+            "type": "theory",
+            "duration": "30 min",
+            "content": "Developing strategies for community growth and engagement"
+          },
+          {
+            "id": "event-planning",
+            "title": "Event Planning and Management",
+            "type": "hands-on",
+            "duration": "40 min",
+            "content": "Organizing meetups, conferences, and online events"
+          },
+          {
+            "id": "diversity-inclusion",
+            "title": "Diversity and Inclusion",
+            "type": "theory",
+            "duration": "25 min",
+            "content": "Creating inclusive and welcoming communities"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "organize-event",
+            "title": "Organize a Community Event",
+            "description": "Plan and execute a community event or workshop",
+            "points": 60
+          }
+        ]
+      },
+      {
+        "id": "technical-writing",
+        "title": "Technical Writing",
+        "description": "Master the art of technical communication and documentation",
+        "duration": "2 weeks",
+        "lessons": [
+          {
+            "id": "writing-skills",
+            "title": "Technical Writing Skills",
+            "type": "theory",
+            "duration": "25 min",
+            "content": "Principles of clear and effective technical writing"
+          },
+          {
+            "id": "documentation-systems",
+            "title": "Documentation Systems",
+            "type": "hands-on",
+            "duration": "35 min",
+            "content": "Setting up and maintaining documentation systems"
+          },
+          {
+            "id": "api-documentation",
+            "title": "API Documentation",
+            "type": "hands-on",
+            "duration": "40 min",
+            "content": "Writing comprehensive API documentation"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "write-guide",
+            "title": "Write a Comprehensive Guide",
+            "description": "Create a detailed guide for a complex topic",
+            "points": 35
+          }
+        ]
+      },
+      {
+        "id": "opensource-strategy",
+        "title": "Open Source Strategy",
+        "description": "Understand the business and strategic aspects of open source",
+        "duration": "2-3 weeks",
+        "lessons": [
+          {
+            "id": "business-models",
+            "title": "Open Source Business Models",
+            "type": "theory",
+            "duration": "30 min",
+            "content": "How companies build sustainable open source businesses"
+          },
+          {
+            "id": "licensing",
+            "title": "Licensing and Legal",
+            "type": "theory",
+            "duration": "25 min",
+            "content": "Understanding open source licenses and legal considerations"
+          },
+          {
+            "id": "funding-strategies",
+            "title": "Funding and Sustainability",
+            "type": "theory",
+            "duration": "20 min",
+            "content": "Strategies for funding and sustaining open source projects"
+          }
+        ],
+        "challenges": [
+          {
+            "id": "create-strategy",
+            "title": "Develop a Project Strategy",
+            "description": "Create a strategic plan for an open source project",
+            "points": 45
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      "Advanced Contributor Badge",
+      "Community Leader Certificate",
+      "Open Source Advocate Status"
+    ]
+  }
+]

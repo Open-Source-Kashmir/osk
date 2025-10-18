@@ -137,6 +137,9 @@ const Home = () => {
               Join our community of passionate developers and make your mark in the open source world.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
+              <Link to="/learning" className="inline-flex items-center gap-2 py-3.5 px-8 rounded-lg font-semibold no-underline transition-all duration-300 bg-gradient-to-r from-green-500 to-green-700 text-white shadow-lg shadow-green-500/30 border-2 border-transparent hover:bg-gradient-to-r hover:from-green-700 hover:to-green-500 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-green-500/40">
+                Start Learning
+              </Link>
               <Link to="/contributors" className="inline-flex items-center gap-2 py-3.5 px-8 rounded-lg font-semibold no-underline transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/40">
                 Become a Contributor
               </Link>
