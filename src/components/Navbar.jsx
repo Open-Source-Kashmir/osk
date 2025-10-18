@@ -25,7 +25,7 @@ const Navbar = () => {
           <span className="bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">OSK</span>
         </Link>
         
-        <div className={`hidden md:flex items-center gap-8 ${isMenuOpen ? 'flex' : 'hidden'}`}>
+        <div className={`hidden md:flex items-center gap-8`}>
           <Link to="/" className={`${isActive('/') === 'nav-link active' ? 'text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12' : 'text-gray-900 dark:text-gray-100'} no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`} onClick={() => setIsMenuOpen(false)}>
             Home
           </Link>
@@ -52,10 +52,10 @@ const Navbar = () => {
             GitHub
           </a>
           <a 
-            href="https://discord.gg/gEHBwfDX" 
+            href="https://discord.gg/hgnUsqAmMT" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="nav-link discord-link"
+            className="nav-link discord-link no-underline bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold py-2.5 px-5 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
             onClick={() => setIsMenuOpen(false)}
           >
             Discord
@@ -71,7 +71,7 @@ const Navbar = () => {
       </div>
       
       {/* Mobile menu */}
-      <div className={`md:hidden fixed left-0 ${isMenuOpen ? 'left-0' : '-left-full'} top-16 flex flex-col bg-white/98 dark:bg-gray-900/98 backdrop-blur-sm w-full text-center transition-all duration-300 shadow-xl py-8 gap-4`}>
+      <div className={`md:hidden fixed top-16 left-0 w-full transition-transform duration-300 transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} bg-white/98 dark:bg-gray-900/98 backdrop-blur-sm shadow-xl py-8 gap-4 flex flex-col text-center z-50`}>
         <Link to="/" className={`${isActive('/') === 'nav-link active' ? 'text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12' : 'text-gray-900 dark:text-gray-100'} no-underline font-medium py-4 w-4/5 mx-auto rounded-xl`} onClick={() => setIsMenuOpen(false)}>
           Home
         </Link>

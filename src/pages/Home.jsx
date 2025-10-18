@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ProgramCard from '../components/ProgramCard';
 import Hero from '../components/Hero';
 import About from '../components/About';
-
+import { Users, UserPlus, Globe, FolderKanban, GraduationCap, Target, TrendingUp, CalendarRange } from "lucide-react";
 const Home = () => {
   const featuredPrograms = [
     {
@@ -29,32 +29,33 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: "50+", label: "Contributors", icon: "👥" },
-    { number: "25+", label: "Projects", icon: "🚀" },
-    { number: "15+", label: "Mentors", icon: "🧑‍🏫" },
-    { number: "5+", label: "Programs", icon: "📚" }
+    { number: "50+", label: "Contributors", icon: <UserPlus color="#22c55e" size={40} /> },
+    {
+      number: "25+", label: "Projects", icon: <FolderKanban color="#6366f1" size={40} /> },
+    { number: "15+", label: "Mentors", icon: <GraduationCap color="#3b82f6" size={40} /> },
+    { number: "5+", label: "Programs", icon: <CalendarRange color="#22d3ee" size={40} /> }
   ];
 
   const features = [
     {
       title: "Expert Mentorship",
       description: "Learn from experienced developers and industry professionals who guide you through your open source journey.",
-      icon: "🎯"
+      icon: <Target color="#ef4444" size={40} />  
     },
     {
       title: "Real Projects",
       description: "Work on meaningful projects that solve real-world problems and make a positive impact on the community.",
-      icon: "💻"
+      icon: <FolderKanban color="#6366f1" size={40} />
     },
     {
       title: "Global Network",
       description: "Connect with developers worldwide and build lasting relationships in the open source ecosystem.",
-      icon: "🌍"
+      icon: <Globe color="#22c55e" size={40} />
     },
     {
       title: "Career Growth",
       description: "Gain valuable experience and skills that boost your career prospects in the tech industry.",
-      icon: "📈"
+      icon: <TrendingUp color="#43ba7b" size={40} />
     }
   ];
 
@@ -95,7 +96,7 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
+              <div key={index} className="flex flex-col items-center bg-white p-8 rounded-2xl text-center shadow-lg transition-transform duration-300 hover:-translate-y-2">
                 <div className="text-5xl mb-6">{feature.icon}</div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>

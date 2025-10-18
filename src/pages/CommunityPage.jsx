@@ -1,79 +1,288 @@
 import React from "react";
-import Footer from "../components/shared/Footer";
-import { ArrowDown } from "lucide-react";
+import ContributorCard from "../components/ContributorCard";
+import contributors from "../data/contributors.json";
 
 
-const CommunityPage = () => {
+export default function CommunityPage() {
+  const highlights = [
+    {
+      id: 1,
+      title: "Mentorship",
+      body: "Pair with experienced contributors to ship your first PRs and grow real-world skills.",
+      icon: "🤝",
+    },
+    {
+      id: 2,
+      title: "Real Projects",
+      body: "Contribute to meaningful OSS projects used by the community — learn by doing.",
+      icon: "🚀",
+    },
+    {
+      id: 3,
+      title: "Workshops",
+      body: "Weekly office hours and workshops to teach workflows, Git, and good PR practices.",
+      icon: "🎓",
+    },
+    {
+      id: 4,
+      title: "Inclusive Space",
+      body: "Welcoming contributors of all backgrounds — docs, design, code, and mentorship welcome.",
+      icon: "💙",
+    },
+  ];
+
+  const events = [
+    {
+      id: 1,
+      title: "Weekly Office Hours",
+      date: "Wednesdays • 7:00 PM IST",
+      details: "Drop in to get help on issues, pair with mentors, and ask quick questions.",
+    },
+    {
+      id: 2,
+      title: "Beginner Workshop: First PR",
+      date: "Nov 02, 2025 • 4:00 PM IST",
+      details: "Hands-on walkthrough: find a good-first-issue, create a branch, and open your PR.",
+    },
+    {
+      id: 3,
+      title: "Sprint Day",
+      date: "Nov 15, 2025 • 10:00 AM IST",
+      details: "Ship small issues together during a focused community sprint.",
+    },
+  ];
+
+  const resources = [
+    { id: 1, label: "Repository", href: "https://github.com/Open-Source-Kashmir/osk" },
+    { id: 2, label: "Good-first-issues", href: "#" },
+    { id: 3, label: "Contribution Guide", href: "/CONTRIBUTING.md" },
+    { id: 4, label: "Discord (Invite)", href: "#" },
+  ];
+
+  const faqs = [
+    { q: "How do I start?", a: "Join Discord, introduce yourself, and look for issues labeled good-first-issue." },
+    { q: "I’m not a coder — can I still help?", a: "Absolutely. Docs, design, testing and triage are all valuable contributions." },
+    { q: "Where can I ask for mentorship?", a: "Post in the #mentorship or #help channels on Discord and maintainers will assist." },
+  ];
+
   return (
-    <div className='min-h-screen'>
-      <div className="flex flex-col items-center py-0 max-w-4xl mx-auto text-center px-4">
-        {/* Mission Section */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4 mt-16">The OSK Community</h1>
-        <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-3xl">
-          At Open Source Kashmir (OSK), our mission is to build a
-          community-driven initiative that empowers the people of Kashmir to
-          code, collaborate, and contribute to open-source projects.
+    <main id="community" className="px-6 md:px-12 lg:px-20 py-12">
+      {/* big hero */}
+      <section className="max-w-6xl mx-auto text-center py-6">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">Join the OSK Community</h1>
+        <p className="mt-4 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+          Collaborate, learn, and contribute — whether you fix a typo, design an icon, or build a feature. OSK is
+          friendly to new contributors and focused on mentorship and real outcomes.
         </p>
 
-        {/* How to Join/Benefits Section */}
-        <section className="max-w-2xl bg-white p-8 rounded-xl shadow-sm mt-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">How to Get Involved</h3>
-
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            We welcome contributors of all skill levels and place a strong
-            emphasis on awareness, mentorship, and collaboration. Being a part of the OSK community is the perfect opportunity to gain practical, hands-on experience in software collaboration.
-          </p>
-
-          <p className="text-gray-700 mb-8 leading-relaxed">
-            To get started, browse through <a href="" className="text-blue-600 hover:underline">Contribution Ideas</a> on
-            our GitHub and find something you feel comfortable contributing to.
-          </p>
-
-          {/* Call to Action Section */}
-          <ol className="flex flex-col justify-center items-center py-0 list-none">
-            <li className="flex flex-col items-center">
-              <div className="bg-gray-300 py-3 px-6 rounded-lg shadow-sm font-medium w-full max-w-xs text-center box-border">
-                <span>Fork & Clone the Repo</span>
-              </div>
-              <ArrowDown className="scale-95 text-indigo-400 my-2" />
-            </li>
-            <li className="flex flex-col items-center">
-              <div className="bg-gray-300 py-3 px-6 rounded-lg shadow-sm font-medium w-full max-w-xs text-center box-border">
-                <span>Create a New Branch</span>
-              </div>
-              <ArrowDown className="scale-95 text-indigo-400 my-2" />
-            </li>
-            <li className="flex flex-col items-center">
-              <div className="bg-gray-300 py-3 px-6 rounded-lg shadow-sm font-medium w-full max-w-xs text-center box-border">
-                <span>Make Changes and Commit</span>
-              </div>
-              <ArrowDown className="scale-95 text-indigo-400 my-2" />
-            </li>
-            <li className="flex flex-col items-center">
-              <div className="bg-gray-300 py-3 px-6 rounded-lg shadow-sm font-medium w-full max-w-xs text-center box-border">
-                <span>Push and Open a Pull Request (PR)</span>
-              </div>
-            </li>
-          </ol>
-
-        </section>
-
-        <section className="flex justify-center items-center my-12">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
           <a
             href="https://github.com/Open-Source-Kashmir/osk"
             target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 text-white py-3.5 px-8 rounded-lg font-bold shadow-lg shadow-blue-600/30 transition-all duration-200 hover:bg-blue-700 hover:-translate-y-0.5"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md"
           >
-            Get Started
+            View on GitHub
           </a>
-        </section>
 
-        {/* Footer */}
-        <Footer />
-      </div>
-    </div>
+          <a
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white shadow-md"
+          >
+            Join Discord
+          </a>
+        </div>
+      </section>
+
+      {/* highlights - large card grid */}
+      <section className="mt-10 max-w-6xl mx-auto">
+        <h2 className="text-2xl font-semibold text-white mb-4">Highlights</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {highlights.map((h) => (
+            <article
+              key={h.id}
+              className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-800/20 border border-slate-700 shadow-lg"
+            >
+              <div className="text-3xl">{h.icon}</div>
+              <h3 className="mt-3 text-lg font-semibold text-white">{h.title}</h3>
+              <p className="mt-2 text-slate-300 text-sm">{h.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* upcoming events - larger cards */}
+      <section className="mt-12 max-w-6xl mx-auto">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-semibold text-white">Upcoming events</h2>
+          <a href="#events" className="text-sm text-slate-300 hover:underline">
+            View calendar →
+          </a>
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {events.map((e) => (
+            <div key={e.id} className="p-6 rounded-xl bg-slate-800 border border-slate-700">
+              <div className="text-sm text-slate-300">{e.date}</div>
+              <div className="mt-2 text-lg font-medium text-white">{e.title}</div>
+              <div className="mt-3 text-slate-300 text-sm">{e.details}</div>
+
+              <div className="mt-5">
+                <a
+                  href="#"
+                  className="inline-flex items-center px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-white text-sm"
+                  aria-label={`Details for ${e.title}`}
+                >
+                  Details
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How to contribute + Resources side-by-side */}
+      <section className="mt-12 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 p-6 rounded-xl bg-slate-800 border border-slate-700">
+          <h2 className="text-2xl font-semibold text-white">How to contribute</h2>
+          <ol className="mt-4 list-decimal list-inside space-y-3 text-slate-300">
+            <li>Join the Discord and introduce yourself in #welcome.</li>
+            <li>Pick an issue labeled <strong>good-first-issue</strong> or <strong>help-wanted</strong>.</li>
+            <li>Create a small PR (docs, typos, tiny UI tweak) and request review.</li>
+            <li>Iterate with maintainers; celebrate your merged PR 🎉</li>
+          </ol>
+        </div>
+
+        <aside className="p-6 rounded-xl bg-slate-800 border border-slate-700">
+          <h3 className="text-lg font-semibold text-white">Quick links</h3>
+          <ul className="mt-3 space-y-2">
+            {resources.map((r) => (
+              <li key={r.id}>
+                <a
+                  href={r.href}
+                  className="text-slate-200 hover:text-white hover:underline"
+                  target={r.href.startsWith("http") ? "_blank" : "_self"}
+                  rel={r.href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  • {r.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </section>
+
+      {/* Contributors Section */}
+      <section className="mt-12 max-w-6xl mx-auto">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-semibold text-white">Our Contributors</h2>
+          <a href="/contributors" className="text-sm text-slate-300 hover:underline">
+            View all contributors →
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {contributors.slice(0, 8).map((contributor) => (
+            <ContributorCard
+              key={contributor.login}
+              name={contributor.login}
+              avatar={contributor.avatar}
+              github={contributor.url}
+              contributions={contributor.contributions}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mt-12 max-w-4xl mx-auto">
+        <h2 className="text-2xl font-semibold text-white">FAQ</h2>
+        <div className="mt-4 space-y-3">
+          {faqs.map((f, i) => (
+            <details key={i} className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+              <summary className="cursor-pointer text-white font-medium">{f.q}</summary>
+              <div className="mt-2 text-slate-300 text-sm">{f.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* refined Ready to contribute CTA (no repetition) */}
+      <section className="mt-12 max-w-6xl mx-auto text-center pb-20">
+        <div className="p-8 rounded-2xl bg-gradient-to-r from-slate-800/70 to-slate-700/60 shadow-lg">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-2xl md:text-3xl font-semibold text-white">Ready to contribute to OSK?</div>
+            <p className="mt-2 text-slate-300">
+              Choose a path below — everything else (how-to steps and guides) is available above and in the contribution guide.
+            </p>
+
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+              <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                <div className="text-2xl font-bold text-blue-300">Find</div>
+                <div className="font-semibold text-white mt-2">Pick an issue</div>
+                <div className="mt-1 text-sm text-slate-300">
+                  Browse issues labeled <span className="font-medium text-white">good-first-issue</span> to start.
+                </div>
+                <a
+                  href="#"
+                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  View issues
+                </a>
+              </div>
+
+              <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                <div className="text-2xl font-bold text-blue-300">Connect</div>
+                <div className="font-semibold text-white mt-2">Office hours</div>
+                <div className="mt-1 text-sm text-slate-300">Attend weekly drop-in sessions to get hands-on help from maintainers.</div>
+                <a
+                  href="#"
+                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-slate-700 hover:bg-slate-600 text-white"
+                >
+                  Event details
+                </a>
+              </div>
+
+              <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                <div className="text-2xl font-bold text-blue-300">Support</div>
+                <div className="font-semibold text-white mt-2">Request help</div>
+                <div className="mt-1 text-sm text-slate-300">Ask for pairing, reviews, or mentorship in our Discord channels.</div>
+                <a
+                  href="#"
+                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-slate-700 hover:bg-slate-600 text-white"
+                >
+                  Join Discord
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-4">
+              <a
+                href="https://github.com/Open-Source-Kashmir/osk"
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md"
+              >
+                Contribute on GitHub
+              </a>
+
+              <a
+                href="/CONTRIBUTING.md"
+                className="px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white font-medium"
+              >
+                Contribution guide
+              </a>
+            </div>
+
+            <div className="mt-4 text-sm text-slate-300">
+              Want a direct intro? <a href="#" className="text-white underline">Request pairing in Discord</a>.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
-};
-
-export default CommunityPage;
+}
+// ...existing code...

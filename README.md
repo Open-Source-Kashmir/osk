@@ -102,6 +102,10 @@ Here are some ways you can contribute:
 
 Let’s build the open source community of Kashmir together 🚀
 
+## Admin 
+[Athar Ramzan](https://github.com/oathar) <br>
+[Ayaan Taimur](https://github.com/MAT1018)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.

@@ -11,7 +11,7 @@ const ProgramCard = ({
   featured = false 
 }) => {
   return (
-    <div className={`bg-white rounded-3xl p-8 shadow-lg shadow-black/10 border border-gray-200 relative overflow-hidden backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-black/20 hover:border-blue-400 ${featured ? 'border-2 border-blue-500' : ''}`}>
+    <div className={`bg-white rounded-3xl p-6 shadow-lg shadow-black/10 border border-gray-200 relative overflow-hidden backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-black/20 hover:border-blue-400 ${featured ? 'border-2 border-blue-500' : ''}`}>
       {featured && (
         <div className="absolute top-6 right-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white py-1 px-4 rounded-2xl text-xs font-semibold uppercase tracking-wider shadow-lg shadow-blue-500/40 animate-pulse">
           Featured

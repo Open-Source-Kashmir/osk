@@ -1,4 +1,5 @@
 import React from "react";
+import { Globe, GraduationCap, Users } from "lucide-react";
 
 export default function About() {
   return (
@@ -14,8 +15,8 @@ export default function About() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gray-800/95 p-6 rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
-            <span className="text-3xl block mb-3">🌍</span>
+          <div className="bg-gray-800/95 p-6  flex flex-col  items-center rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
+            <span className="text-3xl block mb-3"><Globe color="#22c55e" size={40} /></span>
             <h3 className="font-bold text-lg mb-2 text-white">Global Exposure</h3>
             <p className="text-sm text-gray-300">
               Connect with programs like <strong>LFX</strong>,{" "}
@@ -24,8 +25,8 @@ export default function About() {
             </p>
           </div>
 
-          <div className="bg-gray-800/95 p-6 rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
-            <span className="text-3xl block mb-3">👩‍🏫</span>
+          <div className="bg-gray-800/95 p-6 flex flex-col items-center rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
+            <span className="text-3xl block mb-3"><GraduationCap color="#6366f1" size={40} /></span>
             <h3 className="font-bold text-lg mb-2 text-white">Mentorship</h3>
             <p className="text-sm text-gray-300">
               Learn directly from experienced mentors and industry leaders who
@@ -33,8 +34,8 @@ export default function About() {
             </p>
           </div>
 
-          <div className="bg-gray-800/95 p-6 rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
-            <span className="text-3xl block mb-3">🤝</span>
+          <div className="bg-gray-800/95 p-6 flex flex-col items-center rounded-xl shadow-lg shadow-gray-900/80 text-center transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-900/90">
+            <span className="text-3xl block mb-3"><Users color="#14b8a6" size={40} /></span>
             <h3 className="font-bold text-lg mb-2 text-white">Collaboration</h3>
             <p className="text-sm text-gray-300">
               Work with a vibrant community of developers on real projects,

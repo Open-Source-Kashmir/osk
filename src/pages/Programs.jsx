@@ -188,7 +188,7 @@ const Programs = () => {
               <div className="font-semibold text-gray-600 mb-5 text-center">
                 {filteredPrograms.length} program{filteredPrograms.length !== 1 ? 's' : ''} found
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-center">
                 {filteredPrograms.map((program, index) => (
                   <ProgramCard key={index} {...program} />
                 ))}
