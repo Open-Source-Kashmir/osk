@@ -12,6 +12,7 @@ import Contributors from "./pages/Contributors";
 import CommunityPage from "./pages/CommunityPage";
 import LearningTrack from "./pages/LearningTrack";
 import ModuleDetail from "./pages/ModuleDetail";
+import Resources from "./pages/Resources"
 import BackToTop from "./components/shared/BackToTop";
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/learning" element={<LearningTrack />} />
               <Route path="/learning/:trackId/:moduleId" element={<ModuleDetail />} />
+              <Route path="/resources" element={<Resources />} />
             </Routes>
           </main>
 
