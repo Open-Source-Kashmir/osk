@@ -44,6 +44,9 @@ const Navbar = () => {
           <Link to="/learning" className={`${isActive('/learning') === 'nav-link active' ? 'text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12' : 'text-gray-900 dark:text-gray-100'} no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`} onClick={() => setIsMenuOpen(false)}>
             Learning
           </Link>
+          <Link  to="/resources" className={`${isActive('/resources') === 'nav-link active' ? 'text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12' : 'text-gray-900 dark:text-gray-100'} no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`} onClick={() => setIsMenuOpen(false)}>
+              Resources
+          </Link>
 
           <a 
             href="https://github.com/Open-Source-Kashmir" 
@@ -93,6 +96,9 @@ const Navbar = () => {
         <Link to="/learning" className={`${isActive('/learning') === 'nav-link active' ? 'text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12' : 'text-gray-900 dark:text-gray-100'} no-underline font-medium py-4 w-4/5 mx-auto rounded-xl`} onClick={() => setIsMenuOpen(false)}>
           Learning
         </Link>
+        <Link  to="/resources" className={`${isActive('/resources') === 'nav-link active' ? 'text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12' : 'text-gray-900 dark:text-gray-100'} no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`} onClick={() => setIsMenuOpen(false)}>
+              Resources
+          </Link>
         
         <a 
           href="https://github.com/Open-Source-Kashmir" 
