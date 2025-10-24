@@ -74,7 +74,7 @@ const Navbar = () => {
       </div>
       
       {/* Mobile menu */}
-      <div className={`md:hidden fixed top-16 left-0 w-full transition-transform duration-300 transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} bg-white/98 dark:bg-gray-900/98 backdrop-blur-sm shadow-xl py-8 gap-4 flex flex-col text-center z-50`}>
+      <div className={`md:hidden fixed top-16 left-0 w-full transition-transform duration-300 transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} bg-slate-900/95 dark:bg-slate-950/95 backdrop-blur-sm shadow-xl py-8 gap-4 flex flex-col text-center z-50`}>
         <Link to="/" className={`${isActive('/') === 'nav-link active' ? 'text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12' : 'text-gray-900 dark:text-gray-100'} no-underline font-medium py-4 w-4/5 mx-auto rounded-xl`} onClick={() => setIsMenuOpen(false)}>
           Home
         </Link>
