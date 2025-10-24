@@ -132,7 +132,7 @@ const Navbar = () => {
       )}
 
       <div
-        className={`md:hidden fixed top-16 left-0 w-full transition-all duration-300 transform ${isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0 pointer-events-none"} bg-white dark:bg-gray-900 shadow-xl z-50 overflow-y-auto`}
+        className={`md:hidden fixed top-16 left-0 w-full transition-all duration-300 transform ${isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0 pointer-events-none"} bg-white/95 dark:bg-gray-900/95 shadow-xl z-50 overflow-y-auto`}
         style={{ maxHeight: "calc(100vh - 4rem)" }}
       >
         <div className="px-3 sm:px-4 py-6 sm:py-8 flex flex-col gap-4 sm:gap-6">
