@@ -139,8 +139,8 @@ const Home = () => {
                 <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-opacity-20 mb-6">
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-200">{feature.title}</h3>
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">{feature.description}</p>
               </div>
             ))}
           </div>

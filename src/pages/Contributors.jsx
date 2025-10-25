@@ -232,7 +232,7 @@ const Contributors = () => {
   }
 
   return (
-    <div className="pt-20">
+    <div className="">
       {/* Header Section */}
       <section className="bg-gradient-to-r from-gray-50 to-indigo-50 py-12 text-center">
         <div className="max-w-3xl mx-auto px-8">
@@ -292,12 +292,12 @@ const Contributors = () => {
           <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 flex-wrap">
             <h2 className="text-2xl font-bold text-gray-900 text-center md:text-left">All Contributors</h2>
             <div className="relative max-w-xs w-full md:w-auto">
-              <input
+            <input
                 type="text"
                 placeholder="Search contributors..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full py-3 pl-12 pr-4 border-2 border-gray-200 rounded-lg text-base transition-colors duration-300 focus:outline-none focus:border-blue-500"
+                className="w-full py-3 pl-12 pr-4 rounded-lg text-base text-gray-800 placeholder-gray-400 bg-gray-50 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 shadow-sm transition-all duration-300"
               />
               <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"/>
@@ -333,14 +333,21 @@ const Contributors = () => {
                 {filteredContributors.map((contributor) => (
                   <div key={contributor.id} className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="relative w-15 h-15 flex-shrink-0">
-                        <img src={contributor.avatar} alt={contributor.name} className="w-full h-full rounded-full object-cover" />
-                        {contributor.streak > 0 && (
-                          <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-white py-0.5 px-2 rounded-full text-xs font-bold border-2 border-white">
-                            {contributor.streak}🔥
-                          </div>
-                        )}
-                      </div>
+                    <div className="relative w-16 h-16 flex-shrink-0 overflow-visible">
+                  <div className="absolute inset-0 transform hover:scale-110 transition-transform duration-500">
+                    <img
+                      src={contributor.avatar}
+                      alt={contributor.name}
+                      className="w-full h-full rounded-full object-cover border-4 border-gray-200 shadow-lg shadow-gray-300/50 bg-gradient-to-br from-gray-100 to-gray-200"
+                    />
+                  </div>
+
+                  {contributor.streak > 0 && (
+                    <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-white py-0.5 px-2 rounded-full text-xs font-bold border-2 border-white shadow-sm">
+                      {contributor.streak}🔥
+                    </div>
+                  )}
+                </div>
                       <div className="min-w-0">
                         <h3 className="text-lg font-bold text-gray-900 truncate">{contributor.name}</h3>
                         <p className="text-gray-600 text-sm truncate">@{contributor.username}</p>
@@ -409,24 +416,30 @@ const Contributors = () => {
 
       {/* Join CTA */}
       <section className="bg-gradient-to-r from-gray-900 to-gray-800 py-16 text-white">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Community</h2>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+          <div className="max-w-4xl mx-auto px-8 text-center">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Community</h2>
+              <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
               Ready to make your first contribution? Join our community of passionate developers 
               and start building amazing open source projects together.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://github.com/Open-Source-Kashmir" className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/30">
-                Start Contributing
-              </a>
-              <a href="#" className="bg-white text-blue-600 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-0.5">
-                Join Discord
-              </a>
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+                <a 
+          href="https://github.com/Open-Source-Kashmir" 
+          className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 bg-white text-gray-900 shadow-md border-2 border-transparent hover:bg-gray-200 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Start Contributing
+                </a>
+                <a 
+                  href="#" 
+                  className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 bg-transparent text-white border-2 border-gray-300 hover:bg-gray-200 hover:text-gray-900 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Join Discord
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 };
