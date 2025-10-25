@@ -126,7 +126,7 @@ const LearningTrack = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {learningTracks.map((track) => (
-              <div key={track.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div key={track.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
                 {/* Track Header */}
                 <div className={`bg-gradient-to-r ${getTrackColor(track.color)} p-8 text-white`}>
                   <div className="flex items-center justify-between mb-4">
@@ -143,8 +143,8 @@ const LearningTrack = () => {
                   </div>
                 </div>
 
-                {/* Track Content */}
-                <div className="p-8">
+                {/* Track Content - flex-grow to push button down */}
+                <div className="p-8 flex flex-col flex-grow">
                   <div className="mb-6">
                     <h4 className="font-semibold text-gray-900 mb-3">Modules ({track.modules.length})</h4>
                     <div className="space-y-2">
@@ -200,6 +200,9 @@ const LearningTrack = () => {
                       </div>
                     </div>
                   )}
+
+                  {/* Spacer to push button to bottom */}
+                  <div className="flex-grow"></div>
 
                   {/* Action Button */}
                   <button
@@ -335,21 +338,24 @@ const LearningTrack = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Open Source Journey?</h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Join thousands of developers who are building the future through open source.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300">
-              Get Started Today
-            </button>
-            <button className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
-              Learn More
-            </button>
-          </div>
-        </div>
+      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-auto">
+            <div className="max-w-4xl mx-auto px-8 text-center">
+              <h2 className="text-3xl font-bold mb-4 text-white">
+                Ready to Start Your Open Source Journey?
+              </h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Join thousands of developers who are building the future through open source.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-white text-gray-900 py-3 px-8 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition-all duration-300">
+                  Get Started Today
+                </button>
+                <button className="border-2 border-gray-300 text-white py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 transition-all duration-300">
+                  Learn More
+                </button>
+              </div>
+            </div>
       </section>
     </div>
   );

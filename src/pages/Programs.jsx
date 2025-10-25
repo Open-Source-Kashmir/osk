@@ -235,21 +235,31 @@ const Programs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-15 px-5 text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold mb-5">Ready to Get Started?</h2>
-            <p className="mb-5">
-              Join our community and get guidance on how to apply to these programs. 
-              Our mentors can help you prepare your applications and increase your chances of success.
-            </p>
-            <div className="flex justify-center gap-4 flex-wrap mt-5">
-              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300">Join Our Discord</a>
-              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-transparent text-white border border-white transition-all duration-300 hover:bg-white/20">Get Mentorship</a>
+      <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 px-5 text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold mb-5">Ready to Get Started?</h2>
+              <p className="text-gray-300 mb-8 leading-relaxed">
+                Join our community and get guidance on how to apply to these programs. 
+                Our mentors can help you prepare your applications and increase your chances of success.
+              </p>
+              <div className="flex justify-center gap-4 flex-wrap mt-5">
+                <a 
+                  href="#" 
+                  className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-semibold text-lg transition-all duration-300 bg-white text-gray-900 shadow-md border-2 border-transparent hover:bg-gray-200 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Join Our Discord
+                </a>
+                <a 
+                  href="#" 
+                  className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-semibold text-lg transition-all duration-300 bg-transparent text-white border-2 border-gray-300 hover:bg-gray-200 hover:text-gray-900 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Get Mentorship
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 };
