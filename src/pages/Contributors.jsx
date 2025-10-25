@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { getGitHubAvatar, getMultipleGitHubUsers } from '../utils/githubApi';
 import LoadingSpinner from '../components/shared/LoadingSpinner';
 
@@ -8,8 +8,8 @@ const Contributors = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [contributors, setContributors] = useState([]);
 
-  // Real contributors data with GitHub integration
-  const mockContributors = [
+  // Real contributors data with GitHub integration - moved outside to prevent re-creation
+  const mockContributors = useMemo(() => [
     {
       id: 1,
       name: "Ahmad Sheikh",
@@ -139,7 +139,7 @@ const Contributors = () => {
       level: "intermediate",
       streak: 29
     }
-  ];
+  ], []);
 
   // Fetch GitHub data for contributors
   useEffect(() => {
@@ -157,15 +157,15 @@ const Contributors = () => {
           const githubInfo = githubData[index];
           return {
             ...contributor,
-            avatar: githubInfo.avatar,
-            name: githubInfo.name || contributor.name,
-            bio: githubInfo.bio || contributor.bio,
-            location: githubInfo.location || contributor.location,
-            githubUrl: githubInfo.githubUrl,
-            joinDate: githubInfo.joinDate ? new Date(githubInfo.joinDate).toISOString().split('T')[0] : contributor.joinDate,
-            publicRepos: githubInfo.publicRepos,
-            followers: githubInfo.followers,
-            following: githubInfo.following
+            avatar: githubInfo?.avatar || contributor.avatar,
+            name: githubInfo?.name || contributor.name,
+            bio: githubInfo?.bio || contributor.bio,
+            location: githubInfo?.location || contributor.location,
+            githubUrl: githubInfo?.githubUrl || contributor.githubUrl,
+            joinDate: githubInfo?.joinDate ? new Date(githubInfo.joinDate).toISOString().split('T')[0] : contributor.joinDate,
+            publicRepos: githubInfo?.publicRepos || 0,
+            followers: githubInfo?.followers || 0,
+            following: githubInfo?.following || 0
           };
         });
         
@@ -184,7 +184,7 @@ const Contributors = () => {
     };
 
     fetchContributorsData();
-  }, []);
+  }, [mockContributors]);
 
   const levels = [
     { value: 'all', label: 'All Contributors', icon: '👥' },
@@ -332,19 +332,19 @@ const Contributors = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredContributors.map((contributor) => (
                   <div key={contributor.id} className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="relative w-15 h-15 flex-shrink-0">
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="relative w-12 h-12 flex-shrink-0">
                         <img src={contributor.avatar} alt={contributor.name} className="w-full h-full rounded-full object-cover" />
                         {contributor.streak > 0 && (
-                          <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-white py-0.5 px-2 rounded-full text-xs font-bold border-2 border-white">
+                          <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-white py-0.5 px-1.5 rounded-full text-xs font-bold border-2 border-white">
                             {contributor.streak}🔥
                           </div>
                         )}
                       </div>
-                      <div className="min-w-0">
-                        <h3 className="text-lg font-bold text-gray-900 truncate">{contributor.name}</h3>
-                        <p className="text-gray-600 text-sm truncate">@{contributor.username}</p>
-                        <span className={`inline-block py-0.5 px-2 rounded-full text-xs font-bold uppercase tracking-wide ${getLevelBadgeColor(contributor.level)}`}>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-base font-bold text-gray-900 truncate">{contributor.name}</h3>
+                        <p className="text-gray-600 text-xs truncate">@{contributor.username}</p>
+                        <span className={`inline-block py-0.5 px-2 rounded-full text-xs font-bold uppercase tracking-wide ${getLevelBadgeColor(contributor.level)} mt-1`}>
                           {contributor.level}
                         </span>
                       </div>
