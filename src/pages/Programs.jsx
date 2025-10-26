@@ -172,7 +172,7 @@ const Programs = () => {
       </section>
 
       {/* Filters Section */}
-      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-0 z-50">
+      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-0 z-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center justify-between flex-wrap gap-4 py-2.5 px-5">
             <div className="relative flex-1 basis-[250px] min-w-[250px] max-w-[350px]">
@@ -248,10 +248,10 @@ const Programs = () => {
             <div className="flex justify-center gap-4 flex-wrap mt-5">
               <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300">Join Our Discord</a>
               <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-transparent text-white border border-white transition-all duration-300 hover:bg-white/20">Get Mentorship</a>
+
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 };

@@ -15,9 +15,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg z-1000`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg z-50`}>
       <div className="max-w-[1200px] w-full mx-auto py-4 pl-6 pr-8 flex justify-between items-center box-border">
         <Link
           to="/"
@@ -134,7 +132,7 @@ const Navbar = () => {
       )}
 
       <div
-        className={`md:hidden fixed top-16 left-0 w-full transition-all duration-300 transform ${isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0 pointer-events-none"} bg-white dark:bg-gray-900 shadow-xl z-50 overflow-y-auto`}
+        className={`md:hidden fixed top-16 left-0 w-full transition-all duration-300 transform ${isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0 pointer-events-none"} bg-white/95 dark:bg-gray-900/95 shadow-xl z-50 overflow-y-auto`}
         style={{ maxHeight: "calc(100vh - 4rem)" }}
       >
         <div className="px-3 sm:px-4 py-6 sm:py-8 flex flex-col gap-4 sm:gap-6">
