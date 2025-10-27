@@ -251,6 +251,7 @@ const Programs = () => {
 
             </div>
           </div>
+          </div>
         </section>
     </div>
   );
