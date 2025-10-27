@@ -153,8 +153,8 @@ const Programs = () => {
   const filteredPrograms = programs.filter(program => {
     const matchesFilter = filter === 'all' || program.category === filter;
     const matchesSearch = program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         program.organization.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         program.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
+      program.organization.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      program.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesFilter && matchesSearch;
   });
 
@@ -165,7 +165,7 @@ const Programs = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-900 mb-2.5">Open Source Programs</h1>
           <p className="text-base text-gray-600 max-w-2xl mx-auto">
-            Discover amazing opportunities to contribute to open source projects, gain experience, 
+            Discover amazing opportunities to contribute to open source projects, gain experience,
             and connect with the global developer community.
           </p>
         </div>
@@ -184,8 +184,8 @@ const Programs = () => {
                 className="w-full py-2.5 pl-3 pr-9 rounded-lg border border-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-blue-500 focus:shadow-[0_0_3px_rgba(0,123,255,0.3)]"
               />
               <svg className="absolute right-2.5 top-2.5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.35-4.35"/>
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
               </svg>
             </div>
 
@@ -194,7 +194,9 @@ const Programs = () => {
                 <button
                   key={category.value}
                   onClick={() => setFilter(category.value)}
-                  className={`bg-gray-100 border border-gray-400 text-gray-700 rounded-2xl py-1.5 px-3.5 cursor-pointer transition-all duration-250 text-sm hover:bg-gray-200 ${filter === category.value ? 'bg-blue-500 text-white border-blue-500' : ''}`}
+                  className={`border border-gray-400 text-gray-700 bg-gray-100 rounded-2xl py-1.5 px-3.5 cursor-pointer transition-all duration-300 text-sm
+                  hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 hover:text-white
+                  ${filter === category.value ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white border-blue-500' : ''}`}
                 >
                   {category.label}
                 </button>
@@ -223,8 +225,8 @@ const Programs = () => {
               <div className="text-6xl mb-4">🔍</div>
               <h3 className="text-2xl font-bold mb-2">No programs found</h3>
               <p className="mb-6">Try adjusting your search or filter criteria</p>
-              <button 
-                onClick={() => {setFilter('all'); setSearchTerm('');}}
+              <button
+                onClick={() => { setFilter('all'); setSearchTerm(''); }}
                 className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300"
               >
                 Clear Filters
@@ -240,16 +242,17 @@ const Programs = () => {
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-5">Ready to Get Started?</h2>
             <p className="mb-5">
-              Join our community and get guidance on how to apply to these programs. 
+              Join our community and get guidance on how to apply to these programs.
               Our mentors can help you prepare your applications and increase your chances of success.
             </p>
             <div className="flex justify-center gap-4 flex-wrap mt-5">
               <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300">Join Our Discord</a>
               <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-transparent text-white border border-white transition-all duration-300 hover:bg-white/20">Get Mentorship</a>
+
             </div>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
     </div>
   );
 };
