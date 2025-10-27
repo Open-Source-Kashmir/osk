@@ -179,7 +179,7 @@ const Mentors = () => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-gray-100 to-white py-16 text-center">
+      <section className="bg-gradient-to-r from-gray-100 to-white pt-32 pb-16 text-center">
         <div className="max-w-[1200px] mx-auto px-5">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             Meet Our Mentors

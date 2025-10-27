@@ -221,7 +221,7 @@ const Contributors = () => {
 
   if (isLoading) {
     return (
-      <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 flex items-center justify-center">
+      <div className="pt-28 min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 flex items-center justify-center">
         <LoadingSpinner 
           size="large" 
           color="blue" 
@@ -234,7 +234,7 @@ const Contributors = () => {
   return (
     <div className="">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-gray-50 to-indigo-50 py-12 text-center">
+      <section className="bg-gradient-to-r from-gray-50 to-indigo-50 pt-28 pb-12 text-center">
         <div className="max-w-3xl mx-auto px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Contributors</h1>
           <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">

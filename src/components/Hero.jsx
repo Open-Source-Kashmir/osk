@@ -3,7 +3,7 @@ import { Lightbulb, BookOpen, Handshake } from "lucide-react";
 
 export default function Hero() {
   return (
-    <header className="py-14 px-5">
+    <header className="pt-28 pb-14 px-5">
       <div className="max-w-[1200px] mx-auto flex items-center gap-8 flex-wrap">
         <div className="flex-1 basis-[520px] min-w-[280px]">
           <h1 className="text-4xl md:text-5xl m-0 mb-4 leading-tight font-extrabold text-white">

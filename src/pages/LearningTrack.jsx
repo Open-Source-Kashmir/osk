@@ -89,7 +89,7 @@ const LearningTrack = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
       {/* Header Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+      <section className="pt-28 pb-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Interactive Learning Tracks</h1>
