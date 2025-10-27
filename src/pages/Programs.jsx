@@ -194,9 +194,7 @@ const Programs = () => {
                 <button
                   key={category.value}
                   onClick={() => setFilter(category.value)}
-                  className={`border border-gray-400 text-gray-700 bg-gray-100 rounded-2xl py-1.5 px-3.5 cursor-pointer transition-all duration-300 text-sm
-                  hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 hover:text-white
-                  ${filter === category.value ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white border-blue-500' : ''}`}
+                  className={`rounded-2xl py-2 px-4 cursor-pointer transition-all duration-300 text-sm font-medium ${filter === category.value ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white border-2 border-blue-600 shadow-lg hover:from-blue-700 hover:to-blue-800 transform hover:-translate-y-0.5' : 'bg-gray-100 border border-gray-400 text-gray-700 hover:bg-gray-200 hover:border-gray-500 hover:shadow-lg transform hover:-translate-y-1 hover:scale-102'}`}
                 >
                   {category.label}
                 </button>
@@ -251,6 +249,7 @@ const Programs = () => {
 
             </div>
           </div>
+        </div>
         </section>
     </div>
   );
