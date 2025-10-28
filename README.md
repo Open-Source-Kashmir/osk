@@ -8,11 +8,12 @@
 
 # 🌍 Open Source Kashmir Website
 
-This is the official website for **Open Source Kashmir (OSK)** — a community-driven initiative to build an open source ecosystem in Kashmir through awareness, mentorship, and collaboration.  
+This is the official website for **Open Source Kashmir (OSK)** — a community-driven initiative to build an open source ecosystem in Kashmir through awareness, mentorship, and collaboration.
 
-We are part of **Hacktoberfest 2025 🎉** and welcome contributors of all skill levels. Whether you’re new to open source or experienced, this is a great place to contribute.  
+We are part of **Hacktoberfest 2025 🎉** and welcome contributors of all skill levels. Whether you’re new to open source or experienced, this is a great place to contribute.
 
 ---
+
 ## 🤝 Contribution Guidelines
 
 We welcome all contributions — code, documentation, design, and ideas.
@@ -20,23 +21,16 @@ We welcome all contributions — code, documentation, design, and ideas.
 ### ✅ Good First Issues
 
 - Add new mentor card to Mentors Page
-
 - Create program card for LFX, GSoC, Outreachy, C4GT
-
 - Improve About Us section
-
 - Add new resources (guides, blogs, YouTube links)
-
 - Enhance UI/UX styling
 
 ## ⚠️ Hacktoberfest Rules (Important)
 
 - PRs must be created between Oct 1–31, 2025
-
 - PRs must be meaningful (no spam, no random text, no whitespace-only changes)
-
 - Low-quality PRs will be marked as spam or invalid and won’t count
-
 - Valid PRs must be merged, approved, or labeled hacktoberfest-accepted
 
 📖 More details: [Hacktoberfest Rules](https://hacktoberfest.com/)
@@ -44,66 +38,77 @@ We welcome all contributions — code, documentation, design, and ideas.
 ---
 
 ## 🚀 Development Setup
+
 This project uses **React.js**.
 
-1. Fork this repo 🍴  
+1. Fork this repo 🍴
 2. Clone your fork
+
    ```bash
    git clone https://github.com/YOUR-USERNAME/osk.git
-3. ```cd osk```
+   ```
+3. ``cd osk``
 4. Install dependencies
+
    ```bash
      npm install
 
-5. Start development server
+   ```
+5. Setup backend for Nodemailer to work
+   ->  First setup for the .env in the backend
+
+   ```bash
+     EMAIL_USER=sender mail
+     EMAIL_PASS=sender mail app password
+     EMAIL_TO=official osk email
+     PORT=5002
+
+    # Now setup the backend
+      cd backend
+      npm install
+
+      npm start
+
+   ```
+
+6. Start development server
    ```bash
    npm run dev
 
+   ```
 
 ## 🎯 Contribution Ideas
 
 Here are some ways you can contribute:
 
 - Add mentor cards with bio, expertise, links.
-
 - Create program cards for GSoC, LFX, Outreachy, etc.
-
 - Add a Contributors Wall page.
-
 - Improve CSS and responsiveness.
-
 - Add animations and hover effects.
-
 - Write documentation for beginners.
-
 - Suggest new sections/features.
-
 
 ## 🛠 How to Contribute
 
 - Fork & clone the repo.
-
 - Create a new branch.
-
 - Make changes and commit.
-
 - Push and open a Pull Request (PR).
 
 ✅ Tip: Small contributions are welcome — even adding one mentor card is a valid PR.
 
-
 ## 🤝 Join the Community
 
 - GitHub Org: Open Source Kashmir
-
 - LinkedIn: coming soon
-
 - Instagram: coming soon
 
 Let’s build the open source community of Kashmir together 🚀
 
-## Admin 
-[Athar Ramzan](https://github.com/oathar) <br>
+## Admin
+
+[Athar Ramzan](https://github.com/oathar) `<br>`
 [Ayaan Taimur](https://github.com/MAT1018)
 
 ## License
