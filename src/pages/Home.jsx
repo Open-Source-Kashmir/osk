@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import ProgramCard from '../components/ProgramCard';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import Contact from '../components/Contact_Form/Contact';
+
 import { Users, UserPlus, Globe, FolderKanban, GraduationCap, Target, TrendingUp, CalendarRange } from "lucide-react";
 
 const Home = () => {
@@ -139,8 +141,8 @@ const Home = () => {
                 <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-opacity-20 mb-6">
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-200">{feature.title}</h3>
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -170,7 +172,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-950 dark:to-gray-900 text-white">
+      {/* <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
         <div className="max-w-[1200px] mx-auto px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">Ready to Start Your Open Source Journey?</h2>
@@ -190,7 +192,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <Contact />
     </div>
   );
 };

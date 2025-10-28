@@ -203,7 +203,8 @@ const Mentors = () => {
                 className={`bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-3xl py-7 px-6 text-center cursor-pointer transition-all duration-500 flex flex-col items-center gap-3.5 shadow-lg shadow-gray-300/50 dark:shadow-gray-900/50 relative overflow-hidden min-w-[160px] max-w-[200px] flex-0 box-border text-gray-900 dark:text-gray-100 hover:bg-gradient-to-br hover:from-gray-100 hover:to-gray-50 dark:hover:from-gray-700 dark:hover:to-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 ${selectedCategory === category.value ? 'bg-gradient-to-br from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-800 border-blue-700 dark:border-blue-600 text-white shadow-xl shadow-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/50 -translate-y-1 scale-105' : ''}`}
               >
                 <div className="text-4xl transition-transform duration-300">{category.icon}</div>
-                <span className="font-bold text-base tracking-wider">{category.label}</span>
+                <span className="font-bold text-base tracking-wider text-gray-700 active:text-black">{category.label}
+                </span>
               </button>
             ))}
           </div>
@@ -239,11 +240,16 @@ const Mentors = () => {
               </svg>
             </div>
             <div className="flex items-center gap-3">
-              <label className="inline-flex items-center gap-2 py-1.5 px-3 border-2 border-gray-300 dark:border-gray-600 rounded-full bg-white dark:bg-gray-800">
-                <input type="checkbox" checked={onlineOnly} onChange={(e) => { setOnlineOnly(e.target.checked); setVisibleCount(6); }} className="accent-blue-500" />
-                <span className="text-gray-900 dark:text-white font-semibold">Online only</span>
-              </label>
-              <select className="py-3 px-4 rounded-2xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" value={sortBy} onChange={(e) => setSortBy(e.target.value)}
+            <label className="inline-flex items-center gap-2 py-1.5 px-3 border-2 border-gray-300 rounded-full bg-white whitespace-nowrap">
+              <input
+                type="checkbox"
+                checked={onlineOnly}
+                onChange={(e) => { setOnlineOnly(e.target.checked); setVisibleCount(6); }}
+                className="accent-blue-500"
+              />
+              <span className="text-gray-900 font-semibold">Online only</span>
+            </label>
+              <select className="py-3 px-4 rounded-2xl border-2 border-gray-300 bg-white text-gray-900" value={sortBy} onChange={(e) => setSortBy(e.target.value)}
                 aria-label="Sort mentors"
               >
                 <option value="relevance">Sort: Relevance</option>
@@ -256,10 +262,18 @@ const Mentors = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-full mx-auto py-4 box-border overflow-visible">
             {visibleMentors.map((mentor) => (
-              <div key={mentor.id} className="bg-gradient-to-br from-white to-white dark:from-gray-800 dark:to-gray-900 rounded-3xl p-10 shadow-xl shadow-gray-300/50 dark:shadow-gray-900/50 transition-all duration-500 text-center relative overflow-hidden border-2 border-gray-300 dark:border-gray-700 backdrop-blur-sm max-w-full box-border hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 hover:border-blue-500 dark:hover:border-blue-400">
-                <div className="relative w-25 h-25 mx-auto mb-6 transition-transform duration-500 hover:scale-110">
-                  <img src={mentor.avatar} alt={mentor.name} className="w-full h-full rounded-full object-cover shadow-xl shadow-gray-300/50 dark:shadow-gray-900/50 transition-all duration-500 border-4 border-gray-300 dark:border-gray-600 hover:shadow-2xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 hover:border-blue-500 dark:hover:border-blue-400" />
-                  {mentor.online && <div className="absolute bottom-1.5 right-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-gray-800 bg-green-500"></div>}
+              <div key={mentor.id} className="bg-gradient-to-br from-white to-white rounded-3xl p-10 shadow-xl shadow-gray-300/50 transition-all duration-500 text-center relative overflow-hidden border-2 border-gray-300 backdrop-blur-sm max-w-full box-border hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-300/50 hover:border-blue-500">
+                <div className="flex items-center justify-center mb-6">
+                    <div className="relative w-28 h-28 flex items-center justify-center transition-transform duration-500 hover:scale-110">
+                      <img
+                          src={mentor.avatar}
+                          alt={mentor.name}
+                          className="w-full h-full rounded-full object-cover border-4 border-gray-300 shadow-md shadow-gray-300/50 hover:border-blue-500 hover:shadow-lg bg-gradient-to-br from-gray-100 to-gray-200"
+                      />
+                      {mentor.online && (
+                        <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-white bg-green-500"></div>
+                      )}
+                    </div>
                 </div>
                 
                 <div className="mentor-info">
@@ -311,21 +325,33 @@ const Mentors = () => {
       </section>
 
       {/* Become a Mentor CTA */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-500 dark:from-blue-800 dark:to-blue-600 py-16 text-white">
-        <div className="max-w-6xl w-full mx-auto px-10 box-border">
-          <div className="text-center max-w-4xl mx-auto px-4">
-            <h2 className="text-4xl font-extrabold mb-5 text-white leading-tight">Want to Become a Mentor?</h2>
-            <p className="text-xl text-blue-100 dark:text-blue-200 mb-10 leading-relaxed">
-              Share your knowledge and help the next generation of developers grow. 
-              Join our mentor community and make a real impact.
-            </p>
-            <div className="flex gap-4 justify-center flex-wrap">
-              <a href="#" className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-800 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent relative overflow-hidden hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 dark:hover:from-blue-700 dark:hover:to-blue-900 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50">Apply to be a Mentor</a>
-              <a href="#" className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-white dark:bg-gray-800 text-blue-500 dark:text-blue-400 border-2 border-white dark:border-gray-700 hover:bg-blue-500 dark:hover:bg-blue-600 hover:text-white hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-auto">
+  <div className="max-w-6xl w-full mx-auto px-10 box-border">
+    <div className="text-center max-w-4xl mx-auto px-4">
+      <h2 className="text-4xl font-extrabold mb-5 text-white leading-tight">
+        Want to Become a Mentor?
+      </h2>
+      <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+        Share your knowledge and help the next generation of developers grow. 
+        Join our mentor community and make a real impact.
+      </p>
+      <div className="flex gap-4 justify-center flex-wrap">
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-white text-gray-900 shadow-md border-2 border-transparent hover:bg-gray-200 hover:-translate-y-1 hover:shadow-lg"
+        >
+          Apply to be a Mentor
+        </a>
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-transparent text-white border-2 border-gray-300 hover:bg-gray-200 hover:text-gray-900 hover:-translate-y-1 hover:shadow-lg"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Mentor Modal */}
       {selectedMentor && (
