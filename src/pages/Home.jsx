@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import ProgramCard from '../components/ProgramCard';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import Contact from '../components/Contact_Form/Contact';
+
 import { Users, UserPlus, Globe, FolderKanban, GraduationCap, Target, TrendingUp, CalendarRange } from "lucide-react";
 
 const Home = () => {
@@ -170,7 +172,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+      {/* <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
         <div className="max-w-[1200px] mx-auto px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">Ready to Start Your Open Source Journey?</h2>
@@ -190,7 +192,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <Contact />
     </div>
   );
 };
