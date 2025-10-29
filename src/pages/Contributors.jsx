@@ -235,9 +235,10 @@ const Contributors = () => {
     <div className="">
       {/* Header Section */}
       <section className="bg-gradient-to-r from-gray-50 to-indigo-50 pt-28 pb-12 text-center">
+      <section className="bg-gradient-to-r from-gray-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 py-12 text-center">
         <div className="max-w-3xl mx-auto px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Contributors</h1>
-          <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Our Contributors</h1>
+          <p className="text-lg md:text-xl text-gray-500 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Meet the amazing people who make Open Source Kashmir possible. 
             Our contributors come from all backgrounds and skill levels, united by their passion for open source.
           </p>
@@ -245,17 +246,17 @@ const Contributors = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-12">
+      <section className="bg-white dark:bg-gray-900 py-12">
         <div className="max-w-6xl mx-auto px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-items-center">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="w-44 md:w-48 flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
               >
                 <div className="text-3xl md:text-4xl">{stat.icon}</div>
-                <div className="text-xl md:text-2xl font-bold text-slate-900 mt-3">{stat.value}</div>
-                <div className="text-xs md:text-sm text-slate-500 mt-1 text-center">{stat.label}</div>
+                <div className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mt-3">{stat.value}</div>
+                <div className="text-xs md:text-sm text-slate-500 dark:text-gray-400 mt-1 text-center">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -263,21 +264,21 @@ const Contributors = () => {
       </section>
 
       {/* Featured Contributors Section */}
-      <section className="bg-gray-50 py-12">
+      <section className="bg-gray-50 dark:bg-gray-800 py-12">
         <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Featured Contributors</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Featured Contributors</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredContributors.map((contributor) => (
-              <div key={contributor.id} className="bg-white p-8 rounded-xl text-center shadow-lg shadow-gray-200/50 transition-transform duration-300 hover:-translate-y-1">
+              <div key={contributor.id} className="bg-white dark:bg-gray-900 p-8 rounded-xl text-center shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 transition-transform duration-300 hover:-translate-y-1">
                 <div className="relative w-20 h-20 mx-auto mb-4">
                   <img src={contributor.avatar} alt={contributor.name} className="w-full h-full rounded-full object-cover" />
                   <div className="absolute -top-1 -right-1 text-2xl">⭐</div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{contributor.name}</h3>
-                <p className="text-blue-600 font-semibold mb-2">{contributor.role}</p>
-                <p className="text-gray-600 mb-4">{contributor.contributions} contributions</p>
-                <p className="text-gray-700 text-sm leading-relaxed mb-6">{contributor.bio}</p>
-                <a href={contributor.githubUrl} className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 px-4 rounded-lg font-semibold transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{contributor.name}</h3>
+                <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">{contributor.role}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">{contributor.contributions} contributions</p>
+                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-6">{contributor.bio}</p>
+                <a href={contributor.githubUrl} className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-all duration-300 hover:from-blue-800 hover:to-blue-900 dark:hover:from-blue-600 dark:hover:to-blue-800 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
                   View Profile
                 </a>
               </div>
@@ -287,10 +288,10 @@ const Contributors = () => {
       </section>
 
       {/* Filters and Search */}
-      <section className="bg-white py-8 border-b border-gray-200 sticky top-20 z-10">
+      <section className="bg-white dark:bg-gray-900 py-8 border-b border-gray-200 dark:border-gray-700 sticky top-20 z-10">
         <div className="max-w-6xl mx-auto px-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 flex-wrap">
-            <h2 className="text-2xl font-bold text-gray-900 text-center md:text-left">All Contributors</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center md:text-left">All Contributors</h2>
             <div className="relative max-w-xs w-full md:w-auto">
             <input
                 type="text"
@@ -299,7 +300,7 @@ const Contributors = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full py-3 pl-12 pr-4 rounded-lg text-base text-gray-800 placeholder-gray-400 bg-gray-50 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 shadow-sm transition-all duration-300"
               />
-              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"/>
                 <path d="m21 21-4.35-4.35"/>
               </svg>
@@ -311,7 +312,7 @@ const Contributors = () => {
               <button
                 key={level.value}
                 onClick={() => setActiveTab(level.value)}
-                className={`flex items-center gap-2 py-2 px-4 rounded-lg font-medium transition-all duration-300 ${activeTab === level.value ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+                className={`flex items-center gap-2 py-2 px-4 rounded-lg font-medium transition-all duration-300 ${activeTab === level.value ? 'bg-blue-600 dark:bg-blue-500 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}`}
               >
                 <span className="text-base">{level.icon}</span>
                 {level.label}
@@ -322,56 +323,56 @@ const Contributors = () => {
       </section>
 
       {/* Contributors Grid */}
-      <section className="bg-gray-50 py-12">
+      <section className="bg-gray-50 dark:bg-gray-800 py-12">
         <div className="max-w-6xl mx-auto px-8">
           {filteredContributors.length > 0 ? (
             <>
-              <div className="text-gray-600 mb-8 font-medium">
+              <div className="text-gray-600 dark:text-gray-400 mb-8 font-medium">
                 {filteredContributors.length} contributor{filteredContributors.length !== 1 ? 's' : ''} found
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredContributors.map((contributor) => (
-                  <div key={contributor.id} className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div key={contributor.id} className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <div className="flex items-start gap-3 mb-4">
                       <div className="relative w-12 h-12 flex-shrink-0">
                         <img src={contributor.avatar} alt={contributor.name} className="w-full h-full rounded-full object-cover" />
                         {contributor.streak > 0 && (
-                          <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-white py-0.5 px-1.5 rounded-full text-xs font-bold border-2 border-white">
+                          <div className="absolute -bottom-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-white py-0.5 px-1.5 rounded-full text-xs font-bold border-2 border-white dark:border-gray-900">
                             {contributor.streak}🔥
                           </div>
                         )}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h3 className="text-base font-bold text-gray-900 truncate">{contributor.name}</h3>
-                        <p className="text-gray-600 text-xs truncate">@{contributor.username}</p>
+                        <h3 className="text-base font-bold text-gray-900 dark:text-white truncate">{contributor.name}</h3>
+                        <p className="text-gray-600 dark:text-gray-400 text-xs truncate">@{contributor.username}</p>
                         <span className={`inline-block py-0.5 px-2 rounded-full text-xs font-bold uppercase tracking-wide ${getLevelBadgeColor(contributor.level)} mt-1`}>
                           {contributor.level}
                         </span>
                       </div>
                     </div>
 
-                    <div className="flex justify-around mb-4 p-4 bg-gray-100 rounded-lg">
+                    <div className="flex justify-around mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                       <div className="text-center">
-                        <span className="text-lg font-bold text-gray-900">{contributor.contributions}</span>
-                        <span className="text-xs text-gray-600 block">Contributions</span>
+                        <span className="text-lg font-bold text-gray-900 dark:text-white">{contributor.contributions}</span>
+                        <span className="text-xs text-gray-600 dark:text-gray-400 block">Contributions</span>
                       </div>
                       <div className="text-center">
-                        <span className="text-lg font-bold text-gray-900">{contributor.projects.length}</span>
-                        <span className="text-xs text-gray-600 block">Projects</span>
+                        <span className="text-lg font-bold text-gray-900 dark:text-white">{contributor.projects.length}</span>
+                        <span className="text-xs text-gray-600 dark:text-gray-400 block">Projects</span>
                       </div>
                     </div>
 
-                    <p className="text-blue-600 font-semibold text-sm mb-1">{contributor.role}</p>
-                    <p className="text-gray-600 text-sm mb-4">📍 {contributor.location}</p>
+                    <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-1">{contributor.role}</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">📍 {contributor.location}</p>
 
                     <div className="flex flex-wrap gap-2 mb-6">
                       {contributor.skills.slice(0, 3).map((skill, index) => (
-                        <span key={index} className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-900 py-1 px-3 rounded-full text-xs font-medium border border-blue-200">
+                        <span key={index} className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 text-blue-900 dark:text-blue-300 py-1 px-3 rounded-full text-xs font-medium border border-blue-200 dark:border-blue-700">
                           {skill}
                         </span>
                       ))}
                       {contributor.skills.length > 3 && (
-                        <span className="bg-gray-200 text-gray-600 py-1 px-3 rounded-full text-xs font-medium">
+                        <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 py-1 px-3 rounded-full text-xs font-medium">
                           +{contributor.skills.length - 3}
                         </span>
                       )}
@@ -382,7 +383,7 @@ const Contributors = () => {
                         href={contributor.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 px-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5"
+                        className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700 text-white py-2 px-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:from-blue-800 hover:to-blue-900 dark:hover:from-blue-600 dark:hover:to-blue-800 hover:-translate-y-0.5"
                       >
                         View GitHub
                       </a>
@@ -392,13 +393,13 @@ const Contributors = () => {
               </div>
             </>
           ) : (
-            <div className="bg-white rounded-xl p-12 text-center shadow-lg shadow-gray-200/50">
+            <div className="bg-white dark:bg-gray-900 rounded-xl p-12 text-center shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50">
               <div className="text-5xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">No contributors found</h3>
-              <p className="text-gray-600 mb-6">Try adjusting your search or filter criteria</p>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">No contributors found</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">Try adjusting your search or filter criteria</p>
               <button 
                 onClick={() => {setActiveTab('all'); setSearchTerm('');}}
-                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:from-blue-800 hover:to-blue-900 hover:-translate-y-0.5"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:from-blue-800 hover:to-blue-900 dark:hover:from-blue-600 dark:hover:to-blue-800 hover:-translate-y-0.5"
               >
                 Clear Filters
               </button>
