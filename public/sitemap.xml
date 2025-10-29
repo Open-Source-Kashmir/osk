@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://osk-open-source.netlify.app/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://osk-open-source.netlify.app/programs</loc>
+  </url>
+  <url>
+    <loc>https://osk-open-source.netlify.app/mentors</loc>
+  </url>
+  <url>
+    <loc>https://osk-open-source.netlify.app/contributors</loc>
+  </url>
+  <url>
+    <loc>https://osk-open-source.netlify.app/community</loc>
+  </url>
+  <url>
+    <loc>https://osk-open-source.netlify.app/learning</loc>
+  </url>
+  <url>
+    <loc>https://osk-open-source.netlify.app/contact</loc>
+  </url>
+</urlset>
+
