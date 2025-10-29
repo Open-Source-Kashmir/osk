@@ -34,21 +34,21 @@ export default function Hero() {
               <div className="text-4xl mb-1" aria-hidden="true">
                 <Lightbulb color="#0ea5e9" size={40} />
               </div>
-              <h3 className="text-base m-0 font-bold">Innovation</h3>
+              <h3 className="text-base m-0 font-bold text-gray-900 dark:text-white">Innovation</h3>
             </div>
 
             <div className="w-30 h-30 bg-white dark:bg-gray-900/95 text-gray-900 dark:text-white rounded-2xl flex flex-col items-center justify-center shadow-xl shadow-gray-300/50 dark:shadow-gray-900/80 text-center p-2 transition-all duration-150 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-300/60 dark:hover:shadow-gray-900/90 border border-gray-200 dark:border-transparent" role="listitem">
               <div className="text-4xl mb-1" aria-hidden="true">
                 <BookOpen color="#0ea5e9" size={40} />
               </div>
-              <h3 className="text-base m-0 font-bold">Learning</h3>
+              <h3 className="text-base m-0 font-bold text-gray-900 dark:text-white">Learning</h3>
             </div>
 
             <div className="w-30 h-30 bg-white dark:bg-gray-900/95 text-gray-900 dark:text-white rounded-2xl flex flex-col items-center justify-center shadow-xl shadow-gray-300/50 dark:shadow-gray-900/80 text-center p-2 transition-all duration-150 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-300/60 dark:hover:shadow-gray-900/90 border border-gray-200 dark:border-transparent" role="listitem">
               <div className="text-4xl mb-1" aria-hidden="true">
                 <Handshake color="#0ea5e9" size={40} />
               </div>
-              <h3 className="text-base m-0 font-bold">Collaboration</h3>
+              <h3 className="text-base m-0 font-bold text-gray-900 dark:text-white">Collaboration</h3>
             </div>
           </div>
         </div>
