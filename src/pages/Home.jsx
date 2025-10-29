@@ -120,7 +120,7 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <div
                 key={stat.label}
                 className={`${stat.bgColor} p-6 rounded-2xl text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
