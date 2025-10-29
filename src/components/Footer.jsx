@@ -4,13 +4,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 px-5 text-center">
+    <footer className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white py-16 px-5 text-center">
       <div className="max-w-[1200px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-12">
           {/* Brand Section */}
           <div className="flex flex-col gap-6">
             <h3 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent m-0">Open Source Kashmir</h3>
-            <p className="text-gray-400 leading-relaxed m-0">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed m-0">
               Empowering Kashmir to code, collaborate, and contribute to global open source projects.
             </p>
             <div className="flex gap-4 mt-2">
@@ -18,7 +18,7 @@ const Footer = () => {
                 href="https://github.com/Open-Source-Kashmir" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
+                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-600 dark:text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
                 aria-label="GitHub"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -29,7 +29,7 @@ const Footer = () => {
                 href="https://twitter.com/OpenSourceKashmir" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
+                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-600 dark:text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
                 aria-label="Twitter"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -40,7 +40,7 @@ const Footer = () => {
                 href="https://linkedin.com/company/open-source-kashmir" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
+                className="flex items-center justify-center w-10 h-10 bg-blue-500/20 rounded-lg text-gray-600 dark:text-gray-400 no-underline transition-all duration-300 hover:bg-blue-500/30 hover:text-blue-400 hover:-translate-y-0.5"
                 aria-label="LinkedIn"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -52,52 +52,52 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-lg font-semibold text-white m-0 mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white m-0 mb-4">Quick Links</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Home</Link>
-              <Link to="/programs" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Programs</Link>
-              <Link to="/mentors" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Mentors</Link>
-              <Link to="/contributors" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Contributors</Link>
-              <Link to="/learning" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Learning Tracks</Link>
-              <Link to="/community" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Community</Link>
+              <Link to="/" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Home</Link>
+              <Link to="/programs" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Programs</Link>
+              <Link to="/mentors" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Mentors</Link>
+              <Link to="/contributors" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Contributors</Link>
+              <Link to="/learning" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Learning Tracks</Link>
+              <Link to="/community" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Community</Link>
             </div>
           </div>
 
           {/* Programs */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-lg font-semibold text-white m-0 mb-4">Programs</h4>
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white m-0 mb-4">Programs</h4>
             <div className="flex flex-col gap-3">
-              <a href="https://summerofcode.withgoogle.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Google Summer of Code</a>
-              <a href="https://lfx.linuxfoundation.org/tools/mentorship/" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">LFX Mentorship</a>
-              <a href="https://www.outreachy.org/" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Outreachy</a>
-              <a href="https://fellowship.mlh.io/" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">MLH Fellowship</a>
+              <a href="https://summerofcode.withgoogle.com/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Google Summer of Code</a>
+              <a href="https://lfx.linuxfoundation.org/tools/mentorship/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">LFX Mentorship</a>
+              <a href="https://www.outreachy.org/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">Outreachy</a>
+              <a href="https://fellowship.mlh.io/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">MLH Fellowship</a>
             </div>
           </div>
 
           {/* Contact */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-lg font-semibold text-white m-0 mb-4">Get In Touch</h4>
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white m-0 mb-4">Get In Touch</h4>
             <div className="flex flex-col gap-3">
-              <a href="mailto:opensourcekashmir@gmail.com" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
+              <a href="mailto:opensourcekashmir@gmail.com" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
                 opensourcekashmir@gmail.com
               </a>
-              <a href="https://discord.gg/gEHBwfDX" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
+              <a href="https://discord.gg/gEHBwfDX" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
                 Join our Discord
               </a>
-              <a href="https://github.com/Open-Source-Kashmir" className="text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
+              <a href="https://github.com/Open-Source-Kashmir" className="text-gray-600 dark:text-gray-400 no-underline transition-colors duration-300 text-sm hover:text-blue-400">
                 Contribute on GitHub
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 py-6">
+        <div className="border-t border-gray-300 dark:border-gray-700 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center flex-wrap gap-4">
-            <p className="text-gray-400 text-sm m-0">&copy; {currentYear} Open Source Kashmir. All rights reserved.</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm m-0">&copy; {currentYear} Open Source Kashmir. All rights reserved.</p>
             <div className="flex gap-6 flex-wrap justify-center">
-              <a href="#" className="text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Privacy Policy</a>
-              <a href="#" className="text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Terms of Service</a>
-              <a href="#" className="text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Code of Conduct</a>
+              <a href="#" className="text-gray-600 dark:text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Privacy Policy</a>
+              <a href="#" className="text-gray-600 dark:text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Terms of Service</a>
+              <a href="#" className="text-gray-600 dark:text-gray-400 no-underline text-sm transition-colors duration-300 hover:text-blue-400">Code of Conduct</a>
             </div>
           </div>
         </div>
