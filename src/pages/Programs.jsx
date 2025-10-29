@@ -161,7 +161,7 @@ const Programs = () => {
   return (
     <div className="w-full overflow-x-hidden relative">
       {/* Header Section */}
-      <section className="text-center py-15 px-5 bg-gradient-to-r from-gray-100 to-white">
+      <section className="text-center py-15 px-5 bg-gradient-to-r from-gray-100 to-white dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-900 mb-2.5">Open Source Programs</h1>
           <p className="text-base text-gray-600 max-w-2xl mx-auto">
@@ -172,7 +172,7 @@ const Programs = () => {
       </section>
 
       {/* Filters Section */}
-      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-0 z-40">
+      <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-700 py-2.5 sticky top-0 z-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center justify-between flex-wrap gap-4 py-2.5 px-5">
             <div className="relative flex-1 basis-[250px] min-w-[250px] max-w-[350px]">
@@ -181,7 +181,7 @@ const Programs = () => {
                 placeholder="Search programs..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full py-2.5 pl-3 pr-9 rounded-lg border border-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-blue-500 focus:shadow-[0_0_3px_rgba(0,123,255,0.3)]"
+                className="w-full py-2.5 pl-3 pr-9 rounded-lg border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm transition-all duration-300 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:shadow-[0_0_3px_rgba(0,123,255,0.3)]"
               />
               <svg className="absolute right-2.5 top-2.5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8" />
@@ -205,11 +205,11 @@ const Programs = () => {
       </section>
 
       {/* Programs Grid */}
-      <section className="py-10 px-5 bg-gray-50">
+      <section className="py-10 px-5 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-[1200px] mx-auto">
           {filteredPrograms.length > 0 ? (
             <>
-              <div className="font-semibold text-gray-600 mb-5 text-center">
+              <div className="font-semibold text-gray-600 dark:text-gray-400 mb-5 text-center">
                 {filteredPrograms.length} program{filteredPrograms.length !== 1 ? 's' : ''} found
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-center">
@@ -219,9 +219,9 @@ const Programs = () => {
               </div>
             </>
           ) : (
-            <div className="text-center py-15 text-gray-600">
+            <div className="text-center py-15 text-gray-600 dark:text-gray-400">
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold mb-2">No programs found</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">No programs found</h3>
               <p className="mb-6">Try adjusting your search or filter criteria</p>
               <button
                 onClick={() => { setFilter('all'); setSearchTerm(''); }}
@@ -235,7 +235,7 @@ const Programs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-15 px-5 text-center">
+      <section className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-blue-700 dark:to-cyan-700 text-white py-15 px-5 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-5">Ready to Get Started?</h2>

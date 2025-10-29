@@ -66,11 +66,11 @@ export default function CommunityPage() {
   ];
 
   return (
-    <main id="community" className="px-6 md:px-12 lg:px-20 py-12">
+    <main id="community" className="px-6 md:px-12 lg:px-20 py-12 bg-white dark:bg-gray-900">
       {/* big hero */}
       <section className="max-w-6xl mx-auto text-center py-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">Join the OSK Community</h1>
-        <p className="mt-4 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">Join the OSK Community</h1>
+        <p className="mt-4 text-lg md:text-xl text-gray-700 dark:text-slate-300 max-w-3xl mx-auto">
           Collaborate, learn, and contribute — whether you fix a typo, design an icon, or build a feature. OSK is
           friendly to new contributors and focused on mentorship and real outcomes.
         </p>
@@ -80,7 +80,7 @@ export default function CommunityPage() {
             href="https://github.com/Open-Source-Kashmir/osk"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-800 text-white shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           >
             View on GitHub
           </a>
@@ -89,7 +89,7 @@ export default function CommunityPage() {
             href="#"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-white shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           >
             Join Discord
           </a>
@@ -98,16 +98,16 @@ export default function CommunityPage() {
 
       {/* highlights - large card grid */}
       <section className="mt-10 max-w-6xl mx-auto">
-        <h2 className="text-2xl font-semibold text-white mb-4">Highlights</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Highlights</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((h) => (
             <article
               key={h.id}
-              className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-800/20 border border-slate-700 shadow-lg"
+              className="p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-800/60 dark:to-slate-800/20 border border-gray-200 dark:border-slate-700 shadow-lg"
             >
               <div className="text-3xl">{h.icon}</div>
-              <h3 className="mt-3 text-lg font-semibold text-white">{h.title}</h3>
-              <p className="mt-2 text-slate-300 text-sm">{h.body}</p>
+              <h3 className="mt-3 text-lg font-semibold text-gray-900 dark:text-white">{h.title}</h3>
+              <p className="mt-2 text-gray-700 dark:text-slate-300 text-sm">{h.body}</p>
             </article>
           ))}
         </div>
@@ -116,23 +116,23 @@ export default function CommunityPage() {
       {/* upcoming events - larger cards */}
       <section className="mt-12 max-w-6xl mx-auto">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold text-white">Upcoming events</h2>
-          <a href="#events" className="text-sm text-slate-300 hover:underline">
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Upcoming events</h2>
+          <a href="#events" className="text-sm text-gray-600 dark:text-slate-300 hover:underline">
             View calendar →
           </a>
         </div>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {events.map((e) => (
-            <div key={e.id} className="p-6 rounded-xl bg-slate-800 border border-slate-700">
-              <div className="text-sm text-slate-300">{e.date}</div>
-              <div className="mt-2 text-lg font-medium text-white">{e.title}</div>
-              <div className="mt-3 text-slate-300 text-sm">{e.details}</div>
+            <div key={e.id} className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-lg">
+              <div className="text-sm text-gray-600 dark:text-slate-300">{e.date}</div>
+              <div className="mt-2 text-lg font-medium text-gray-900 dark:text-white">{e.title}</div>
+              <div className="mt-3 text-gray-700 dark:text-slate-300 text-sm">{e.details}</div>
 
               <div className="mt-5">
                 <a
                   href="#"
-                  className="inline-flex items-center px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-white text-sm"
+                  className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-white text-sm transition-all duration-300"
                   aria-label={`Details for ${e.title}`}
                 >
                   Details
@@ -145,9 +145,9 @@ export default function CommunityPage() {
 
       {/* How to contribute + Resources side-by-side */}
       <section className="mt-12 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 p-6 rounded-xl bg-slate-800 border border-slate-700">
-          <h2 className="text-2xl font-semibold text-white">How to contribute</h2>
-          <ol className="mt-4 list-decimal list-inside space-y-3 text-slate-300">
+        <div className="lg:col-span-2 p-6 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-lg">
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">How to contribute</h2>
+          <ol className="mt-4 list-decimal list-inside space-y-3 text-gray-700 dark:text-slate-300">
             <li>Join the Discord and introduce yourself in #welcome.</li>
             <li>Pick an issue labeled <strong>good-first-issue</strong> or <strong>help-wanted</strong>.</li>
             <li>Create a small PR (docs, typos, tiny UI tweak) and request review.</li>
@@ -155,14 +155,14 @@ export default function CommunityPage() {
           </ol>
         </div>
 
-        <aside className="p-6 rounded-xl bg-slate-800 border border-slate-700">
-          <h3 className="text-lg font-semibold text-white">Quick links</h3>
+        <aside className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-lg">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Quick links</h3>
           <ul className="mt-3 space-y-2">
             {resources.map((r) => (
               <li key={r.id}>
                 <a
                   href={r.href}
-                  className="text-slate-200 hover:text-white hover:underline"
+                  className="text-gray-700 dark:text-slate-200 hover:text-gray-900 dark:hover:text-white hover:underline"
                   target={r.href.startsWith("http") ? "_blank" : "_self"}
                   rel={r.href.startsWith("http") ? "noreferrer" : undefined}
                 >
@@ -177,8 +177,8 @@ export default function CommunityPage() {
       {/* Contributors Section */}
       <section className="mt-12 max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-semibold text-white">Our Contributors</h2>
-          <a href="/contributors" className="text-sm text-slate-300 hover:underline">
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Our Contributors</h2>
+          <a href="/contributors" className="text-sm text-gray-600 dark:text-slate-300 hover:underline">
             View all contributors →
           </a>
         </div>
@@ -198,12 +198,12 @@ export default function CommunityPage() {
 
       {/* FAQ */}
       <section className="mt-12 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold text-white">FAQ</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">FAQ</h2>
         <div className="mt-4 space-y-3">
           {faqs.map((f, i) => (
-            <details key={i} className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-              <summary className="cursor-pointer text-white font-medium">{f.q}</summary>
-              <div className="mt-2 text-slate-300 text-sm">{f.a}</div>
+            <details key={i} className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-4 shadow-lg">
+              <summary className="cursor-pointer text-gray-900 dark:text-white font-medium">{f.q}</summary>
+              <div className="mt-2 text-gray-700 dark:text-slate-300 text-sm">{f.a}</div>
             </details>
           ))}
         </div>
@@ -211,47 +211,47 @@ export default function CommunityPage() {
 
       {/* refined Ready to contribute CTA (no repetition) */}
       <section className="mt-12 max-w-6xl mx-auto text-center pb-20">
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-slate-800/70 to-slate-700/60 shadow-lg">
+        <div className="p-8 rounded-2xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-slate-800/70 dark:to-slate-700/60 shadow-lg border border-gray-200 dark:border-slate-700">
           <div className="max-w-4xl mx-auto">
-            <div className="text-2xl md:text-3xl font-semibold text-white">Ready to contribute to OSK?</div>
-            <p className="mt-2 text-slate-300">
+            <div className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">Ready to contribute to OSK?</div>
+            <p className="mt-2 text-gray-700 dark:text-slate-300">
               Choose a path below — everything else (how-to steps and guides) is available above and in the contribution guide.
             </p>
 
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-              <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
-                <div className="text-2xl font-bold text-blue-300">Find</div>
-                <div className="font-semibold text-white mt-2">Pick an issue</div>
-                <div className="mt-1 text-sm text-slate-300">
-                  Browse issues labeled <span className="font-medium text-white">good-first-issue</span> to start.
+              <div className="p-4 rounded-lg bg-white dark:bg-slate-800/50 border border-gray-300 dark:border-slate-700 shadow-md">
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-300">Find</div>
+                <div className="font-semibold text-gray-900 dark:text-white mt-2">Pick an issue</div>
+                <div className="mt-1 text-sm text-gray-700 dark:text-slate-300">
+                  Browse issues labeled <span className="font-medium text-gray-900 dark:text-white">good-first-issue</span> to start.
                 </div>
                 <a
                   href="#"
-                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white"
+                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
                 >
                   View issues
                 </a>
               </div>
 
-              <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
-                <div className="text-2xl font-bold text-blue-300">Connect</div>
-                <div className="font-semibold text-white mt-2">Office hours</div>
-                <div className="mt-1 text-sm text-slate-300">Attend weekly drop-in sessions to get hands-on help from maintainers.</div>
+              <div className="p-4 rounded-lg bg-white dark:bg-slate-800/50 border border-gray-300 dark:border-slate-700 shadow-md">
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-300">Connect</div>
+                <div className="font-semibold text-gray-900 dark:text-white mt-2">Office hours</div>
+                <div className="mt-1 text-sm text-gray-700 dark:text-slate-300">Attend weekly drop-in sessions to get hands-on help from maintainers.</div>
                 <a
                   href="#"
-                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-slate-700 hover:bg-slate-600 text-white"
+                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-white transition-all duration-300"
                 >
                   Event details
                 </a>
               </div>
 
-              <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700">
-                <div className="text-2xl font-bold text-blue-300">Support</div>
-                <div className="font-semibold text-white mt-2">Request help</div>
-                <div className="mt-1 text-sm text-slate-300">Ask for pairing, reviews, or mentorship in our Discord channels.</div>
+              <div className="p-4 rounded-lg bg-white dark:bg-slate-800/50 border border-gray-300 dark:border-slate-700 shadow-md">
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-300">Support</div>
+                <div className="font-semibold text-gray-900 dark:text-white mt-2">Request help</div>
+                <div className="mt-1 text-sm text-gray-700 dark:text-slate-300">Ask for pairing, reviews, or mentorship in our Discord channels.</div>
                 <a
                   href="#"
-                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-slate-700 hover:bg-slate-600 text-white"
+                  className="mt-3 inline-block text-sm px-3 py-2 rounded bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-white transition-all duration-300"
                 >
                   Join Discord
                 </a>
@@ -263,21 +263,21 @@ export default function CommunityPage() {
                 href="https://github.com/Open-Source-Kashmir/osk"
                 target="_blank"
                 rel="noreferrer"
-                className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md"
+                className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1"
               >
                 Contribute on GitHub
               </a>
 
               <a
                 href="/CONTRIBUTING.md"
-                className="px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white font-medium"
+                className="px-6 py-3 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-white font-medium transition-all duration-300 hover:scale-105 hover:-translate-y-1"
               >
                 Contribution guide
               </a>
             </div>
 
-            <div className="mt-4 text-sm text-slate-300">
-              Want a direct intro? <a href="#" className="text-white underline">Request pairing in Discord</a>.
+            <div className="mt-4 text-sm text-gray-700 dark:text-slate-300">
+              Want a direct intro? <a href="#" className="text-blue-600 dark:text-white underline">Request pairing in Discord</a>.
             </div>
           </div>
         </div>
