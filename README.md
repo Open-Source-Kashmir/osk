@@ -71,7 +71,15 @@ This project uses **React.js**.
 
    ```
 
-6. Start development server
+6. Configure frontend API base URL
+   Create a frontend env var so the contact form knows where to send requests:
+
+   ```bash
+   # create a .env file in the project root (same level as package.json)
+   echo "VITE_API_BASE_URL=http://localhost:5002" > .env
+   ```
+
+7. Start development server
    ```bash
    npm run dev
 

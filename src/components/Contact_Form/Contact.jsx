@@ -24,8 +24,9 @@ export default function Contact() {
     setStatus('Sending...');
     
     try {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5002';
       console.log('Sending request to backend...');
-      const response = await fetch('http://localhost:5002/api/contact', {
+      const response = await fetch(`${apiBaseUrl}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -13,6 +13,8 @@ import CommunityPage from "./pages/CommunityPage";
 import LearningTrack from "./pages/LearningTrack";
 import ModuleDetail from "./pages/ModuleDetail";
 import BackToTop from "./components/shared/BackToTop";
+import Contact from "./components/Contact_Form/Contact";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -30,7 +32,7 @@ export default function App() {
         <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-100 to-indigo-50 dark:from-gray-900 dark:to-gray-800">
           <Navbar />
 
-          <main className="pt-24">
+          <main id="main-content" className="pt-24">
             {/* Routed pages */}
             <Routes>
               <Route path="/" element={<Home />} />
@@ -40,6 +42,8 @@ export default function App() {
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/learning" element={<LearningTrack />} />
               <Route path="/learning/:trackId/:moduleId" element={<ModuleDetail />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
 

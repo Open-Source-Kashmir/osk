@@ -4,16 +4,22 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5002;
 
 // CORS setup
+const allowedOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: allowedOrigin,
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 }));
 
 app.use(express.json());
+
+// Health check
+app.get('/health', (_req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',

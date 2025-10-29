@@ -69,6 +69,13 @@ const Navbar = () => {
           >
             Learning
           </Link>
+          <Link
+            to="/contact"
+            className={`${isActive("/contact") === "nav-link active" ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12" : "text-gray-900 dark:text-gray-100"} no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contact
+          </Link>
 
           <a
             href="https://github.com/Open-Source-Kashmir"
@@ -182,6 +189,13 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Learning
+            </Link>
+            <Link
+              to="/contact"
+              className={`${isActive("/contact") === "nav-link active" ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400" : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"} no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
             </Link>
           </div>
 
