@@ -203,7 +203,7 @@ const Mentors = () => {
                 className={`bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-3xl py-7 px-6 text-center cursor-pointer transition-all duration-500 flex flex-col items-center gap-3.5 shadow-lg shadow-gray-300/50 dark:shadow-gray-900/50 relative overflow-hidden min-w-[160px] max-w-[200px] flex-0 box-border text-gray-900 dark:text-gray-100 hover:bg-gradient-to-br hover:from-gray-100 hover:to-gray-50 dark:hover:from-gray-700 dark:hover:to-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 ${selectedCategory === category.value ? 'bg-gradient-to-br from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-800 border-blue-700 dark:border-blue-600 text-white shadow-xl shadow-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/50 -translate-y-1 scale-105' : ''}`}
               >
                 <div className="text-4xl transition-transform duration-300">{category.icon}</div>
-                <span className="font-bold text-base tracking-wider text-gray-700 active:text-black">{category.label}
+                <span className="font-bold text-base tracking-wider text-gray-700 dark:text-gray-100 active:text-black">{category.label}
                 </span>
               </button>
             ))}
