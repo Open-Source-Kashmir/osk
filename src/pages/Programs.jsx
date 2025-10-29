@@ -163,8 +163,8 @@ const Programs = () => {
       {/* Header Section */}
       <section className="text-center py-15 px-5 bg-gradient-to-r from-gray-100 to-white dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2.5">Open Source Programs</h1>
-          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2.5">Open Source Programs</h1>
+          <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Discover amazing opportunities to contribute to open source projects, gain experience,
             and connect with the global developer community.
           </p>
