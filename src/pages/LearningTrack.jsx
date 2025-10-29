@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Clock, Users, CheckCircle, PlayCircle, Target, Award, ArrowRight } from 'lucide-react';
 import learningTracks from '../data/learningTracks.json';
@@ -65,16 +65,6 @@ const LearningTrack = () => {
     setSelectedTrack(trackId);
   };
 
-  const completeModule = (moduleId) => {
-    if (!userProgress.completedModules.includes(moduleId)) {
-      setUserProgress(prev => ({
-        ...prev,
-        completedModules: [...prev.completedModules, moduleId],
-        progress: calculateProgress(prev.currentTrack)
-      }));
-    }
-  };
-
   const navigateToModule = (trackId, moduleId) => {
     navigate(`/learning/${trackId}/${moduleId}`);
   };
@@ -126,7 +116,7 @@ const LearningTrack = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {learningTracks.map((track) => (
-              <div key={track.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
+              <div key={track.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
                 {/* Track Header */}
                 <div className={`bg-gradient-to-r ${getTrackColor(track.color)} p-8 text-white`}>
                   <div className="flex items-center justify-between mb-4">
