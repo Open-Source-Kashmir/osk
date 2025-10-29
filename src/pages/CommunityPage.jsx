@@ -66,11 +66,11 @@ export default function CommunityPage() {
   ];
 
   return (
-    <main id="community" className="px-6 md:px-12 lg:px-20 py-12 bg-white dark:bg-gray-900">
+    <div id="community" className="px-6 md:px-12 lg:px-20 pt-28 pb-12">
       {/* big hero */}
-      <section className="max-w-6xl mx-auto text-center py-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">Join the OSK Community</h1>
-        <p className="mt-4 text-lg md:text-xl text-gray-700 dark:text-slate-300 max-w-3xl mx-auto">
+      <section className="max-w-6xl mx-auto text-center pt-12 pb-6">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">Join the OSK Community</h1>
+        <p className="mt-4 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
           Collaborate, learn, and contribute — whether you fix a typo, design an icon, or build a feature. OSK is
           friendly to new contributors and focused on mentorship and real outcomes.
         </p>
@@ -282,7 +282,7 @@ export default function CommunityPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 // ...existing code...

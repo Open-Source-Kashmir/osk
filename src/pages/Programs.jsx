@@ -161,7 +161,7 @@ const Programs = () => {
   return (
     <div className="w-full overflow-x-hidden relative">
       {/* Header Section */}
-      <section className="text-center py-15 px-5 bg-gradient-to-r from-gray-100 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="text-center pt-32 pb-16 px-5 bg-gradient-to-r from-gray-100 to-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2.5">Open Source Programs</h1>
           <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -172,7 +172,7 @@ const Programs = () => {
       </section>
 
       {/* Filters Section */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-700 py-2.5 sticky top-0 z-40">
+      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-20 z-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center justify-between flex-wrap gap-4 py-2.5 px-5">
             <div className="relative flex-1 basis-[250px] min-w-[250px] max-w-[350px]">
@@ -249,8 +249,8 @@ const Programs = () => {
 
             </div>
           </div>
-        </div>
-        </section>
+        </div>  
+      </section>
     </div>
   );
 };

@@ -52,7 +52,7 @@ const ModuleDetail = () => {
 
   if (!track || !module) {
     return (
-      <div className="pt-20 min-h-screen flex items-center justify-center">
+      <div className="pt-28 min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Module Not Found</h2>
           <Link to="/learning" className="text-blue-600 hover:text-blue-700">
@@ -64,7 +64,7 @@ const ModuleDetail = () => {
   }
 
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
+    <div className="pt-28 min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-6xl mx-auto px-8 py-6">
