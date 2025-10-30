@@ -194,7 +194,7 @@ const Mentors = () => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-gray-100 to-white pt-32 pb-16 text-center">
+      <section className="bg-gradient-to-r from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 pt-32 pb-16 text-center">
         <div className="max-w-[1200px] mx-auto px-5">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Meet Our Mentors
@@ -224,7 +224,7 @@ const Mentors = () => {
                 <div className="text-4xl transition-transform duration-300">
                   {category.icon}
                 </div>
-                <span className="font-bold text-base tracking-wider text-gray-700 dark:text-gray-100 active:text-black">
+                <span className="font-bold text-base tracking-wider text-gray-700 dark:text-gray-100 active:text-black dark:active:text-white">
                   {category.label}
                 </span>
               </button>
@@ -274,7 +274,7 @@ const Mentors = () => {
               </svg>
             </div>
             <div className="flex items-center gap-3">
-              <label className="inline-flex items-center gap-2 py-1.5 px-3 border-2 border-gray-300 rounded-full bg-white whitespace-nowrap">
+              <label className="inline-flex items-center gap-2 py-1.5 px-3 border-2 border-gray-300 dark:border-gray-600 rounded-full bg-white dark:bg-gray-800 whitespace-nowrap">
                 <input
                   type="checkbox"
                   checked={onlineOnly}
@@ -284,10 +284,10 @@ const Mentors = () => {
                   }}
                   className="accent-blue-500"
                 />
-                <span className="text-gray-900 font-semibold">Online only</span>
+                <span className="text-gray-900 dark:text-gray-300 font-semibold">Online only</span>
               </label>
               <select
-                className="py-3 px-4 rounded-2xl border-2 border-gray-300 bg-white text-gray-900"
+                className="py-3 px-4 rounded-2xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 aria-label="Sort mentors"
@@ -304,17 +304,17 @@ const Mentors = () => {
             {visibleMentors.map((mentor) => (
               <div
                 key={mentor.id}
-                className="bg-gradient-to-br from-white to-white rounded-3xl p-10 shadow-xl shadow-gray-300/50 transition-all duration-500 text-center relative overflow-hidden border-2 border-gray-300 backdrop-blur-sm max-w-full box-border hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-300/50 hover:border-blue-500"
+                className="bg-gradient-to-br from-white to-white dark:from-gray-800 dark:to-gray-800 rounded-3xl p-10 shadow-xl shadow-gray-300/50 dark:shadow-gray-900/50 transition-all duration-500 text-center relative overflow-hidden border-2 border-gray-300 dark:border-gray-600 backdrop-blur-sm max-w-full box-border hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 hover:border-blue-500 dark:hover:border-blue-400"
               >
                 <div className="flex items-center justify-center mb-6">
                   <div className="relative w-28 h-28 flex items-center justify-center transition-transform duration-500 hover:scale-110">
                     <img
                       src={mentor.avatar}
                       alt={mentor.name}
-                      className="w-full h-full rounded-full object-cover border-4 border-gray-300 shadow-md shadow-gray-300/50 hover:border-blue-500 hover:shadow-lg bg-gradient-to-br from-gray-100 to-gray-200"
+                      className="w-full h-full rounded-full object-cover border-4 border-gray-300 dark:border-gray-600 shadow-md shadow-gray-300/50 dark:shadow-gray-900/50 hover:border-blue-500 hover:shadow-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800"
                     />
                     {mentor.online && (
-                      <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-white bg-green-500"></div>
+                      <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-white dark:border-gray-800 bg-green-500"></div>
                     )}
                   </div>
                 </div>
@@ -323,14 +323,14 @@ const Mentors = () => {
                   <h3 className="text-2xl font-extrabold text-black dark:text-white mb-2 leading-tight">
                     {mentor.name}
                   </h3>
-                  <p className="text-base font-semibold text-gray-700 dark:text-gray-400 mb-1.5 leading-tight">
+                  <p className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-1.5 leading-tight">
                     {mentor.title}
                   </p>
                   <p className="text-base text-blue-600 dark:text-blue-400 font-bold mb-6 leading-tight">
                     @ {mentor.company}
                   </p>
 
-                  <div className="flex justify-around mb-6 p-7 bg-gray-100 dark:bg-gray-800 rounded-2xl border-2 border-gray-300 dark:border-gray-700 transition-all duration-300 shadow-md shadow-gray-300/50 dark:shadow-gray-900/50 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:scale-105 hover:shadow-lg hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50">
+                  <div className="flex justify-around mb-6 p-7 bg-gray-100 dark:bg-gray-700 rounded-2xl border-2 border-gray-300 dark:border-gray-600 transition-all duration-300 shadow-md shadow-gray-300/50 dark:shadow-gray-900/50 hover:bg-gray-50 dark:hover:bg-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:scale-105 hover:shadow-lg hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50">
                     <div className="flex flex-col items-center gap-2 flex-1">
                       <span className="text-2xl font-extrabold text-blue-500 dark:text-blue-400 leading-none">
                         {mentor.experience}
@@ -368,7 +368,7 @@ const Mentors = () => {
                   <div className="flex justify-center">
                     <button
                       onClick={() => openMentorModal(mentor)}
-                      className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent relative overflow-hidden hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50"
+                      className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-800 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent relative overflow-hidden hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 dark:hover:from-blue-700 dark:hover:to-blue-900 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/50"
                     >
                       View Profile
                     </button>
