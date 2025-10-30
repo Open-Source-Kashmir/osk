@@ -201,13 +201,13 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+      <section className="py-16  bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900  text-gray-900 dark:text-white">
         <div className="max-w-[1200px] mx-auto px-8 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4  tracking-tight bg-gradient-to-r from-blue-400 via-sky-300 to-blue-700 bg-clip-text text-transparent drop-shadow-lg">
               Ready to Start Your Open Source Journey?
             </h2>
-            <p className="text-xl text-gray-300 dark:text-gray-400 mb-10 leading-relaxed">
+            <p className="text-xl text-gray-700 dark:text-gray-200 mb-10 leading-relaxed">
               Join our community of passionate developers and make your mark in
               the open source world.
             </p>
