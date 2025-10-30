@@ -161,7 +161,7 @@ const Programs = () => {
   return (
     <div className="w-full overflow-x-hidden relative">
       {/* Header Section */}
-      <section className="text-center pt-32 pb-16 px-5 bg-gradient-to-r from-gray-100 to-white">
+      <section className="text-center pt-32 pb-16 px-5 bg-gradient-to-r from-gray-100 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2.5">Open Source Programs</h1>
           <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -172,7 +172,7 @@ const Programs = () => {
       </section>
 
       {/* Filters Section */}
-      <section className="bg-white border-b border-gray-300 py-2.5 sticky top-20 z-40">
+      <section className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-700 py-2.5 sticky top-20 z-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center justify-between flex-wrap gap-4 py-2.5 px-5">
             <div className="relative flex-1 basis-[250px] min-w-[250px] max-w-[350px]">
@@ -183,7 +183,7 @@ const Programs = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full py-2.5 pl-3 pr-9 rounded-lg border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm transition-all duration-300 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:shadow-[0_0_3px_rgba(0,123,255,0.3)]"
               />
-              <svg className="absolute right-2.5 top-2.5 text-gray-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="absolute right-2.5 top-2.5 text-gray-500 dark:text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.35-4.35" />
               </svg>
@@ -194,7 +194,7 @@ const Programs = () => {
                 <button
                   key={category.value}
                   onClick={() => setFilter(category.value)}
-                  className={`rounded-2xl py-2 px-4 cursor-pointer transition-all duration-300 text-sm font-medium ${filter === category.value ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white border-2 border-blue-600 shadow-lg hover:from-blue-700 hover:to-blue-800 transform hover:-translate-y-0.5' : 'bg-gray-100 border border-gray-400 text-gray-700 hover:bg-gray-200 hover:border-gray-500 hover:shadow-lg transform hover:-translate-y-1 hover:scale-102'}`}
+                  className={`rounded-2xl py-2 px-4 cursor-pointer transition-all duration-300 text-sm font-medium ${filter === category.value ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white border-2 border-blue-600 shadow-lg hover:from-blue-700 hover:to-blue-800 transform hover:-translate-y-0.5' : 'bg-gray-100 dark:bg-gray-800 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-gray-500 hover:shadow-lg transform hover:-translate-y-1 hover:scale-102'}`}
                 >
                   {category.label}
                 </button>
@@ -225,7 +225,7 @@ const Programs = () => {
               <p className="mb-6">Try adjusting your search or filter criteria</p>
               <button
                 onClick={() => { setFilter('all'); setSearchTerm(''); }}
-                className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300"
+                className="inline-block py-2.5 px-5 rounded-lg bg-white dark:bg-gray-800 text-blue-500 dark:text-blue-400 border border-gray-300 dark:border-gray-600 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 Clear Filters
               </button>
@@ -244,7 +244,7 @@ const Programs = () => {
               Our mentors can help you prepare your applications and increase your chances of success.
             </p>
             <div className="flex justify-center gap-4 flex-wrap mt-5">
-              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-300">Join Our Discord</a>
+              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-100">Join Our Discord</a>
               <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-transparent text-white border border-white transition-all duration-300 hover:bg-white/20">Get Mentorship</a>
 
             </div>
