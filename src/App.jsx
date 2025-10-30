@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ReactLenis } from "lenis/react"; 
+import { ReactLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
 
 import Navbar from "./components/Navbar";
@@ -13,6 +13,7 @@ import CommunityPage from "./pages/CommunityPage";
 import LearningTrack from "./pages/LearningTrack";
 import ModuleDetail from "./pages/ModuleDetail";
 import BackToTop from "./components/shared/BackToTop";
+import Resources from "./pages/Resources";
 
 export default function App() {
   return (
@@ -39,7 +40,11 @@ export default function App() {
               <Route path="/contributors" element={<Contributors />} />
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/learning" element={<LearningTrack />} />
-              <Route path="/learning/:trackId/:moduleId" element={<ModuleDetail />} />
+              <Route
+                path="/learning/:trackId/:moduleId"
+                element={<ModuleDetail />}
+              />
+              <Route path="/resources" element={<Resources />} />
             </Routes>
           </main>
 
