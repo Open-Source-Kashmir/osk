@@ -428,21 +428,21 @@ const LearningTrack = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-auto">
+      <section className="py-16 bg-gradient-to-r from-gray-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white mt-auto">
         <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
             Ready to Start Your Open Source Journey?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
             Join thousands of developers who are building the future through
             open source.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-gray-900 py-3 px-8 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition-all duration-300">
+            <button className="py-3 px-8 rounded-lg font-semibold transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white shadow-md">
               Get Started Today
             </button>
-            <button className="border-2 border-gray-300 text-white py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 hover:text-gray-900 transition-all duration-300">
+            <button className="py-3 px-8 rounded-lg font-semibold transition-all duration-300 bg-white text-gray-900 border border-gray-300 hover:bg-gray-100 shadow-sm dark:bg-transparent dark:text-white dark:border-gray-300 dark:hover:bg-slate-700">
               Learn More
             </button>
           </div>
