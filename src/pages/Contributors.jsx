@@ -408,24 +408,24 @@ const Contributors = () => {
       </section>
 
       {/* Join CTA */}
-      <section className="bg-gradient-to-r from-gray-900 to-gray-800 py-16 text-white">
+      <section className="py-16 bg-gradient-to-r from-gray-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white">
           <div className="max-w-4xl mx-auto px-8 text-center">
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Community</h2>
-              <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Join Our Community</h2>
+              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
               Ready to make your first contribution? Join our community of passionate developers 
               and start building amazing open source projects together.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <a 
           href="https://github.com/Open-Source-Kashmir" 
-          className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 bg-white text-gray-900 shadow-md border-2 border-transparent hover:bg-gray-200 hover:-translate-y-1 hover:shadow-lg"
+          className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white shadow-md border-2 border-transparent hover:-translate-y-1 hover:shadow-lg dark:bg-blue-600 dark:hover:bg-blue-700"
                 >
                   Start Contributing
                 </a>
                 <a 
                   href="#" 
-                  className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 bg-transparent text-white border-2 border-gray-300 hover:bg-gray-200 hover:text-gray-900 hover:-translate-y-1 hover:shadow-lg"
+                  className="inline-flex items-center gap-2 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-300 bg-white text-gray-900 border border-gray-300 hover:bg-gray-100 hover:-translate-y-1 hover:shadow-lg dark:bg-transparent dark:text-white dark:border-gray-300 dark:hover:bg-slate-700"
                 >
                   Join Discord
                 </a>
