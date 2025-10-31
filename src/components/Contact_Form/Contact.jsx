@@ -25,29 +25,54 @@ export default function Contact() {
     
     try {
       console.log('Sending request to backend...');
+      // Add a timeout to avoid hanging requests
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+
       const response = await fetch('http://localhost:5002/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
+        signal: controller.signal,
       });
-      
+
+      clearTimeout(timeoutId);
+
       console.log('Response status:', response.status);
       console.log('Response ok:', response.ok);
-      
-      const result = await response.json();
-      console.log('Response data:', result);
-      
+
+      const contentType = response.headers.get('content-type') || '';
+      let payload;
+      try {
+        if (contentType.includes('application/json')) {
+          payload = await response.json();
+        } else {
+          const text = await response.text();
+          payload = { message: text };
+        }
+      } catch (parseError) {
+        console.warn('Failed to parse response body:', parseError);
+        payload = { message: 'Unexpected response from server.' };
+      }
+
+      console.log('Response data:', payload);
+
       if (response.ok) {
         console.log('Email sent successfully!');
         setStatus("Message sent! We'll reply within 24 hours.");
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        console.log('Server error:', result.message);
-        setStatus(result.message || "Failed to send. Try again.");
+        const serverMessage = payload?.message && typeof payload.message === 'string' ? payload.message : null;
+        setStatus(serverMessage || `Failed to send (HTTP ${response.status}). Please try again.`);
       }
     } catch (error) {
-      console.error('Network/Connection error:', error);
-      setStatus('Network error. Try again.');
+      if (error?.name === 'AbortError') {
+        console.error('Request timed out');
+        setStatus('Request timed out. Please try again.');
+      } else {
+        console.error('Network/Connection error:', error);
+        setStatus('Network error. Please check your connection and try again.');
+      }
     }
     
     setLoading(false);
