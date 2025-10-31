@@ -353,7 +353,7 @@ const Mentors = () => {
                     {mentor.expertise.slice(0, 3).map((skill, index) => (
                       <span
                         key={index}
-                        className="bg-gray-100 dark:bg-gray-700 text-blue-500 dark:text-blue-400 py-2 px-5 rounded-2xl text-sm font-semibold border-2 border-gray-300 dark:border-gray-600 transition-all duration-300 shadow-md shadow-gray-300/50 dark:shadow-gray-900/50 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 dark:hover:from-blue-600 dark:hover:to-blue-800 hover:text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/30"
+                        className="bg-gray-100 dark:bg-gray-700 text-blue-500 dark:text-blue-400 py-2 px-5 rounded-2xl text-sm font-semibold border-2 border-gray-300 dark:border-gray-600 transition-all duration-300 shadow-md shadow-gray-300/50 dark:shadow-gray-900/50 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 dark:hover:from-blue-600 dark:hover:to-blue-800 hover:text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50"
                       >
                         {skill}
                       </span>
@@ -392,26 +392,26 @@ const Mentors = () => {
       </section>
 
       {/* Become a Mentor CTA */}
-      <section className="py-16 bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-auto">
+      <section className="py-16 bg-gradient-to-r from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white mt-auto">
         <div className="max-w-6xl w-full mx-auto px-10 box-border">
           <div className="text-center max-w-4xl mx-auto px-4">
-            <h2 className="text-4xl font-extrabold mb-5 text-white leading-tight">
+            <h2 className="text-4xl font-extrabold mb-5 text-gray-900 dark:text-white leading-tight">
               Want to Become a Mentor?
             </h2>
-            <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
               Share your knowledge and help the next generation of developers
               grow. Join our mentor community and make a real impact.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-white text-gray-900 shadow-md border-2 border-transparent hover:bg-gray-200 hover:-translate-y-1 hover:shadow-lg"
+                className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-md border-2 border-transparent hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-1 hover:shadow-lg"
               >
                 Apply to be a Mentor
               </a>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-transparent text-white border-2 border-gray-300 hover:bg-gray-200 hover:text-gray-900 hover:-translate-y-1 hover:shadow-lg"
+                className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all duration-300 bg-transparent text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white hover:-translate-y-1 hover:shadow-lg"
               >
                 Learn More
               </a>
