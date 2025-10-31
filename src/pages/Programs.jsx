@@ -235,18 +235,23 @@ const Programs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-blue-700 dark:to-cyan-700 text-white py-15 px-5 text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold mb-5">Ready to Get Started?</h2>
-            <p className="mb-5">
+      <section className="py-12 md:py-14 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight bg-gradient-to-r from-blue-400 via-sky-300 to-blue-700 bg-clip-text text-transparent">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
               Join our community and get guidance on how to apply to these programs.
               Our mentors can help you prepare your applications and increase your chances of success.
             </p>
-            <div className="flex justify-center gap-4 flex-wrap mt-5">
-              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-white text-blue-500 border-transparent transition-all duration-300 hover:bg-gray-100">Join Our Discord</a>
-              <a href="#" className="inline-block py-2.5 px-5 rounded-lg bg-transparent text-white border border-white transition-all duration-300 hover:bg-white/20">Get Mentorship</a>
-
+            <div className="flex justify-center gap-4 flex-wrap">
+              <a href="#" className="inline-flex items-center gap-2 py-3.5 px-8 rounded-lg font-semibold no-underline transition-all duration-300 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-transparent hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50 active:scale-95">
+                Join Our Discord
+              </a>
+              <a href="#" className="inline-flex items-center gap-2 py-3.5 px-8 rounded-lg font-semibold no-underline transition-all duration-300 bg-white text-gray-900 shadow-lg border-2 border-transparent hover:bg-gray-100 hover:-translate-y-1 hover:shadow-2xl active:scale-95 dark:bg-transparent dark:text-white dark:border-gray-300 dark:hover:bg-slate-700">
+                Get Mentorship
+              </a>
             </div>
           </div>
         </div>  
