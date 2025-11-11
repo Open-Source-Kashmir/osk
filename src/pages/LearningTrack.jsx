@@ -439,10 +439,10 @@ const LearningTrack = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="py-3 px-8 rounded-lg font-semibold transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white shadow-md">
+            <button className="py-3 px-8 rounded-lg font-semibold transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-2xl hover:-translate-y-1 hover:scale-105 active:scale-95">
               Get Started Today
             </button>
-            <button className="py-3 px-8 rounded-lg font-semibold transition-all duration-300 bg-white text-gray-900 border border-gray-300 hover:bg-gray-100 shadow-sm dark:bg-transparent dark:text-white dark:border-gray-300 dark:hover:bg-slate-700">
+            <button className="py-3 px-8 rounded-lg font-semibold transition-all duration-300 bg-white text-gray-900 border border-gray-300 hover:bg-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 hover:scale-105 active:scale-95 dark:bg-transparent dark:text-white dark:border-gray-300 dark:hover:bg-slate-700">
               Learn More
             </button>
           </div>
