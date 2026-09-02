@@ -20,11 +20,13 @@ We welcome all contributions — code, documentation, design, and ideas.
 
 ### ✅ Good First Issues
 
-- Add new mentor card to Mentors Page
-- Create program card for LFX, GSoC, Outreachy, C4GT
-- Improve About Us section
-- Add new resources (guides, blogs, YouTube links)
-- Enhance UI/UX styling
+Jump straight in with beginner-friendly tasks:
+
+- Add a new mentor card to the Community page (`src/data/mentors.js`)
+- Add a program card to the Programs page (`src/data/programs.js`)
+- Fix a `good-first-issue` label on the repo or report a bug
+- Improve copy/tone/spacing across any page
+- Polish existing card hover effects and responsiveness
 
 ## ⚠️ Hacktoberfest Rules (Important)
 
@@ -79,15 +81,38 @@ The site is a static Vite single-page app — no server required.
 
 ## 🎯 Contribution Ideas
 
-Here are some ways you can contribute:
+Here are **20 concrete ways** to contribute — new features, bug fixes, recommendations, and more. Don't feel limited to this list; your own ideas are always welcome.
 
-- Add mentor cards with bio, expertise, links.
-- Create program cards for GSoC, LFX, Outreachy, etc.
-- Add a Contributors Wall page.
-- Improve CSS and responsiveness.
-- Add animations and hover effects.
-- Write documentation for beginners.
-- Suggest new sections/features.
+### ✨ New Features
+
+1. **Add a mentor card** — Add mentors with bio, expertise, GitHub/LinkedIn links, and location to `src/data/mentors.js`.
+2. **Add a program card** — Add open source programs (GSoC, LFX, Outreachy, C4GT, MLH, etc.) to `src/data/programs.js`.
+3. **Build an Events page** — A section listing upcoming OSK meetups, workshops, and Hacktoberfest events.
+4. **Add a Newsroom / Blog page** — Post announcements, community updates, and contributor spotlights.
+5. **Create a "First PR Guide" page** — A step-by-step illustrated guide for complete beginners.
+6. **Add a dark-mode polish pass** — Audit every page and fix any contrast or spacing issues in dark mode.
+7. **Add project showcase cards** — Highlight real projects built by OSK members, with links to their repos.
+8. **Add testimonials/testimonials carousel** — Share quotes from contributors and mentees (see the sticky-note quotes on the homepage).
+9. **Add FAQ accordion** — Expand the FAQ section with more answers (contribution, mentorship, and community questions).
+10. **Add a searchable resources library** — Filterable grid of guides, blogs, videos, and tools (see `resources.md`).
+
+### 🐛 Bug Fixes & Improvements
+
+11. **Fix responsiveness on small screens** — Improve mobile layout of cards, nav, and modals on narrow viewports.
+12. **Improve accessibility** — Add `aria` labels, improve focus states, and ensure keyboard navigation works site-wide.
+13. **Optimize images & assets** — Compress/bundle the program logos (some are large) for faster load times.
+14. **Polish animations & hover effects** — Make the float/wiggle and card-lift animations buttery-smooth and reduced-motion friendly.
+15. **Add a site search** — Live client-side search across programs, mentors, and learning tracks.
+
+### 💡 Recommendations & Docs
+
+16. **Recommend a resource** — Suggest guides, blogs, or YouTube videos to add to the Learn/Resources section.
+17. **Recommend a program** — Suggest an open source internship or fellowship not yet listed on the Programs page.
+18. **Improve documentation** — Fix typos, clarify steps, or translate the README/guides into Urdu, Kashmiri, or Hindi.
+19. **Add contributor guidelines** — Help write a `CODE_OF_CONDUCT.md` or a detailed `CONTRIBUTING.md`.
+20. **Report a bug or suggest a feature** — Open an [Issue](https://github.com/Open-Source-Kashmir/osk/issues) describing what you found or what you'd like to see.
+
+🗂️ Where things live: mentors in `src/data/mentors.js`, programs in `src/data/programs.js`, learning content in `src/data/learningTracks.json`, shared styles in `src/index.css` and `tailwind.config.js`.
 
 ## 🛠 How to Contribute
 
