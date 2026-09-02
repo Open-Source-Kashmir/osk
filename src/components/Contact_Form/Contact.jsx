@@ -1,243 +1,218 @@
-import { useState } from 'react';
-import { Mail, MapPin, Clock } from 'lucide-react';
-import { FaDiscord, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
-import { FiSend } from "react-icons/fi";
+import { useState } from "react";
+import { Mail, MapPin, Clock, Send, Github, MessageCircle, Youtube, Instagram } from "lucide-react";
+
+const CONTACT_EMAIL = "opensourcekashmir@gmail.com";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
-  const [status, setStatus] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = async (e) => {
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submission started');
-    console.log('Form data:', formData);
-    setLoading(true);
-    setStatus('Sending...');
-    try {
-      // Add a timeout to avoid hanging requests
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      const response = await fetch(backendUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-        signal: controller.signal,
-      });
+    const subject = encodeURIComponent(
+      `New Contact Form Submission: ${formData.subject}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
 
-      clearTimeout(timeoutId);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 
-      console.log('Response status:', response.status);
-      console.log('Response ok:', response.ok);
-
-      const contentType = response.headers.get('content-type') || '';
-      let payload;
-      try {
-        if (contentType.includes('application/json')) {
-          payload = await response.json();
-        } else {
-          const text = await response.text();
-          payload = { message: text };
-        }
-      } catch (parseError) {
-        console.warn('Failed to parse response body:', parseError);
-        payload = { message: 'Unexpected response from server.' };
-      }
-
-      console.log('Response data:', payload);
-
-      if (response.ok) {
-        console.log('Email sent successfully!');
-        setStatus("Message sent! We'll reply within 24 hours.");
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        const serverMessage = payload?.message && typeof payload.message === 'string' ? payload.message : null;
-        setStatus(serverMessage || `Failed to send (HTTP ${response.status}). Please try again.`);
-      }
-    } catch (error) {
-      if (error?.name === 'AbortError') {
-        console.error('Request timed out');
-        setStatus('Request timed out. Please try again.');
-      } else {
-        console.error('Network/Connection error:', error);
-        setStatus('Network error. Please check your connection and try again.');
-      }
-    }
-    setLoading(false);
-    console.log('Form submission completed');
-    setTimeout(() => setStatus(''), 6000);
+    setStatus("Opening your email app to send the message.");
+    setTimeout(() => setStatus(""), 6000);
   };
 
-  return (
-    <div className="w-full py-16 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white">
-      {/* Heading */}
-      <div className="max-w-3xl mx-auto text-center mb-12">
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-3 bg-gradient-to-r from-blue-400 via-sky-300 to-blue-700 bg-clip-text text-transparent drop-shadow-lg">
-          Contact Us
-        </h1>
-        <p className="text-xl text-gray-700 dark:text-gray-200 font-medium max-w-xl mx-auto">
-          We're here for your questions, collaboration, and ideas. Get in touch!
-        </p>
-      </div>
+  const socials = [
+    { label: "GitHub", href: "https://github.com/Open-Source-Kashmir", icon: Github },
+    { label: "Discord", href: "https://discord.gg/hgnUsqAmMT", icon: MessageCircle },
+    { label: "YouTube", href: "https://youtube.com/", icon: Youtube },
+    { label: "Instagram", href: "https://instagram.com/", icon: Instagram },
+  ];
 
-      {/* Main Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Left: Send Message */}
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-xl p-10 flex flex-col justify-between">
-          <div>
-            <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Send Message</h2>
-            <form className="space-y-7" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name" className="block text-base font-semibold text-gray-700 dark:text-gray-200 mb-2.5">Full Name *</label>
-                <input
-                  name="name"
-                  id="name"
-                  placeholder="Enter your full name"
-                  className="block w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-base px-5 py-3 rounded-xl placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-200 dark:border-gray-700 outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  autoComplete="off"
-                />
+  return (
+    <section
+      id="contact"
+      className="border-t-2 border-stone-200 bg-cream-deep dark:border-stone-800 dark:bg-stone-900/40"
+    >
+      <div className="container-page section-pad">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="tag">Contact</span>
+          <h2 className="mt-5 font-display text-4xl font-black tracking-tight">
+            Get in touch
+          </h2>
+          <p className="mt-3 text-stone-600 dark:text-stone-400">
+            We're here for your questions, collaboration, and ideas.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-5">
+          {/* Form */}
+          <div className="card rounded-3xl border-2 lg:col-span-3">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-1.5 block text-sm font-semibold text-stone-700 dark:text-stone-300"
+                  >
+                    Full name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Enter your full name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="input"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-1.5 block text-sm font-semibold text-stone-700 dark:text-stone-300"
+                  >
+                    Email address
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="input"
+                  />
+                </div>
               </div>
               <div>
-                <label htmlFor="email" className="block text-base font-semibold text-gray-700 dark:text-gray-200 mb-2.5">Email Address *</label>
+                <label
+                  htmlFor="subject"
+                  className="mb-1.5 block text-sm font-semibold text-stone-700 dark:text-stone-300"
+                >
+                  Subject
+                </label>
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your email address"
-                  className="block w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-base px-5 py-3 rounded-xl placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-200 dark:border-gray-700 outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  autoComplete="off"
-                />
-              </div>
-              <div>
-                <label htmlFor="subject" className="block text-base font-semibold text-gray-700 dark:text-gray-200 mb-2.5">Subject *</label>
-                <input
-                  name="subject"
                   id="subject"
-                  placeholder="Enter the subject"
-                  className="block w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-base px-5 py-3 rounded-xl placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-200 dark:border-gray-700 outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  name="subject"
                   required
+                  placeholder="What's this about?"
                   value={formData.subject}
                   onChange={handleChange}
-                  autoComplete="off"
+                  className="input"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-base font-semibold text-gray-700 dark:text-gray-200 mb-2.5">Message *</label>
+                <label
+                  htmlFor="message"
+                  className="mb-1.5 block text-sm font-semibold text-stone-700 dark:text-stone-300"
+                >
+                  Message
+                </label>
                 <textarea
-                  name="message"
                   id="message"
-                  placeholder="Tell us about your project, questions, or how you'd like to contribute..."
-                  className="block w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-base px-5 py-3 rounded-xl placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-200 dark:border-gray-700 outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+                  name="message"
                   required
+                  rows={6}
+                  placeholder="Tell us about your project, questions, or how you'd like to contribute..."
                   value={formData.message}
                   onChange={handleChange}
-                  rows={6}
-                  autoComplete="off"
+                  className="input resize-none"
                 />
               </div>
-              <button
-                type="submit"
-                disabled={loading}
-                className="flex items-center justify-center gap-2 w-full mt-1 py-3.5 font-semibold text-lg rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                <FiSend size={20} />
-                {loading ? "Sending..." : "Send Message"}
+              <button type="submit" className="btn-primary w-full">
+                <Send size={16} />
+                Send message
               </button>
               {status && (
-                <div className={`p-4 text-sm rounded-xl text-center font-bold mt-3 ${status.includes('sent')
-                  ? "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-700"
-                  : "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-700"
-                  }`}>
+                <div
+                  className={`rounded-xl border-2 px-4 py-3 text-center text-sm font-semibold ${
+                    status.includes("Opening")
+                      ? "border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-400"
+                      : "border-red-300 bg-red-50 text-red-700 dark:border-red-800 dark:bg-red-950/30 dark:text-red-400"
+                  }`}
+                >
                   {status}
                 </div>
               )}
             </form>
           </div>
-        </div>
 
-        {/* Right: Info + Social stacked vertically */}
-        <div className="flex flex-col justify-between gap-8">
-          {/* Contact Info */}
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-xl p-8 flex-1">
-            <h2 className="text-2xl font-bold mb-7 text-gray-900 dark:text-white">Contact Info</h2>
-            <ul className="flex flex-col gap-7">
-              <li className="flex items-center gap-4">
-                <div className="w-11 h-11 bg-blue-700/10 dark:bg-blue-700/20 flex items-center justify-center rounded-xl">
-                  <Mail className="w-6 h-6 text-blue-400" />
-                </div>
-                <span>
-                  <b className="text-gray-900 dark:text-white">Email</b><br />
-                  <a href="mailto:tharramzan.ofi@gmail.com" className="text-gray-700 dark:text-gray-200 hover:text-blue-400 transition">
-                    tharramzan.ofi@gmail.com
-                  </a>
-                </span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="w-11 h-11 bg-blue-700/10 dark:bg-blue-700/20 flex items-center justify-center rounded-xl">
-                  <MapPin className="w-6 h-6 text-blue-400" />
-                </div>
-                <span>
-                  <b className="text-gray-900 dark:text-white">Global Presence</b><br />
-                  <span className="text-gray-700 dark:text-gray-200">Worldwide Community</span>
-                </span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="w-11 h-11 bg-blue-700/10 dark:bg-blue-700/20 flex items-center justify-center rounded-xl">
-                  <Clock className="w-6 h-6 text-blue-400" />
-                </div>
-                <span>
-                  <b className="text-gray-900 dark:text-white">Response Time</b><br />
-                  <span className="text-gray-700 dark:text-gray-200">Within 24 hours</span>
-                </span>
-              </li>
-            </ul>
-          </div>
+          {/* Info */}
+          <div className="space-y-4 lg:col-span-2">
+            <div className="card rounded-2xl border-2">
+              <h3 className="font-display text-lg font-bold">Contact info</h3>
+              <ul className="mt-4 space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-brand-lighter text-brand">
+                    <Mail size={16} />
+                  </span>
+                  <div>
+                    <p className="text-sm font-bold text-stone-900 dark:text-white">Email</p>
+                    <a
+                      href="mailto:opensourcekashmir@gmail.com"
+                      className="text-sm text-stone-600 hover:text-brand dark:text-stone-400 dark:hover:text-brand"
+                    >
+                      opensourcekashmir@gmail.com
+                    </a>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-forest">
+                    <MapPin size={16} />
+                  </span>
+                  <div>
+                    <p className="text-sm font-bold text-stone-900 dark:text-white">Based in</p>
+                    <p className="text-sm text-stone-600 dark:text-stone-400">
+                      Kashmir, with a worldwide community
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-600">
+                    <Clock size={16} />
+                  </span>
+                  <div>
+                    <p className="text-sm font-bold text-stone-900 dark:text-white">Response time</p>
+                    <p className="text-sm text-stone-600 dark:text-stone-400">Within 24 hours</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
 
-          {/* Connect With Us */}
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-xl p-8 flex-1">
-            <h2 className="text-2xl font-bold mb-7 text-gray-900 dark:text-white">Connect With Us</h2>
-            <div className="grid grid-cols-2 gap-5">
-              <a href="https://github.com/Open-Source-Kashmir/osk" target="_blank" rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg hover:border-blue-600 transition group">
-                <FaGithub size={32} className="text-gray-700 dark:text-gray-300 mb-2 group-hover:text-blue-400" />
-                <span className="text-base font-semibold text-gray-900 dark:text-white">GitHub</span>
-                <span className="text-xs text-gray-600 dark:text-gray-400 text-center">Contribute to our projects</span>
-              </a>
-              <a href="https://discord.com/invite/hgnUsqAmMT" target="_blank" rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg hover:border-blue-600 transition group">
-                <FaDiscord size={32} className="text-gray-700 dark:text-gray-300 mb-2 group-hover:text-blue-400" />
-                <span className="text-base font-semibold text-gray-900 dark:text-white">Discord</span>
-                <span className="text-xs text-gray-600 dark:text-gray-400 text-center">Join our community</span>
-              </a>
-              <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg hover:border-blue-600 transition group">
-                <FaYoutube size={32} className="text-gray-700 dark:text-gray-300 mb-2 group-hover:text-blue-400" />
-                <span className="text-base font-semibold text-gray-900 dark:text-white">YouTube</span>
-                <span className="text-xs text-gray-600 dark:text-gray-400 text-center">Tutorials & talks</span>
-              </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center p-5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg hover:border-blue-600 transition group">
-                <FaInstagram size={32} className="text-gray-700 dark:text-gray-300 mb-2 group-hover:text-blue-400" />
-                <span className="text-base font-semibold text-gray-900 dark:text-white">Instagram</span>
-                <span className="text-xs text-gray-600 dark:text-gray-400 text-center">Community highlights</span>
-              </a>
+            <div className="card rounded-2xl border-2">
+              <h3 className="font-display text-lg font-bold">Follow us</h3>
+              <div className="mt-4 grid grid-cols-2 gap-3">
+                {socials.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 rounded-xl border-2 border-stone-200 p-3 text-sm font-semibold text-stone-700 transition-colors hover:border-brand hover:text-brand dark:border-stone-700 dark:text-stone-300 dark:hover:border-brand dark:hover:text-brand"
+                    >
+                      <Icon size={16} />
+                      {s.label}
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

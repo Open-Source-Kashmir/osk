@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
@@ -7,50 +6,36 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
-import Mentors from "./pages/Mentors";
-import Contributors from "./pages/Contributors";
-import CommunityPage from "./pages/CommunityPage";
-import LearningTrack from "./pages/LearningTrack";
+import Community from "./pages/Community";
+import Learn from "./pages/Learn";
 import ModuleDetail from "./pages/ModuleDetail";
 import BackToTop from "./components/shared/BackToTop";
-import Resources from "./pages/Resources";
 
 export default function App() {
   return (
     <Router>
-      {/* Wrap the entire app in ReactLenis to enable smooth scroll */}
       <ReactLenis
         root
         options={{
-          duration: 0.8, // scroll duration (smooth speed)
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easing
+          duration: 0.9,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           smooth: true,
-          syncTouch: false, // disable touch event synchronization
+          syncTouch: false,
         }}
       >
-        <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-100 to-indigo-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="flex min-h-screen flex-col bg-cream dark:bg-night">
           <Navbar />
-
-          <main className="pt-24">
-            {/* Routed pages */}
+          <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/programs" element={<Programs />} />
-              <Route path="/mentors" element={<Mentors />} />
-              <Route path="/contributors" element={<Contributors />} />
-              <Route path="/community" element={<CommunityPage />} />
-              <Route path="/learning" element={<LearningTrack />} />
-              <Route
-                path="/learning/:trackId/:moduleId"
-                element={<ModuleDetail />}
-              />
-              <Route path="/resources" element={<Resources />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/learn" element={<Learn />} />
+              <Route path="/learn/:trackId/:moduleId" element={<ModuleDetail />} />
+              <Route path="*" element={<Home />} />
             </Routes>
           </main>
-
           <Footer />
-
-          {/* Back-to-top button */}
           <BackToTop />
         </div>
       </ReactLenis>

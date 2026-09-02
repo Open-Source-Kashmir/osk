@@ -8,26 +8,60 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: 'rgb(14 165 233)', // sky-500
-          hover: 'rgb(2 132 199)',    // sky-600
+        brand: {
+          DEFAULT: '#e8590c', // warm orange
+          hover: '#d9480f',
+          light: '#ff922b',
+          lighter: '#ffe8cc',
         },
-        background: 'rgb(15 23 42)',   // slate-900
-        surface: 'rgb(30 41 59)',     // slate-800
-        'text-primary': 'rgb(248 250 252)', // slate-50
-        'text-secondary': 'rgb(148 163 184)', // slate-400
+        wine: {
+          DEFAULT: '#9d174d',
+          light: '#db2777',
+        },
+        forest: {
+          DEFAULT: '#15803d',
+          light: '#22c55e',
+        },
+        cream: {
+          DEFAULT: '#faf7f2',
+          deep: '#f3ede2',
+        },
+        night: {
+          DEFAULT: '#1c1917',
+          soft: '#292524',
+          muted: '#57534e',
+        },
+      },
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'ui-sans-serif', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'card': '0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06)',
+        'lift': '0 16px 40px -16px rgba(28,25,23,0.25)',
+      },
+      borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.25rem',
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-out',
+        'fade-up': 'fadeUp 0.6s cubic-bezier(0.2,0.9,0.3,1) both',
+        'float': 'float 6s ease-in-out infinite',
+        'wiggle': 'wiggle 6s ease-in-out infinite',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%,100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        wiggle: {
+          '0%,100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-2deg)' },
+          '75%': { transform: 'rotate(2deg)' },
         },
       },
     },

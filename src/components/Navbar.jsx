@@ -1,315 +1,122 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import ThemeToggle from "./shared/ThemeToggle";
+
+const NAV_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "Programs", to: "/programs" },
+  { label: "Community", to: "/community" },
+  { label: "Learn", to: "/learn" },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
 
-  const isActive = (path) => {
-    return location.pathname === path ? "nav-link active" : "nav-link";
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  const isActive = (to) =>
+    to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg z-50`}
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b-2 border-stone-200 bg-cream/90 backdrop-blur-lg dark:border-stone-800 dark:bg-night/90"
+          : "border-b-2 border-transparent"
+      }`}
     >
-      <div className="max-w-[1200px] w-full mx-auto py-4 pl-6 pr-8 flex justify-between items-center box-border">
-        <Link
-          to="/"
-          className="no-underline text-blue-700 dark:text-blue-400 text-3xl font-extrabold transition-colors duration-300 hover:scale-105 transform"
-        >
-          <span className="bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
-            OSK
+      <nav className="container-page flex h-16 items-center justify-between">
+        {/* Brand */}
+        <Link to="/" className="flex items-center gap-2">
+          <span className="flex h-9 w-9 -rotate-3 items-center justify-center rounded-lg bg-brand text-base font-black text-white shadow-md shadow-brand/30">
+            <span className="rotate-3">OSK</span>
+          </span>
+          <span className="font-display text-xl font-bold tracking-tight text-stone-900 dark:text-white">
+            Open Source <span className="text-brand">Kashmir</span>
           </span>
         </Link>
 
-        {/* Nav & actions split for desktop */}
-        <div className="hidden md:flex flex-1 items-center justify-between ml-6">
-          {/* Nav links */}
-          <div className="flex items-center gap-6">
+        {/* Desktop nav */}
+        <div className="hidden items-center gap-1 md:flex">
+          {NAV_LINKS.map((link) => (
             <Link
-              to="/"
-              className={`${
-                isActive("/") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12"
-                  : "text-gray-900 dark:text-gray-100"
-              } no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
-              onClick={() => setIsMenuOpen(false)}
+              key={link.to}
+              to={link.to}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                isActive(link.to)
+                  ? "bg-stone-900 text-white dark:bg-white dark:text-stone-900"
+                  : "text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800"
+              }`}
             >
-              Home
+              {link.label}
             </Link>
-            <Link
-              to="/programs"
-              className={`${
-                isActive("/programs") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12"
-                  : "text-gray-900 dark:text-gray-100"
-              } no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Programs
-            </Link>
-            <Link
-              to="/mentors"
-              className={`${
-                isActive("/mentors") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12"
-                  : "text-gray-900 dark:text-gray-100"
-              } no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Mentors
-            </Link>
-            <Link
-              to="/contributors"
-              className={`${
-                isActive("/contributors") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12"
-                  : "text-gray-900 dark:text-gray-100"
-              } no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contributors
-            </Link>
-            <Link
-              to="/community"
-              className={`${
-                isActive("/community") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12"
-                  : "text-gray-900 dark:text-gray-100"
-              } no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Community
-            </Link>
-            <Link
-              to="/learning"
-              className={`${
-                isActive("/learning") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12"
-                  : "text-gray-900 dark:text-gray-100"
-              } no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Learning
-            </Link>
-            <Link
-              to="/resources"
-              className={`${
-                isActive("/resources") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-500/12 dark:bg-blue-400/12"
-                  : "text-gray-900 dark:text-gray-100"
-              } no-underline font-medium py-2 px-4 rounded-lg transition-all duration-300 relative`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Resources
-            </Link>
-          </div>
-          {/* Actions (desktop) */}
-          <div className="flex items-center gap-4 ml-6">
-            <a
-              href="https://github.com/Open-Source-Kashmir"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold py-2.5 px-5 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              GitHub
-            </a>
-            <a
-              href="https://discord.gg/hgnUsqAmMT"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link discord-link no-underline bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold py-2.5 px-5 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Discord
-            </a>
-            <ThemeToggle />
-          </div>
+          ))}
         </div>
 
-        <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={toggleMenu}
-            className={`p-2 rounded-lg transition-all duration-300 ${
-              isMenuOpen
-                ? "bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400"
-                : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
-            }`}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        {/* Actions */}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <a
+            href="https://discord.gg/hgnUsqAmMT"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary hidden sm:inline-flex !px-5 !py-2"
           >
-            {isMenuOpen ? (
-              <svg
-                className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-300 hover:scale-110"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
+            Join us
+            <ArrowUpRight size={16} />
+          </a>
+          <button
+            onClick={() => setIsMenuOpen((v) => !v)}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-stone-700 hover:bg-stone-100 dark:text-stone-200 dark:hover:bg-stone-800 md:hidden"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </div>
+      </nav>
 
+      {/* Mobile menu */}
       {isMenuOpen && (
-        <div
-          className="md:hidden fixed inset-0 top-16 bg-black/40 z-40 transition-opacity duration-300"
-          onClick={() => setIsMenuOpen(false)}
-        ></div>
-      )}
-
-      <div
-        className={`md:hidden fixed top-16 left-0 w-full transition-all duration-300 transform ${
-          isMenuOpen
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0 pointer-events-none"
-        } bg-white/95 dark:bg-gray-900/95 shadow-xl z-50 overflow-y-auto`}
-        style={{ maxHeight: "calc(100vh - 4rem)" }}
-      >
-        <div className="px-3 sm:px-4 py-6 sm:py-8 flex flex-col gap-4 sm:gap-6">
-          {/* Navigation Links Section */}
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-3 sm:px-4 mb-2 sm:mb-3">
-              Navigation
-            </p>
-            <Link
-              to="/"
-              className={`${
-                isActive("/") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
-              } no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              to="/programs"
-              className={`${
-                isActive("/programs") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
-              } no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Programs
-            </Link>
-            <Link
-              to="/mentors"
-              className={`${
-                isActive("/mentors") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
-              } no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Mentors
-            </Link>
-            <Link
-              to="/contributors"
-              className={`${
-                isActive("/contributors") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
-              } no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contributors
-            </Link>
-            <Link
-              to="/community"
-              className={`${
-                isActive("/community") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
-              } no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Community
-            </Link>
-            <Link
-              to="/learning"
-              className={`${
-                isActive("/learning") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
-              } no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Learning
-            </Link>
-            <Link
-              to="/resources"
-              className={`${
-                isActive("/resources") === "nav-link active"
-                  ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-700 dark:border-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
-              } no-underline font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-all duration-200 block text-sm sm:text-base`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Resources
-            </Link>
-          </div>
-
-          {/* Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent"></div>
-
-          {/* Social & Action Buttons Section */}
-          <div className="space-y-2 sm:space-y-3">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-3 sm:px-4 mb-2 sm:mb-3">
-              Connect
-            </p>
-            <a
-              href="https://github.com/Open-Source-Kashmir"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:shadow-lg transition-all duration-200 block text-center active:scale-95 text-sm sm:text-base"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              GitHub
-            </a>
+        <div className="border-t-2 border-stone-200 bg-cream dark:border-stone-800 dark:bg-night md:hidden">
+          <div className="container-page flex flex-col gap-1 py-4">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                  isActive(link.to)
+                    ? "bg-stone-900 text-white dark:bg-white dark:text-stone-900"
+                    : "text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
             <a
               href="https://discord.gg/hgnUsqAmMT"
               target="_blank"
               rel="noopener noreferrer"
-              className="no-underline bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 hover:shadow-lg transition-all duration-200 block text-center active:scale-95 text-sm sm:text-base"
-              onClick={() => setIsMenuOpen(false)}
+              className="btn-primary mt-3 w-full"
             >
-              Discord
+              Join our community
+              <ArrowUpRight size={16} />
             </a>
-            <div className="pt-2 flex justify-center">
-              <ThemeToggle />
-            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
 

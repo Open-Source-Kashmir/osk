@@ -1,6 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, PlayCircle, CheckCircle, Clock, Target, Award, BookOpen, Code, Users, ChevronRight } from 'lucide-react';
+import {
+  ArrowLeft,
+  PlayCircle,
+  CheckCircle,
+  Clock,
+  Target,
+  Award,
+  BookOpen,
+  Code,
+  ChevronRight,
+} from 'lucide-react';
 import learningTracks from '../data/learningTracks.json';
 
 const ModuleDetail = () => {
@@ -10,52 +20,45 @@ const ModuleDetail = () => {
   const [completedLessons, setCompletedLessons] = useState([]);
   const [moduleProgress, setModuleProgress] = useState(0);
 
-  const track = learningTracks.find(t => t.id === trackId);
-  const module = track?.modules.find(m => m.id === moduleId);
+  const track = learningTracks.find((t) => t.id === trackId);
+  const module = track?.modules.find((m) => m.id === moduleId);
 
   useEffect(() => {
     if (!track || !module) {
-      navigate('/learning');
+      navigate('/learn');
       return;
     }
-
-    // Calculate progress based on completed lessons
     const progress = Math.round((completedLessons.length / module.lessons.length) * 100);
     setModuleProgress(progress);
   }, [track, module, completedLessons, navigate]);
 
   const markLessonComplete = (lessonId) => {
     if (!completedLessons.includes(lessonId)) {
-      setCompletedLessons(prev => [...prev, lessonId]);
+      setCompletedLessons((prev) => [...prev, lessonId]);
     }
   };
 
-  const isLessonCompleted = (lessonId) => {
-    return completedLessons.includes(lessonId);
-  };
+  const isLessonCompleted = (lessonId) => completedLessons.includes(lessonId);
 
   const getLessonTypeIcon = (type) => {
     switch (type) {
-      case 'theory': return <BookOpen className="w-5 h-5" />;
-      case 'hands-on': return <Code className="w-5 h-5" />;
-      default: return <Target className="w-5 h-5" />;
-    }
-  };
-
-  const getLessonTypeColor = (type) => {
-    switch (type) {
-      case 'theory': return 'bg-blue-100 text-blue-800';
-      case 'hands-on': return 'bg-green-100 text-green-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'theory':
+        return <BookOpen size={20} />;
+      case 'hands-on':
+        return <Code size={20} />;
+      default:
+        return <Target size={20} />;
     }
   };
 
   if (!track || !module) {
     return (
-      <div className="pt-28 min-h-screen flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center pt-16">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Module Not Found</h2>
-          <Link to="/learning" className="text-blue-600 hover:text-blue-700">
+          <h2 className="font-display text-2xl font-bold text-stone-900 dark:text-white">
+            Module Not Found
+          </h2>
+          <Link to="/learn" className="mt-2 inline-block font-semibold text-brand hover:underline">
             ← Back to Learning Tracks
           </Link>
         </div>
@@ -63,46 +66,64 @@ const ModuleDetail = () => {
     );
   }
 
+  const lesson = module.lessons[currentLesson];
+
   return (
-    <div className="pt-28 min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
+    <div className="min-h-screen bg-cream pt-16 dark:bg-night">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-6xl mx-auto px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
+      <div className="border-b-4 border-brand bg-cream-deep dark:bg-stone-900/50">
+        <div className="container-page py-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-start">
               <button
-                onClick={() => navigate('/learning')}
-                className="mr-4 p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                onClick={() => navigate('/learn')}
+                className="mr-4 mt-1 flex h-10 w-10 items-center justify-center rounded-full border-2 border-stone-300 text-stone-600 transition-colors hover:border-brand hover:text-brand dark:border-stone-600 dark:text-stone-300"
+                aria-label="Back to learning tracks"
               >
-                <ArrowLeft className="w-5 h-5" />
+                <ArrowLeft size={18} />
               </button>
               <div>
-                <nav className="text-sm text-gray-600 mb-2">
-                  <Link to="/learning" className="hover:text-blue-600">Learning Tracks</Link>
-                  <ChevronRight className="w-4 h-4 inline mx-2" />
+                <nav className="mb-2 flex flex-wrap items-center gap-1 text-sm font-semibold text-stone-500 dark:text-stone-400">
+                  <Link to="/learn" className="hover:text-brand">
+                    Learning Tracks
+                  </Link>
+                  <ChevronRight size={14} className="inline" />
                   <span>{track.title}</span>
-                  <ChevronRight className="w-4 h-4 inline mx-2" />
-                  <span className="text-gray-900 font-medium">{module.title}</span>
+                  <ChevronRight size={14} className="inline" />
+                  <span className="text-stone-900 dark:text-white">{module.title}</span>
                 </nav>
-                <h1 className="text-3xl font-bold text-gray-900">{module.title}</h1>
-                <p className="text-gray-600 mt-2">{module.description}</p>
+                <h1 className="font-display text-3xl font-black text-stone-900 dark:text-white sm:text-4xl">
+                  {module.title}
+                </h1>
+                <p className="mt-2 text-stone-600 dark:text-stone-300">
+                  {module.description}
+                </p>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-2xl font-bold text-blue-600">{moduleProgress}%</div>
-              <div className="text-sm text-gray-500">Complete</div>
+            <div className="shrink-0 rounded-2xl border-2 border-stone-200 bg-white px-5 py-3 text-center dark:border-stone-700 dark:bg-stone-800">
+              <div className="font-display text-3xl font-black text-brand">
+                {moduleProgress}%
+              </div>
+              <div className="text-xs font-bold uppercase tracking-widest text-stone-500">
+                Complete
+              </div>
             </div>
           </div>
 
-          {/* Progress Bar */}
+          {/* Progress bar */}
           <div className="mt-6">
-            <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>{completedLessons.length} of {module.lessons.length} lessons completed</span>
-              <span>{module.duration}</span>
+            <div className="mb-2 flex justify-between text-sm font-semibold text-stone-600 dark:text-stone-300">
+              <span>
+                {completedLessons.length} of {module.lessons.length} lessons completed
+              </span>
+              <span className="inline-flex items-center gap-1 text-brand">
+                <Clock size={14} />
+                {module.duration}
+              </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="h-3 w-full overflow-hidden rounded-full bg-stone-200 dark:bg-stone-700">
               <div
-                className="bg-blue-600 h-3 rounded-full transition-all duration-500"
+                className="h-3 rounded-full bg-brand transition-all duration-500"
                 style={{ width: `${moduleProgress}%` }}
               ></div>
             </div>
@@ -110,185 +131,169 @@ const ModuleDetail = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2">
-            {/* Current Lesson */}
-            {module.lessons.length > 0 && (
-              <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center">
-                    {getLessonTypeIcon(module.lessons[currentLesson]?.type)}
-                    <div className="ml-3">
-                      <h2 className="text-xl font-bold text-gray-900">
-                        {module.lessons[currentLesson]?.title}
-                      </h2>
-                      <div className="flex items-center text-sm text-gray-600 mt-1">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getLessonTypeColor(module.lessons[currentLesson]?.type)}`}>
-                          {module.lessons[currentLesson]?.type}
-                        </span>
-                        <Clock className="w-4 h-4 ml-3 mr-1" />
-                        <span>{module.lessons[currentLesson]?.duration}</span>
-                      </div>
+      <div className="container-page grid gap-8 py-10 lg:grid-cols-3">
+        {/* Main content */}
+        <div className="lg:col-span-2">
+          {lesson && (
+            <div className="card rounded-3xl border-2 p-8">
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b-2 border-dashed border-stone-200 pb-5 dark:border-stone-700">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-lighter text-brand">
+                    {getLessonTypeIcon(lesson.type)}
+                  </span>
+                  <div>
+                    <h2 className="font-display text-xl font-bold text-stone-900 dark:text-white">
+                      {lesson.title}
+                    </h2>
+                    <div className="mt-0.5 flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+                      <span className="rounded-full bg-cream-deep px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide dark:bg-stone-700">
+                        {lesson.type}
+                      </span>
+                      <span className="inline-flex items-center gap-1">
+                        <Clock size={13} />
+                        {lesson.duration}
+                      </span>
                     </div>
                   </div>
-                  <button
-                    onClick={() => markLessonComplete(module.lessons[currentLesson]?.id)}
-                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${isLessonCompleted(module.lessons[currentLesson]?.id)
-                        ? 'bg-green-100 text-green-800 border border-green-300'
-                        : 'bg-blue-600 text-white hover:bg-blue-700'
-                      }`}
-                    disabled={isLessonCompleted(module.lessons[currentLesson]?.id)}
-                  >
-                    {isLessonCompleted(module.lessons[currentLesson]?.id) ? (
-                      <>
-                        <CheckCircle className="w-4 h-4 mr-2 inline" />
-                        Completed
-                      </>
-                    ) : (
-                      <>
-                        <PlayCircle className="w-4 h-4 mr-2 inline" />
-                        Mark Complete
-                      </>
-                    )}
-                  </button>
                 </div>
-
-                <div className="prose max-w-none">
-                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 mb-6 border border-gray-200 dark:border-gray-700">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-5 flex items-center gap-2">
-                      <BookOpen className="w-5 h-5 text-blue-600" />
-                      Lesson Content
-                    </h3>
-                    <div className="text-gray-800 dark:text-gray-200 leading-loose text-base font-medium whitespace-pre-line">
-                      {module.lessons[currentLesson]?.content}
-                    </div>
-                  </div>
-
-                  {/* Lesson Navigation */}
-                  <div className="flex justify-between items-center pt-6 border-t">
-                    <button
-                      onClick={() => setCurrentLesson(Math.max(0, currentLesson - 1))}
-                      disabled={currentLesson === 0}
-                      className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${currentLesson === 0
-                          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                          : 'bg-gray-600 text-white hover:bg-gray-700'
-                        }`}
-                    >
-                      ← Previous
-                    </button>
-                    <span className="text-sm text-gray-600">
-                      {currentLesson + 1} of {module.lessons.length}
-                    </span>
-                    <button
-                      onClick={() => setCurrentLesson(Math.min(module.lessons.length - 1, currentLesson + 1))}
-                      disabled={currentLesson === module.lessons.length - 1}
-                      className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${currentLesson === module.lessons.length - 1
-                          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                          : 'bg-blue-600 text-white hover:bg-blue-700'
-                        }`}
-                    >
-                      Next →
-                    </button>
-                  </div>
-                </div>
+                <button
+                  onClick={() => markLessonComplete(lesson.id)}
+                  className={
+                    isLessonCompleted(lesson.id)
+                      ? 'btn bg-emerald-500 text-white shadow-md shadow-emerald-500/30'
+                      : 'btn-primary'
+                  }
+                  disabled={isLessonCompleted(lesson.id)}
+                >
+                  {isLessonCompleted(lesson.id) ? (
+                    <>
+                      <CheckCircle size={16} /> Completed
+                    </>
+                  ) : (
+                    <>
+                      <PlayCircle size={16} /> Mark Complete
+                    </>
+                  )}
+                </button>
               </div>
-            )}
 
+              <div className="whitespace-pre-line rounded-2xl bg-cream-deep p-6 leading-loose text-stone-700 dark:bg-stone-800 dark:text-stone-200">
+                {lesson.content}
+              </div>
 
+              {/* Lesson nav */}
+              <div className="mt-6 flex items-center justify-between border-t-2 border-dashed border-stone-200 pt-5 dark:border-stone-700">
+                <button
+                  onClick={() => setCurrentLesson(Math.max(0, currentLesson - 1))}
+                  disabled={currentLesson === 0}
+                  className={`btn-secondary !px-4 !py-2 ${
+                    currentLesson === 0 ? 'cursor-not-allowed opacity-40' : ''
+                  }`}
+                >
+                  ← Previous
+                </button>
+                <span className="text-sm font-bold text-stone-500">
+                  {currentLesson + 1} of {module.lessons.length}
+                </span>
+                <button
+                  onClick={() =>
+                    setCurrentLesson(Math.min(module.lessons.length - 1, currentLesson + 1))
+                  }
+                  disabled={currentLesson === module.lessons.length - 1}
+                  className={`btn-primary !px-4 !py-2 ${
+                    currentLesson === module.lessons.length - 1 ? 'cursor-not-allowed opacity-40' : ''
+                  }`}
+                >
+                  Next →
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Challenges */}
+          <div className="card mt-6 rounded-3xl border-2">
+            <h3 className="flex items-center gap-2 font-display text-xl font-bold text-stone-900 dark:text-white">
+              <Target size={20} className="text-brand" />
+              Challenges
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {module.challenges.map((ch) => (
+                <li
+                  key={ch.id}
+                  className="flex items-center justify-between rounded-2xl border-2 border-stone-200 p-4 dark:border-stone-700"
+                >
+                  <div>
+                    <p className="font-display text-base font-bold text-stone-900 dark:text-white">
+                      {ch.title}
+                    </p>
+                    <p className="text-sm text-stone-500 dark:text-stone-400">
+                      {ch.description}
+                    </p>
+                  </div>
+                  <span className="flex-shrink-0 rounded-full bg-brand-lighter px-3 py-1 text-xs font-black text-brand">
+                    {ch.points} pts
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="space-y-6">
+          {/* Module info */}
+          <div className="card rounded-2xl border-2">
+            <h3 className="font-display text-lg font-bold text-stone-900 dark:text-white">
+              Module Information
+            </h3>
+            <div className="mt-4 space-y-3 text-sm">
+              <div className="flex items-center gap-2 text-stone-600 dark:text-stone-300">
+                <Clock size={16} className="text-brand" />
+                Duration: {module.duration}
+              </div>
+              <div className="flex items-center gap-2 text-stone-600 dark:text-stone-300">
+                <BookOpen size={16} className="text-brand" />
+                Lessons: {module.lessons.length}
+              </div>
+              <div className="flex items-center gap-2 text-stone-600 dark:text-stone-300">
+                <Award size={16} className="text-brand" />
+                Challenges: {module.challenges.length}
+              </div>
+            </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Module Info */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Module Information</h3>
-              <div className="space-y-3">
-                <div className="flex items-center text-sm text-gray-600">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span>Duration: {module.duration}</span>
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <Target className="w-4 h-4 mr-2" />
-                  <span>Lessons: {module.lessons.length}</span>
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <Award className="w-4 h-4 mr-2" />
-                  <span>Challenges: {module.challenges.length}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Lesson List */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Lessons</h3>
-              <div className="space-y-2">
-                {module.lessons.map((lesson, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentLesson(index)}
-                    className={`w-full text-left p-3 rounded-lg transition-all duration-300 ${currentLesson === index
-                        ? 'bg-blue-100 border-2 border-blue-300'
-                        : isLessonCompleted(lesson.id)
-                          ? 'bg-green-50 border border-green-200'
-                          : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
-                      }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        {getLessonTypeIcon(lesson.type)}
-                        <div className="ml-3">
-                          <div className="font-medium text-gray-900">{lesson.title}</div>
-                          <div className="text-sm text-gray-600">{lesson.duration}</div>
-                        </div>
-                      </div>
-                      {isLessonCompleted(lesson.id) && (
-                        <CheckCircle className="w-5 h-5 text-green-600" />
-                      )}
+          {/* Lesson list */}
+          <div className="card rounded-2xl border-2">
+            <h3 className="font-display text-lg font-bold text-stone-900 dark:text-white">
+              Lessons
+            </h3>
+            <div className="mt-4 space-y-2">
+              {module.lessons.map((l, index) => (
+                <button
+                  key={l.id}
+                  onClick={() => setCurrentLesson(index)}
+                  className={`flex w-full items-center gap-3 rounded-xl border-2 p-3 text-left transition-all ${
+                    currentLesson === index
+                      ? 'border-brand bg-brand-lighter/60'
+                      : isLessonCompleted(l.id)
+                        ? 'border-emerald-300 bg-emerald-50 dark:border-emerald-700 dark:bg-emerald-900/20'
+                        : 'border-stone-200 bg-white hover:border-brand/50 dark:border-stone-700 dark:bg-stone-800'
+                  }`}
+                >
+                  {getLessonTypeIcon(l.type)}
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate font-semibold text-stone-900 dark:text-white">
+                      {l.title}
                     </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Progress Summary */}
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Progress Summary</h3>
-              <div className="space-y-3">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Lessons Completed</span>
-                  <span className="font-medium">{completedLessons.length}/{module.lessons.length}</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div
-                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${moduleProgress}%` }}
-                  ></div>
-                </div>
-                <div className="text-center text-sm text-gray-600">
-                  {moduleProgress}% Complete
-                </div>
-              </div>
-            </div>
-
-            {/* Next Steps */}
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Next Steps</h3>
-              <div className="space-y-2 text-sm text-gray-700">
-                <div className="flex items-start">
-                  <span className="text-green-600 mr-2">•</span>
-                  <span>Complete all lessons in this module</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-green-600 mr-2">•</span>
-                  <span>Work through the challenges</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-green-600 mr-2">•</span>
-                  <span>Apply what you've learned in real projects</span>
-                </div>
-              </div>
+                    <div className="text-xs text-stone-500 dark:text-stone-400">
+                      {l.duration}
+                    </div>
+                  </div>
+                  {isLessonCompleted(l.id) && (
+                    <CheckCircle size={18} className="shrink-0 text-emerald-600" />
+                  )}
+                </button>
+              ))}
             </div>
           </div>
         </div>

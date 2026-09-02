@@ -39,7 +39,7 @@ We welcome all contributions — code, documentation, design, and ideas.
 
 ## 🚀 Development Setup
 
-This project uses **React.js**.
+This project uses **React.js** (Vite + Tailwind CSS) as a static frontend.
 
 1. Fork this repo 🍴
 2. Clone your fork
@@ -52,30 +52,30 @@ This project uses **React.js**.
 
    ```bash
      npm install
-
    ```
-5. Setup backend for Nodemailer to work
-   ->  First setup for the .env in the backend
+5. Start development server
 
-   ```bash
-     EMAIL_USER=sender mail
-     EMAIL_PASS=sender mail app password
-     EMAIL_TO=official osk email
-     PORT=5002
-
-    # Now setup the backend
-      cd backend
-      npm install
-
-      npm start
-
-   ```
-
-6. Start development server
    ```bash
    npm run dev
-
    ```
+
+   Open `http://localhost:5173` in your browser.
+
+## ☁️ Deploy to Vercel
+
+The site is a static Vite single-page app — no server required.
+
+1. Push this repo to GitHub.
+2. Go to [Vercel](https://vercel.com) → **New Project** → Import your repo.
+3. Vercel auto-detects **Vite** with these defaults (no changes needed):
+   - **Framework Preset:** Vite
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Click **Deploy**.
+
+`vercel.json` is included so client-side routing (`/programs`, `/community`, `/learn`, ...) works on refresh and direct navigation.
+
+> Note: The contact form opens the visitor's email app (`mailto:`) since there is no backend. To add real form submission later, wire it to a form service or a serverless function.
 
 ## 🎯 Contribution Ideas
 

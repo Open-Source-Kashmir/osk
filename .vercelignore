@@ -1,0 +1,13 @@
+# Backend not part of the frontend-only Vercel deployment
+backend/
+
+# Local build output — Vercel rebuilds this
+dist/
+
+# Local environment files
+.env
+.env.*
+node_modules/
+
+# Docs/tooling not needed at runtime
+scripts/
